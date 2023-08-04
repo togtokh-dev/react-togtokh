@@ -6,6 +6,9 @@ declare const _default: {
             LG: typeof import("./components/mini-web/button/lg").default;
             XL: typeof import("./components/mini-web/button/xl").default;
         };
+        Form: {
+            Input: typeof import("./components/mini-web/form/input").default;
+        };
     };
 };
 export default _default;

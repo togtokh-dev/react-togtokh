@@ -5,5 +5,8 @@ declare const _default: {
         LG: typeof import("./button/lg").default;
         XL: typeof import("./button/xl").default;
     };
+    Form: {
+        Input: typeof import("./form/input").default;
+    };
 };
 export default _default;

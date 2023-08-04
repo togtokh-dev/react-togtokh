@@ -1,3 +1,4 @@
 import Button from "./button";
-export default { Button };
+import Form from "./form";
+export default { Button, Form };
 //# sourceMappingURL=index.js.map

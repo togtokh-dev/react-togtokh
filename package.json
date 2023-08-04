@@ -1,6 +1,6 @@
 {
   "name": "react-togtokh",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/togtokh-dev/react-togtokh.git"
@@ -38,6 +38,7 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
+    "@rive-app/react-canvas": "^4.1.1",
     "framer-motion": "^10.15.0"
   }
 }
