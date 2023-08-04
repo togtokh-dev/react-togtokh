@@ -1,2 +1,1 @@
-import React from "react";
-export declare const LoadingRiv: () => React.JSX.Element;
+export declare const LoadingRiv: () => any;

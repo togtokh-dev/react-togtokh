@@ -1,5 +1,4 @@
-/// <reference types="react" />
 declare const _default: {
-    LoadingRiv: () => import("react").JSX.Element;
+    LoadingRiv: () => any;
 };
 export default _default;

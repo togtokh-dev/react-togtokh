@@ -1,6 +1,5 @@
-/// <reference types="react" />
 declare const _default: {
-    PaidCard: (props?: any) => import("react").JSX.Element;
-    CreatedCard: (props?: any) => import("react").JSX.Element;
+    PaidCard: (props?: any) => any;
+    CreatedCard: (props?: any) => any;
 };
 export default _default;
