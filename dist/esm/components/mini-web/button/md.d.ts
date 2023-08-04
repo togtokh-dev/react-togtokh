@@ -8,5 +8,5 @@ interface Props {
     disabled?: Boolean;
     handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
-declare function Button(props: Props): any;
+declare function Button(props: Props): React.JSX.Element;
 export default Button;

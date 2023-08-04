@@ -33,5 +33,5 @@ interface Props {
     children?: React.ReactNode;
     disabled?: boolean | undefined;
 }
-export default function Homepage(props: Props): any;
+export default function Homepage(props: Props): React.JSX.Element;
 export {};
