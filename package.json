@@ -1,6 +1,6 @@
 {
   "name": "react-togtokh",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/togtokh-dev/react-togtokh.git"
@@ -12,7 +12,8 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
-    "dist"
+    "dist",
+    "style"
   ],
   "scripts": {
     "build": "rm -rf dist/  && npm run build:esm && npm run build:cjs",

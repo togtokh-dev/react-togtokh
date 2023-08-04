@@ -23,9 +23,6 @@
     "strict": true,
     "target": "es6"
   },
-  "files": [
-    "style/*"
-  ],
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx"
