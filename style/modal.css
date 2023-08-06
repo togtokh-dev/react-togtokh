@@ -1,4 +1,16 @@
-.modal-blur {
+.dev-toast {
+  position: fixed;
+  width: auto;
+  box-shadow: 0px 0px 16px rgba(78, 78, 78, 0.05);
+  border-radius: 16px;
+  z-index: 99999999999999;
+  top: 58px;
+  left: 5%;
+  right: 5%;
+  padding: 16px 16px 16px 16px;
+}
+
+.dev-modal-blur {
   height: 100%;
   width: 100%;
   position: fixed;
@@ -9,18 +21,7 @@
   filter: blur(50%);
 }
 
-.modal-tra {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  /* background-color:  rgba(30, 35, 53, 0.5);
-  filter: blur(50%); */
-}
-
-.modal-body {
+.dev-modal-body {
   position: fixed;
   left: 0;
   top: 40%;
@@ -29,147 +30,4 @@
   margin-right: 5%;
   margin-left: 5%;
   z-index: 10000;
-}
-
-.modal-body-default {
-  position: fixed;
-  left: 0;
-  z-index: 200;
-  width: 90%;
-  margin-right: 5%;
-  margin-left: 5%;
-  z-index: 10000;
-}
-
-.modal-body-default-full {
-  position: fixed;
-  left: 0;
-  z-index: 200;
-  width: 100%;
-}
-
-.modal_body {
-  position: fixed;
-  left: 0;
-  top: 30%;
-  z-index: 200;
-  width: 90%;
-  margin-right: 5%;
-  margin-left: 5%;
-  z-index: 10000;
-}
-
-.modal_body-2 {
-  position: fixed;
-  left: 0;
-  top: 20%;
-  z-index: 200;
-  width: 90%;
-  margin-right: 5%;
-  margin-left: 5%;
-  z-index: 10000;
-}
-
-.modal_body-2-z-100 {
-  position: fixed;
-  left: 0;
-  top: 20%;
-  z-index: 200;
-  width: 90%;
-  margin-right: 5%;
-  margin-left: 5%;
-  z-index: 100;
-}
-
-.modal_body-3 {
-  position: fixed;
-  left: 0;
-  top: 26%;
-  z-index: 200;
-  width: 90%;
-  margin-right: 5%;
-  margin-left: 5%;
-  z-index: 10000;
-}
-
-.modal_footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 200;
-  width: 90%;
-  margin-right: 5%;
-  margin-left: 5%;
-  z-index: 10000;
-}
-
-.modal-footer-fixed {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  margin-right: 5%;
-  margin-left: 5%;
-  width: 90%;
-}
-
-.modal_footer_full {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 200;
-  width: 100%;
-  z-index: 10000;
-}
-
-.toast-toki {
-  position: fixed;
-  width: auto;
-  background: #262626;
-  box-shadow: 0px 0px 16px rgba(78, 78, 78, 0.16);
-  border-radius: 16px;
-  z-index: 99999999999999;
-  top: 58px;
-  left: 5%;
-  right: 5%;
-  padding: 16px 16px 16px 16px;
-}
-
-.toast {
-  position: fixed;
-  width: auto;
-  background: #262626;
-  box-shadow: 0px 0px 16px rgba(78, 78, 78, 0.16);
-  border-radius: 16px;
-  z-index: 99999999999999;
-  top: 8px;
-  left: 5%;
-  right: 5%;
-  padding: 16px 16px 16px 16px;
-}
-
-.toast-text {
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  text-align: center;
-  color: #fff;
-}
-
-.modal-card {
-  width: calc(100% - 40px);
-}
-
-@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-  .footer {
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
-    background-color: rgba(255, 255, 255, 0.05);
-  }
-  .image_blur {
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.1);
-  }
 }
