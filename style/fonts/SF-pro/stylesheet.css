@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "SF Pro";
+  src: local("SF Pro"), local("SF Pro"), url("SF-Pro.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF Pro";
+  src: local("SF Pro"), local("SF Pro"),
+    url("SF-Pro-Display-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "SF Pro";
+  src: local("SF Pro"), local("SF Pro"),
+    url("SF-Pro-Display-Semibold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "SF Pro";
+  src: local("SF Pro"), local("SF Pro"),
+    url("SF-Pro-Display-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "SF Pro";
+  src: local("SF Pro"), local("SF Pro"),
+    url("SF-Pro-Display-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
