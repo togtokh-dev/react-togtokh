@@ -1,0 +1,93 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.dev-input-box {
+  position: relative;
+  height: 56px;
+}
+
+.dev-input {
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid transparent;
+  outline-width: 0;
+  padding: 24px 56px 8px 16px;
+  background: transparent;
+}
+
+.dev-input-children-icon {
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid transparent;
+  outline-width: 0;
+  padding: 24px 56px 8px 56px;
+  background: transparent;
+}
+
+.dev-input-box .dev-input-lable {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #818e9a;
+}
+
+.dev-input-box .dev-input-lable-children-icon {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  color: #818e9a;
+}
+
+.dev-input-box .dev-input-lable-deactivate {
+  padding: 8px 16px 32px 16px;
+}
+
+.dev-input-box .dev-input-lable-active {
+  padding: 16px;
+}
+
+.dev-input-box .dev-input-children {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 8px;
+}
+
+.dev-input-box .dev-svg-box {
+  position: absolute;
+  display: flex;
+  width: auto;
+  gap: 8px 8px;
+  height: 24px;
+  top: 0;
+  right: 0;
+  margin: 16px 16px 16px 0;
+}
+
+.dev-input-box .dev-svg-box-add {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 0;
+  right: 0;
+  margin: 16px 48px 16px 0;
+}
+
+.dev-svg-box .dev-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dev-svg-box_add .dev-svg {
+  width: 100%;
+  height: 100%;
+}
