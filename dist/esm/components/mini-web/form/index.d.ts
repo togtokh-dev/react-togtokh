@@ -1,5 +1,7 @@
-import Input from "./input";
 declare const _default: {
-    Input: typeof Input;
+    Input: {
+        LG: typeof import("./input/lg").default;
+        XL: typeof import("./input/xl").default;
+    };
 };
 export default _default;

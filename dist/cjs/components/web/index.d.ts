@@ -1,6 +1,15 @@
-/// <reference types="react" />
 declare const _default: {
-    PaidCard: (props?: any) => import("react").JSX.Element;
-    CreatedCard: (props?: any) => import("react").JSX.Element;
+    Button: {
+        SM: typeof import("./button/sm").default;
+        MD: typeof import("./button/md").default;
+        LG: typeof import("./button/lg").default;
+        XL: typeof import("./button/xl").default;
+    };
+    Form: {
+        Input: {
+            LG: typeof import("./form/input/lg").default;
+            XL: typeof import("./form/input/xl").default;
+        };
+    };
 };
 export default _default;

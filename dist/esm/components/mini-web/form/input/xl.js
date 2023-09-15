@@ -55,13 +55,6 @@ export default function Homepage(props) {
         React.createElement("div", { className: "dev-input-children" }, children),
         React.createElement("div", { className: " w-full h-full " },
             " ",
-            lable && (React.createElement("label", { htmlFor: name, className: `dev-input-lable-children-icon ${value
-                    ? "text-400-12 dev-input-lable-deactivate"
-                    : `${focusType
-                        ? "text-400-12 dev-input-lable-deactivate"
-                        : "text-400-16 dev-input-lable-active"} `}`, style: {
-                    color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
-                } }, lable)),
             React.createElement("div", { className: "dev-svg-box " },
                 addSvg ? (React.createElement(React.Fragment, null, addSvg({
                     handleClick: () => { },
@@ -112,7 +105,14 @@ export default function Homepage(props) {
                 }, disabled: disabled, style: {
                     caretColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.caretColor,
                     borderColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.borderColor,
-                } })))) : (React.createElement("div", { className: "dev-input-box w-full  dev-border-12 " + className, style: {
+                } }),
+            lable && (React.createElement("label", { htmlFor: name, className: `dev-input-lable-children-icon ${value
+                    ? "text-400-12 dev-input-lable-deactivate"
+                    : `${focusType
+                        ? "text-400-12 dev-input-lable-deactivate"
+                        : "text-400-16 dev-input-lable-active"} `}`, style: {
+                    color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
+                } }, lable))))) : (React.createElement("div", { className: "dev-input-box w-full  dev-border-12 " + className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },

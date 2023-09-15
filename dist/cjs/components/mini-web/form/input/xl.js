@@ -83,13 +83,6 @@ function Homepage(props) {
         react_1.default.createElement("div", { className: "dev-input-children" }, children),
         react_1.default.createElement("div", { className: " w-full h-full " },
             " ",
-            lable && (react_1.default.createElement("label", { htmlFor: name, className: `dev-input-lable-children-icon ${value
-                    ? "text-400-12 dev-input-lable-deactivate"
-                    : `${focusType
-                        ? "text-400-12 dev-input-lable-deactivate"
-                        : "text-400-16 dev-input-lable-active"} `}`, style: {
-                    color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
-                } }, lable)),
             react_1.default.createElement("div", { className: "dev-svg-box " },
                 addSvg ? (react_1.default.createElement(react_1.default.Fragment, null, addSvg({
                     handleClick: () => { },
@@ -140,7 +133,14 @@ function Homepage(props) {
                 }, disabled: disabled, style: {
                     caretColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.caretColor,
                     borderColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.borderColor,
-                } })))) : (react_1.default.createElement("div", { className: "dev-input-box w-full  dev-border-12 " + className, style: {
+                } }),
+            lable && (react_1.default.createElement("label", { htmlFor: name, className: `dev-input-lable-children-icon ${value
+                    ? "text-400-12 dev-input-lable-deactivate"
+                    : `${focusType
+                        ? "text-400-12 dev-input-lable-deactivate"
+                        : "text-400-16 dev-input-lable-active"} `}`, style: {
+                    color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
+                } }, lable))))) : (react_1.default.createElement("div", { className: "dev-input-box w-full  dev-border-12 " + className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },

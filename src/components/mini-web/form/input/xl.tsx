@@ -199,25 +199,6 @@ export default function Homepage(props: Props) {
           <div className="dev-input-children">{children}</div>
           <div className=" w-full h-full ">
             {" "}
-            {lable && (
-              <label
-                htmlFor={name}
-                className={`dev-input-lable-children-icon ${
-                  value
-                    ? "text-400-12 dev-input-lable-deactivate"
-                    : `${
-                        focusType
-                          ? "text-400-12 dev-input-lable-deactivate"
-                          : "text-400-16 dev-input-lable-active"
-                      } `
-                }`}
-                style={{
-                  color: styleConfig?.placeholderColor,
-                }}
-              >
-                {lable}
-              </label>
-            )}
             <div className="dev-svg-box ">
               {addSvg ? (
                 <>
@@ -303,6 +284,25 @@ export default function Homepage(props: Props) {
                 borderColor: styleConfig?.borderColor,
               }}
             />
+            {lable && (
+              <label
+                htmlFor={name}
+                className={`dev-input-lable-children-icon ${
+                  value
+                    ? "text-400-12 dev-input-lable-deactivate"
+                    : `${
+                        focusType
+                          ? "text-400-12 dev-input-lable-deactivate"
+                          : "text-400-16 dev-input-lable-active"
+                      } `
+                }`}
+                style={{
+                  color: styleConfig?.placeholderColor,
+                }}
+              >
+                {lable}
+              </label>
+            )}
           </div>
         </div>
       ) : (

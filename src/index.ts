@@ -1,3 +1,3 @@
-import { MiniWeb } from "./components";
+import { MiniWeb, ResWeb } from "./components";
 
-export default { MiniWeb };
+export default { MiniWeb, ResWeb };
