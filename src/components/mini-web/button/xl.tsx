@@ -9,6 +9,7 @@ interface Props {
   title?: string;
   disabled?: Boolean;
   handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  disableHover?: Boolean;
 }
 
 function Button(props: Props) {
@@ -20,10 +21,13 @@ function Button(props: Props) {
     title,
     disabled,
     handleClick,
+    disableHover = false,
   } = props;
   const [isFocused, setFocus] = useState(false);
   const style = {
-    background: isFocused
+    background: disableHover
+      ? backgroundColor
+      : isFocused
       ? `linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.12) 100%), ${backgroundColor}`
       : backgroundColor,
   };

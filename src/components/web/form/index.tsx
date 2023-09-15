@@ -1,3 +1,4 @@
 import Input from "./input";
-export default { Input };
+import dropdown from "./dropdown";
+export default { Input, dropdown };
 //
