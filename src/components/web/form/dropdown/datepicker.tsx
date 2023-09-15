@@ -1,6 +1,5 @@
 import React from "react";
 import Flatpickr from "react-flatpickr";
-import "./flatpickr.css";
 // import "flatpickr/dist/themes/dark.css";
 function Datepicker({ align, setStartDate, setEndDate, defaultDate }: any) {
   const options: any = {

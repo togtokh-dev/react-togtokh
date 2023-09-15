@@ -5,7 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 const react_flatpickr_1 = __importDefault(require("react-flatpickr"));
-require("./flatpickr.css");
 // import "flatpickr/dist/themes/dark.css";
 function Datepicker({ align, setStartDate, setEndDate, defaultDate }) {
     const options = {
