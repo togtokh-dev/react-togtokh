@@ -1,3 +1,4 @@
+/// <reference types="react" />
 declare const _default: {
     MiniWeb: {
         Button: {
@@ -60,6 +61,12 @@ declare const _default: {
     };
     utils: {
         Transition: typeof import("./utils/transition").default;
+    };
+    Image: {
+        NcImage: {
+            FTSImage: import("react").FC<import("./components/image/NcImage/NcImage").NcImageProps>;
+            PathImage: import("react").FC<import("./components/image/NcImage/NcImageUrl").NcImageProps>;
+        };
     };
 };
 export default _default;
