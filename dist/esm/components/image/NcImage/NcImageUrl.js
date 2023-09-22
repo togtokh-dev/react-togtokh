@@ -74,7 +74,9 @@ const NcImage = (_a) => {
     }, [src]);
     const renderLoadingPlaceholder = () => {
         return (React.createElement("div", { className: `${className} ${placeholderClass}` },
-            React.createElement("div", { className: "h-2/4 max-w-[50%]" },
+            React.createElement("div", { className: "h-2/4 max-w-[50%]", style: {
+                    width: "50%",
+                } },
                 React.createElement(PlaceIcon, null))));
     };
     return (React.createElement("div", { className: `${className} ${containerClassName}`, "data-nc-id": "NcImage", ref: _containerRef }, __src && imageLoaded ? (React.createElement("img", Object.assign({ src: `${__src}`, className: `${className} ${imageClass}`, alt: alt }, args))) : (renderLoadingPlaceholder())));

@@ -79,7 +79,12 @@ const NcImage: FC<NcImageProps> = ({
   const renderLoadingPlaceholder = () => {
     return (
       <div className={`${className} ${placeholderClass}`}>
-        <div className="h-2/4 max-w-[50%]">
+        <div
+          className="h-2/4 max-w-[50%]"
+          style={{
+            width: "50%",
+          }}
+        >
           <PlaceIcon />
         </div>
       </div>
