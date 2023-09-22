@@ -178,7 +178,7 @@ export default function (props: Props) {
             {loading ? (
               <>
                 {" "}
-                <div className="h-[24px] w-[24px]">
+                <div style={{ width: "24px", height: "24px" }}>
                   <NcAnimations.LoadingRiv />
                 </div>
               </>
@@ -206,7 +206,7 @@ export default function (props: Props) {
                 placeholderClass="h-full w-auto flex items-center justify-center bg-neutral-200 dark:bg-neutral-6000 text-neutral-100 dark:text-neutral-500"
               />
               <svg
-                className="edit"
+                className="dev-edit"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"

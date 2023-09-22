@@ -8,3 +8,14 @@
 @import url("shadow.css");
 @import url("switch.css");
 @import url("text.css");
+.hidden {
+  display: none;
+}
+
+.relative {
+  position: relative;
+}
+
+.text-center {
+  align-items: center;
+}

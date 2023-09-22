@@ -78,12 +78,12 @@ export default function (props) {
             React.createElement(motion.label, { htmlFor: `upload-${name}`, className: "w-full " },
                 React.createElement("div", { className: "dev-btn dev-btn-48 text-500-16 dev-border-8   w-full text-center flex justify-center", style: style }, loading ? (React.createElement(React.Fragment, null,
                     " ",
-                    React.createElement("div", { className: "h-[24px] w-[24px]" },
+                    React.createElement("div", { style: { width: "24px", height: "24px" } },
                         React.createElement(NcAnimations.LoadingRiv, null)))) : (React.createElement(React.Fragment, null, lable))),
                 React.createElement("input", { type: "file", className: "hidden", id: `upload-${name}`, onChange: onFileChange, multiple: true })),
             React.createElement("div", { className: "dev-gallery h-full w-full" }, value.map((el, index) => (React.createElement("div", { className: "relative dev-border-8" },
                 React.createElement(Library.Image.NcImage.PathImage, { src: `https://uploads.togtokh.dev/file/image/${el}`, className: "h-full w-full dev-border-8 ", imageClass: "", containerClassName: "", placeholderClass: "h-full w-auto flex items-center justify-center bg-neutral-200 dark:bg-neutral-6000 text-neutral-100 dark:text-neutral-500" }),
-                React.createElement("svg", { className: "edit", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", onClick: () => __awaiter(this, void 0, void 0, function* () {
+                React.createElement("svg", { className: "dev-edit", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", onClick: () => __awaiter(this, void 0, void 0, function* () {
                         const newValue = yield arrayRemove(value, el);
                         setValue(newValue);
                     }) },

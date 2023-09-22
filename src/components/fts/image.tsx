@@ -66,7 +66,7 @@ export default function (props: Props) {
   return (
     <>
       <div
-        className={`dev-border-8 w-[120px] h-[90px] relative  dev-upload-image ${className}`}
+        className={`dev-border-8  relative  dev-upload-image ${className}`}
         style={{
           backgroundImage: `url(https://uploads.togtokh.dev/file/image/${value})`,
           backgroundColor: backgroundColor,
@@ -75,7 +75,7 @@ export default function (props: Props) {
         {value ? (
           <>
             <motion.label htmlFor={`upload-${name}`}>
-              <div className="absolute top-[4px] right-[4px]">
+              <div className="dev-edit">
                 <svg
                   width="16"
                   height="16"
@@ -101,8 +101,8 @@ export default function (props: Props) {
           <>
             {" "}
             <motion.label htmlFor={`upload-${name}`}>
-              <div className="absolute w-full h-full flex  justify-center items-center ">
-                <div className="flex flex-col items-center">
+              <div className="dev-edit-center text-center">
+                <div className="dev-edit-center text-center">
                   <svg
                     width="24"
                     height="24"
@@ -134,8 +134,8 @@ export default function (props: Props) {
         )}
         {loading ? (
           <>
-            <div className="absolute flex justify-center items-center h-full w-full">
-              <div className=" w-5 h-5">
+            <div className="dev-edit-center text-center">
+              <div style={{ width: "24px", height: "24px" }}>
                 <NcAnimations.LoadingRiv />
               </div>
             </div>
