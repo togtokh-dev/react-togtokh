@@ -6,5 +6,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const components_1 = require("./components");
 const service_1 = __importDefault(require("./service"));
 const utils_1 = __importDefault(require("./utils"));
-exports.default = { MiniWeb: components_1.MiniWeb, ResWeb: components_1.ResWeb, service: service_1.default, utils: utils_1.default, Image: components_1.Image };
+exports.default = { MiniWeb: components_1.MiniWeb, ResWeb: components_1.ResWeb, service: service_1.default, utils: utils_1.default, Image: components_1.Image, Fts: components_1.Fts };
 //# sourceMappingURL=index.js.map

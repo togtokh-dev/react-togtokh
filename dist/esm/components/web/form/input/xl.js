@@ -21,7 +21,7 @@ const loadingSvg = ({ handleClick, styleConfig }) => {
     return (React.createElement(React.Fragment, null,
         React.createElement(NcAnimations.LoadingRiv, null)));
 };
-export default function Homepage(props) {
+export default function (props) {
     const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading, statusList, status, addSvg, } = props;
     const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
     const textInput = useRef(null);

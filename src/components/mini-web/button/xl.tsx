@@ -12,7 +12,7 @@ interface Props {
   disableHover?: Boolean;
 }
 
-function Button(props: Props) {
+export default function (props: Props) {
   const {
     children,
     backgroundColor,
@@ -47,5 +47,3 @@ function Button(props: Props) {
     </motion.button>
   );
 }
-
-export default Button;

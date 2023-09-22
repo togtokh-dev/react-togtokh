@@ -5,8 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 const react_flatpickr_1 = __importDefault(require("react-flatpickr"));
-// import "flatpickr/dist/themes/dark.css";
-function Datepicker({ align, setStartDate, setEndDate, defaultDate }) {
+function Datepicker({ align, setStartDate, setEndDate, defaultDate, className, lable, }) {
     const options = {
         mode: "range",
         static: true,
@@ -29,8 +28,7 @@ function Datepicker({ align, setStartDate, setEndDate, defaultDate }) {
             instance.element.value = dateStr.replace("to", "-");
         },
     };
-    return (react_1.default.createElement("div", { className: "w-auto h-full bg-white flex items-center justify-between dev-border-8 h-[48px]" },
-        react_1.default.createElement(react_flatpickr_1.default, { className: " dev-btn dev-btn-48 text-500-16 dev-border-8  w-full  text-[#1E2335] ", options: options })));
+    return (react_1.default.createElement(react_flatpickr_1.default, { className: ` dev-btn dev-btn-48 text-500-16 dev-border-8  ${className}`, options: options, defaultValue: lable }));
 }
 exports.default = Datepicker;
 //# sourceMappingURL=datepicker.js.map

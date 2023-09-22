@@ -1,0 +1,49 @@
+.dev-svg-box {
+  min-width: 24px;
+}
+
+.upload-icon {
+  height: 40px;
+  width: 40px;
+  background: #818e9a;
+  border-radius: 8px;
+}
+
+.dev-select-main {
+  position: relative;
+}
+
+.dev-select {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.dev-select-svg {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  margin-left: 0.5rem;
+}
+
+.dev-select-list {
+  position: absolute;
+}
+
+.dev-select-list .item {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+}
+
+.dev-select-list .item-svg {
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}

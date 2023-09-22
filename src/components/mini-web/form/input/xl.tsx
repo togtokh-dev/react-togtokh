@@ -141,7 +141,7 @@ const loadingSvg = ({ handleClick, styleConfig }: svgProps) => {
     </>
   );
 };
-export default function Homepage(props: Props) {
+export default function (props: Props) {
   const {
     value,
     setValue,

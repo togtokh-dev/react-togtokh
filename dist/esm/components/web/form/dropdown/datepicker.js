@@ -1,7 +1,6 @@
 import React from "react";
 import Flatpickr from "react-flatpickr";
-// import "flatpickr/dist/themes/dark.css";
-function Datepicker({ align, setStartDate, setEndDate, defaultDate }) {
+function Datepicker({ align, setStartDate, setEndDate, defaultDate, className, lable, }) {
     const options = {
         mode: "range",
         static: true,
@@ -24,8 +23,7 @@ function Datepicker({ align, setStartDate, setEndDate, defaultDate }) {
             instance.element.value = dateStr.replace("to", "-");
         },
     };
-    return (React.createElement("div", { className: "w-auto h-full bg-white flex items-center justify-between dev-border-8 h-[48px]" },
-        React.createElement(Flatpickr, { className: " dev-btn dev-btn-48 text-500-16 dev-border-8  w-full  text-[#1E2335] ", options: options })));
+    return (React.createElement(Flatpickr, { className: ` dev-btn dev-btn-48 text-500-16 dev-border-8  ${className}`, options: options, defaultValue: lable }));
 }
 export default Datepicker;
 //# sourceMappingURL=datepicker.js.map

@@ -25,7 +25,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
 const framer_motion_1 = require("framer-motion");
-function Button(props) {
+function default_1(props) {
     const { children, backgroundColor, className = "", type = "button", title, disabled, handleClick, } = props;
     const [isFocused, setFocus] = (0, react_1.useState)(false);
     const style = {
@@ -35,5 +35,5 @@ function Button(props) {
     };
     return (react_1.default.createElement(framer_motion_1.motion.button, { className: `dev-btn dev-btn-32 text-500-12 dev-border-8  ${className}`, onMouseEnter: () => setFocus(true), onMouseLeave: () => setFocus(false), style: style, type: type, title: title, onClick: handleClick, disabled: disabled ? true : false }, children));
 }
-exports.default = Button;
+exports.default = default_1;
 //# sourceMappingURL=sm.js.map

@@ -49,7 +49,7 @@ const loadingSvg = ({ handleClick, styleConfig }) => {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(NcAnimations_1.default.LoadingRiv, null)));
 };
-function Homepage(props) {
+function default_1(props) {
     const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading, statusList, status, addSvg, } = props;
     const [name] = (0, react_1.useState)(`${Math.floor(Math.random() * 600) + 1}`);
     const textInput = (0, react_1.useRef)(null);
@@ -195,5 +195,5 @@ function Homepage(props) {
                 borderColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.borderColor,
             } })))));
 }
-exports.default = Homepage;
+exports.default = default_1;
 //# sourceMappingURL=lg.js.map

@@ -11,7 +11,7 @@ interface Props {
   handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-function Button(props: Props) {
+export default function (props: Props) {
   const {
     children,
     backgroundColor,
@@ -43,5 +43,3 @@ function Button(props: Props) {
     </motion.button>
   );
 }
-
-export default Button;

@@ -68,5 +68,13 @@ declare const _default: {
             PathImage: import("react").FC<import("./components/image/NcImage/NcImageUrl").NcImageProps>;
         };
     };
+    Fts: {
+        UFILE: typeof import("./components/fts/file").default;
+        UFILES: typeof import("./components/fts/files").default;
+        UURL: typeof import("./components/fts/url").default;
+        UBASE64: typeof import("./components/fts/base64").default;
+        UIMAGE: typeof import("./components/fts/image").default;
+        UIMAGES: typeof import("./components/fts/images").default;
+    };
 };
 export default _default;

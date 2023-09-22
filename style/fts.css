@@ -1,0 +1,45 @@
+.dev-upload-image {
+  /* Used if the image is unavailable */
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: cover;
+  /* Resize the background image to cover the entire container */
+}
+
+.dev-images-upload {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border-style: dashed;
+  border-width: 2px;
+}
+
+.dev-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 200px;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.dev-gallery div {
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+
+.dev-gallery div img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dev-gallery div .edit {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  cursor: pointer;
+}

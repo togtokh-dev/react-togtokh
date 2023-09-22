@@ -1,8 +1,24 @@
 import React from "react";
 import Flatpickr from "react-flatpickr";
+import FlatpickrMain from "flatpickr";
 // import "flatpickr/dist/themes/dark.css";
-function Datepicker({ align, setStartDate, setEndDate, defaultDate }: any) {
-  const options: any = {
+interface Props {
+  setEndDate: (value: any) => void;
+  setStartDate: (value: any) => void;
+  lable?: string;
+  defaultDate?: string;
+  className?: string;
+  align?: string;
+}
+function Datepicker({
+  align,
+  setStartDate,
+  setEndDate,
+  defaultDate,
+  className,
+  lable,
+}: Props) {
+  const options: FlatpickrMain.Options.Options = {
     mode: "range",
     static: true,
     monthSelectorType: "static",
@@ -29,12 +45,11 @@ function Datepicker({ align, setStartDate, setEndDate, defaultDate }: any) {
   };
 
   return (
-    <div className="w-auto h-full bg-white flex items-center justify-between dev-border-8 h-[48px]">
-      <Flatpickr
-        className=" dev-btn dev-btn-48 text-500-16 dev-border-8  w-full  text-[#1E2335] "
-        options={options}
-      />
-    </div>
+    <Flatpickr
+      className={` dev-btn dev-btn-48 text-500-16 dev-border-8  ${className}`}
+      options={options}
+      defaultValue={lable}
+    />
   );
 }
 

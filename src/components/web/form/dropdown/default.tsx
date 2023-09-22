@@ -1,7 +1,29 @@
 import React, { useState, useRef, useEffect } from "react";
 import ReactTogtokh from "../../../../index";
-function Select(props: any) {
-  const { options, value, setValue } = props;
+interface options {
+  id: string;
+  period: string;
+}
+interface Props {
+  value: any;
+  setValue: (value: any) => void;
+  lable?: string;
+  options: options[];
+  className?: string;
+  backgroundColor: string;
+  listClass: string;
+  itemColor: { defualt: string; selected: string };
+}
+function Select(props: Props) {
+  const {
+    options,
+    value,
+    setValue,
+    className,
+    backgroundColor,
+    listClass,
+    itemColor,
+  } = props;
 
   const [dropdownOpen, setDropdownOpen] = useState<any>(false);
   const [loading, setloading] = useState<any>(true);
@@ -41,26 +63,25 @@ function Select(props: any) {
   });
 
   return (
-    <div className="relative mr-[5px]  flex items-center">
+    <div className="dev-select-main">
       {loading ? (
         <></>
       ) : (
         <ReactTogtokh.MiniWeb.Button.XL
-          className="  dev-border-8 w-full  text-[#1E2335] min-w-44 flex items-center justify-between h-full"
-          backgroundColor="#FFFFFF"
+          className={`  dev-border-8  ${className}`}
+          backgroundColor={backgroundColor}
           handleClick={() => setDropdownOpen(!dropdownOpen)}
           disableHover={true}
+          type="button"
         >
-          <div className="w-full flex justify-between items-center">
-            <span className="flex items-center">
-              <span>
-                {options.filter((data: any) => data.id == selected)[0]?.period}
-              </span>
+          <div className="dev-select">
+            <span>
+              {options.filter((data: any) => data.id == selected)[0]?.period}
             </span>
             {!dropdownOpen ? (
               <>
                 <svg
-                  className="transition-all ml-2"
+                  className=" dev-select-svg"
                   width="14"
                   height="8"
                   viewBox="0 0 14 8"
@@ -86,7 +107,7 @@ function Select(props: any) {
             ) : (
               <>
                 <svg
-                  className="transition-all  ml-2"
+                  className="  dev-select-svg"
                   width="14"
                   height="8"
                   viewBox="0 0 14 8"
@@ -129,7 +150,7 @@ function Select(props: any) {
         <ReactTogtokh.utils.Transition
           show={dropdownOpen}
           tag="div"
-          className="z-10 absolute top-full right-0 w-full bg-white border border-slate-200 py-3.5 dev-border-8 dev-shadow-8 overflow-hidden mt-1"
+          className={`dev-select-list ${listClass}`}
           enter="transition ease-out duration-100 transform"
           enterStart="opacity-0 -translate-y-2"
           enterEnd="opacity-100 translate-y-0"
@@ -139,7 +160,7 @@ function Select(props: any) {
         >
           <div
             ref={dropdown}
-            className="font-medium text-sm text-[#818e9a]"
+            className=""
             onFocus={() => setDropdownOpen(true)}
             onBlur={() => setDropdownOpen(false)}
           >
@@ -148,9 +169,13 @@ function Select(props: any) {
                 <button
                   key={option.id}
                   tabIndex={0}
-                  className={`flex items-center w-full hover:bg-slate-50 py-1 px-3 text-500-16 cursor-pointer ${
-                    option.id === selected && "text-[#101318]"
-                  }`}
+                  className={`item text-500-16 `}
+                  style={{
+                    color:
+                      option.id === selected
+                        ? itemColor.selected
+                        : itemColor.defualt,
+                  }}
                   onClick={() => {
                     setSelected(option.id);
                     setValue(option.id);
@@ -158,9 +183,15 @@ function Select(props: any) {
                   }}
                 >
                   <svg
-                    className={`shrink-0 mr-2 fill-current text-[#818e9a] ${
-                      option.id !== selected && "invisible"
-                    }`}
+                    className={`item-svg `}
+                    style={{
+                      fill:
+                        option.id === selected
+                          ? itemColor.selected
+                          : itemColor.defualt,
+
+                      visibility: option.id !== selected ? "hidden" : "visible",
+                    }}
                     width="12"
                     height="9"
                     viewBox="0 0 12 9"
