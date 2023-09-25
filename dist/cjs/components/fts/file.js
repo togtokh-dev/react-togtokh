@@ -89,7 +89,7 @@ function default_1(props) {
             console.log(err);
         });
     });
-    return (react_1.default.createElement("div", { className: "dev-input-box w-full  dev-border-12 " + className, style: style },
+    return (react_1.default.createElement("div", { className: "react-togtokh-dev dev-input-box w-full  dev-border-12 " + className, style: style },
         react_1.default.createElement("div", { className: "dev-input-children" },
             react_1.default.createElement(framer_motion_1.motion.label, { htmlFor: `upload-${name}` },
                 react_1.default.createElement("div", { className: "upload-icon" }),

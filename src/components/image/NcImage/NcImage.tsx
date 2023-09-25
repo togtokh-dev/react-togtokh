@@ -100,7 +100,7 @@ const NcImage: FC<NcImageProps> = ({
 
   return (
     <div
-      className={`${className} ${containerClassName}`}
+      className={`react-togtokh-dev ${className} ${containerClassName}`}
       data-nc-id="NcImage"
       ref={_containerRef}
     >

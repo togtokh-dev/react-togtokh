@@ -102,7 +102,7 @@ function default_1(props) {
         });
     }
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement("div", { className: `dev-images-upload border-dashed border-2 dev-border-8 ${className}` },
+        react_1.default.createElement("div", { className: `react-togtokh-devdev-images-upload border-dashed border-2 dev-border-8 ${className}` },
             react_1.default.createElement(framer_motion_1.motion.label, { htmlFor: `upload-${name}`, className: "w-full " },
                 react_1.default.createElement("div", { className: "dev-btn dev-btn-48 text-500-16 dev-border-8   w-full text-center flex justify-center", style: style }, loading ? (react_1.default.createElement(react_1.default.Fragment, null,
                     " ",

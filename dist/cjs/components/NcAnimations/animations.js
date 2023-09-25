@@ -13,7 +13,7 @@ const LoadingRiv = () => {
         autoplay: true,
     });
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement(RiveComponent, { className: " w-full h-full mx-auto" })));
+        react_1.default.createElement(RiveComponent, { className: "react-togtokh-dev w-full h-full mx-auto" })));
 };
 exports.LoadingRiv = LoadingRiv;
 //# sourceMappingURL=animations.js.map

@@ -63,7 +63,7 @@ function Select(props: Props) {
   });
 
   return (
-    <div className="dev-select-main">
+    <div className="react-togtokh-dev dev-select-main">
       {loading ? (
         <></>
       ) : (

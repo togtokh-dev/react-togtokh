@@ -51,7 +51,7 @@ export default function (props) {
         });
     });
     return (React.createElement(React.Fragment, null,
-        React.createElement("div", { className: `dev-border-8  relative  dev-upload-image ${className}`, style: {
+        React.createElement("div", { className: ` react-togtokh-dev dev-border-8  relative  dev-upload-image ${className}`, style: {
                 backgroundImage: `url(https://uploads.togtokh.dev/file/image/${value})`,
                 backgroundColor: backgroundColor,
             } },

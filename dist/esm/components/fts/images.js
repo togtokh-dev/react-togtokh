@@ -74,7 +74,7 @@ export default function (props) {
         });
     }
     return (React.createElement(React.Fragment, null,
-        React.createElement("div", { className: `dev-images-upload border-dashed border-2 dev-border-8 ${className}` },
+        React.createElement("div", { className: `react-togtokh-devdev-images-upload border-dashed border-2 dev-border-8 ${className}` },
             React.createElement(motion.label, { htmlFor: `upload-${name}`, className: "w-full " },
                 React.createElement("div", { className: "dev-btn dev-btn-48 text-500-16 dev-border-8   w-full text-center flex justify-center", style: style }, loading ? (React.createElement(React.Fragment, null,
                     " ",

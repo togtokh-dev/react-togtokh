@@ -8,7 +8,7 @@ export const LoadingRiv = () => {
   });
   return (
     <>
-      <RiveComponent className=" w-full h-full mx-auto" />
+      <RiveComponent className="react-togtokh-dev w-full h-full mx-auto" />
     </>
   );
 };

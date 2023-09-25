@@ -40,7 +40,8 @@ export default function (props) {
         const a = statusList.filter((el) => el.status == status);
         setStyleConfig(a[0]);
     }, [status]);
-    return (React.createElement(React.Fragment, null, children ? (React.createElement("div", { className: "dev-input-box-web w-full  dev-border-12 " + className, style: {
+    return (React.createElement(React.Fragment, null, children ? (React.createElement("div", { className: "react-togtokh-dev dev-input-box-web w-full  dev-border-12 " +
+            className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },
@@ -104,7 +105,8 @@ export default function (props) {
                 }, disabled: disabled, style: {
                     caretColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.caretColor,
                     borderColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.borderColor,
-                } })))) : (React.createElement("div", { className: "dev-input-box-web w-full  dev-border-12 " + className, style: {
+                } })))) : (React.createElement("div", { className: "react-togtokh-dev dev-input-box-web w-full  dev-border-12 " +
+            className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },

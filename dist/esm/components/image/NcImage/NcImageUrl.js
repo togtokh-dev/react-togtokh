@@ -79,7 +79,7 @@ const NcImage = (_a) => {
                 } },
                 React.createElement(PlaceIcon, null))));
     };
-    return (React.createElement("div", { className: `${className} ${containerClassName}`, "data-nc-id": "NcImage", ref: _containerRef }, __src && imageLoaded ? (React.createElement("img", Object.assign({ src: `${__src}`, className: `${className} ${imageClass}`, alt: alt }, args))) : (renderLoadingPlaceholder())));
+    return (React.createElement("div", { className: `react-togtokh-dev ${className} ${containerClassName}`, "data-nc-id": "NcImage", ref: _containerRef }, __src && imageLoaded ? (React.createElement("img", Object.assign({ src: `${__src}`, className: `${className} ${imageClass}`, alt: alt }, args))) : (renderLoadingPlaceholder())));
 };
 export default NcImage;
 //# sourceMappingURL=NcImageUrl.js.map

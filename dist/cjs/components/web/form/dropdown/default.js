@@ -65,7 +65,7 @@ function Select(props) {
         document.addEventListener("keydown", keyHandler);
         return () => document.removeEventListener("keydown", keyHandler);
     });
-    return (react_1.default.createElement("div", { className: "dev-select-main" },
+    return (react_1.default.createElement("div", { className: "react-togtokh-dev dev-select-main" },
         loading ? (react_1.default.createElement(react_1.default.Fragment, null)) : (react_1.default.createElement(index_1.default.MiniWeb.Button.XL, { className: `  dev-border-8  ${className}`, backgroundColor: backgroundColor, handleClick: () => setDropdownOpen(!dropdownOpen), disableHover: true, type: "button" },
             react_1.default.createElement("div", { className: "dev-select" },
                 react_1.default.createElement("span", null, (_a = options.filter((data) => data.id == selected)[0]) === null || _a === void 0 ? void 0 : _a.period),

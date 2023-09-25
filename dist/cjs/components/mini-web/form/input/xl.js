@@ -76,7 +76,7 @@ function default_1(props) {
         const a = statusList.filter((el) => el.status == status);
         setStyleConfig(a[0]);
     }, [status]);
-    return (react_1.default.createElement(react_1.default.Fragment, null, children ? (react_1.default.createElement("div", { className: "dev-input-box w-full  dev-border-12 " + className, style: {
+    return (react_1.default.createElement(react_1.default.Fragment, null, children ? (react_1.default.createElement("div", { className: "react-togtokh-dev dev-input-box w-full  dev-border-12 " + className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },
@@ -140,7 +140,7 @@ function default_1(props) {
                         ? "text-400-12 dev-input-lable-deactivate"
                         : "text-400-16 dev-input-lable-active"} `}`, style: {
                     color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
-                } }, lable))))) : (react_1.default.createElement("div", { className: "dev-input-box w-full  dev-border-12 " + className, style: {
+                } }, lable))))) : (react_1.default.createElement("div", { className: "react-togtokh-dev dev-input-box w-full  dev-border-12 " + className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },

@@ -28,7 +28,7 @@ function Datepicker({ align, setStartDate, setEndDate, defaultDate, className, l
             instance.element.value = dateStr.replace("to", "-");
         },
     };
-    return (react_1.default.createElement(react_flatpickr_1.default, { className: ` dev-btn dev-btn-48 text-500-16 dev-border-8  ${className}`, options: options, defaultValue: lable }));
+    return (react_1.default.createElement(react_flatpickr_1.default, { className: `react-togtokh-dev dev-btn dev-btn-48 text-500-16 dev-border-8  ${className}`, options: options, defaultValue: lable }));
 }
 exports.default = Datepicker;
 //# sourceMappingURL=datepicker.js.map

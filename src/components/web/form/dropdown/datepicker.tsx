@@ -46,7 +46,7 @@ function Datepicker({
 
   return (
     <Flatpickr
-      className={` dev-btn dev-btn-48 text-500-16 dev-border-8  ${className}`}
+      className={`react-togtokh-dev dev-btn dev-btn-48 text-500-16 dev-border-8  ${className}`}
       options={options}
       defaultValue={lable}
     />

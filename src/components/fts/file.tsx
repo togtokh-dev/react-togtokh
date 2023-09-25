@@ -105,7 +105,9 @@ export default function (props: Props) {
   };
   return (
     <div
-      className={"dev-input-box w-full  dev-border-12 " + className}
+      className={
+        "react-togtokh-dev dev-input-box w-full  dev-border-12 " + className
+      }
       style={style}
     >
       <div className="dev-input-children">

@@ -61,7 +61,7 @@ export default function (props) {
             console.log(err);
         });
     });
-    return (React.createElement("div", { className: "dev-input-box w-full  dev-border-12 " + className, style: style },
+    return (React.createElement("div", { className: "react-togtokh-dev dev-input-box w-full  dev-border-12 " + className, style: style },
         React.createElement("div", { className: "dev-input-children" },
             React.createElement(motion.label, { htmlFor: `upload-${name}` },
                 React.createElement("div", { className: "upload-icon" }),

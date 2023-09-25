@@ -8,14 +8,14 @@
 @import url("shadow.css");
 @import url("switch.css");
 @import url("text.css");
-.hidden {
+.react-togtokh-dev .hidden {
   display: none;
 }
 
-.relative {
+.react-togtokh-dev .relative {
   position: relative;
 }
 
-.text-center {
+.react-togtokh-dev .text-center {
   align-items: center;
 }

@@ -30,7 +30,7 @@ export default function (props: Props) {
 
   return (
     <motion.button
-      className={`dev-btn dev-btn-36 text-500-14 dev-border-8  ${className}`}
+      className={`react-togtokh-dev dev-btn dev-btn-36 text-500-14 dev-border-8  ${className}`}
       onMouseEnter={() => setFocus(true)}
       onMouseLeave={() => setFocus(false)}
       style={style}
