@@ -168,7 +168,7 @@ export default function (props: Props) {
         )}
       </div> */}
       <div
-        className={`react-togtokh-devdev-images-upload border-dashed border-2 dev-border-8 ${className}`}
+        className={`react-togtokh-dev dev-images-upload border-dashed border-2 dev-border-8 ${className}`}
       >
         <motion.label htmlFor={`upload-${name}`} className="w-full ">
           <div
