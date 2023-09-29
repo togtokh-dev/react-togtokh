@@ -43,6 +43,7 @@ interface Props {
   addSvg: any;
   children?: React.ReactNode;
   disabled?: boolean | undefined;
+  clearButton?: boolean | undefined;
 }
 const showSvg = ({ handleClick, styleConfig }: svgProps) => {
   return (
@@ -158,30 +159,21 @@ export default function (props: Props) {
     statusList,
     status,
     addSvg,
+    clearButton = true,
   } = props;
   const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
   const textInput = useRef<HTMLInputElement>(null);
   const [focusType, setfocusType] = useState(false);
   const [show, setShow] = useState(false);
-  const [styleConfig, setStyleConfig] = useState<InStatusList>(
-    {
-      bgColor: "",
-      textColor: "",
-      placeholderColor: "",
-      svgFill: "",
-      caretColor: "",
-      borderColor: "",
-      status: "success",
-    } || {
-      bgColor: "#FFFFFF",
-      textColor: "#101318",
-      placeholderColor: "#818E9A",
-      svgFill: "#FFC800",
-      caretColor: "#FFC800",
-      borderColor: "#FFC800",
-      status: "success",
-    }
-  );
+  const [styleConfig, setStyleConfig] = useState<InStatusList>({
+    bgColor: "#FFFFFF",
+    textColor: "#101318",
+    placeholderColor: "#818E9A",
+    svgFill: "#FFC800",
+    caretColor: "#FFC800",
+    borderColor: "#FFC800",
+    status: "success",
+  });
   useEffect(() => {
     const a = statusList.filter((el) => el.status == status);
     setStyleConfig(a[0]);
@@ -201,6 +193,25 @@ export default function (props: Props) {
           <div className="dev-input-children">{children}</div>
           <div className=" w-full h-full ">
             {" "}
+            {lable && (
+              <label
+                htmlFor={name}
+                className={`dev-input-lable-children-icon ${
+                  value
+                    ? "text-400-12 dev-input-lable-deactivate"
+                    : `${
+                        focusType
+                          ? "text-400-12 dev-input-lable-deactivate"
+                          : "text-400-16 dev-input-lable-active"
+                      } `
+                }`}
+                style={{
+                  color: styleConfig?.placeholderColor,
+                }}
+              >
+                {lable}
+              </label>
+            )}
             <div className="dev-svg-box ">
               {addSvg ? (
                 <>
@@ -286,30 +297,13 @@ export default function (props: Props) {
                 borderColor: styleConfig?.borderColor,
               }}
             />
-            {lable && (
-              <label
-                htmlFor={name}
-                className={`dev-input-lable-children-icon ${
-                  value
-                    ? "text-400-12 dev-input-lable-deactivate"
-                    : `${
-                        focusType
-                          ? "text-400-12 dev-input-lable-deactivate"
-                          : "text-400-16 dev-input-lable-active"
-                      } `
-                }`}
-                style={{
-                  color: styleConfig?.placeholderColor,
-                }}
-              >
-                {lable}
-              </label>
-            )}
           </div>
         </div>
       ) : (
         <div
-          className={"react-togtokh-dev dev-input-box w-full  dev-border-12 " + className}
+          className={
+            "react-togtokh-dev dev-input-box w-full  dev-border-12 " + className
+          }
           style={{
             backgroundColor: styleConfig?.bgColor,
             color: styleConfig?.textColor,
@@ -319,7 +313,7 @@ export default function (props: Props) {
             <label
               htmlFor={name}
               className={`dev-input-lable ${
-                value
+                value == ""
                   ? "text-400-12 dev-input-lable-deactivate"
                   : `${
                       focusType
@@ -373,14 +367,21 @@ export default function (props: Props) {
                   </div>
                 ) : (
                   <>
-                    {value &&
-                      removeSvg({
-                        handleClick: () => {
-                          setValue("");
-                          textInput.current?.focus({ preventScroll: true });
-                        },
-                        styleConfig: styleConfig,
-                      })}
+                    {value && (
+                      <>
+                        {clearButton ? (
+                          removeSvg({
+                            handleClick: () => {
+                              setValue("");
+                              textInput.current?.focus({ preventScroll: true });
+                            },
+                            styleConfig: styleConfig,
+                          })
+                        ) : (
+                          <></>
+                        )}
+                      </>
+                    )}
                   </>
                 )}
               </>
@@ -390,7 +391,7 @@ export default function (props: Props) {
             id={name}
             ref={textInput}
             type={show ? "text" : type}
-            className="dev-input dev-border-12 text-400-16"
+            className="dev-input  text-400-16 "
             defaultValue={value}
             inputMode={inputMode}
             pattern={pattern}

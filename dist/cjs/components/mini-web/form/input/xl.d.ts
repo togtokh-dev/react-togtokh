@@ -32,6 +32,7 @@ interface Props {
     addSvg: any;
     children?: React.ReactNode;
     disabled?: boolean | undefined;
+    clearButton?: boolean | undefined;
 }
 export default function (props: Props): React.JSX.Element;
 export {};

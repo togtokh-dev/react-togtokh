@@ -37,8 +37,9 @@ function Select(props) {
     const trigger = (0, react_1.useRef)(null);
     const dropdown = (0, react_1.useRef)(null);
     (0, react_1.useEffect)(() => {
-        const result = options.filter((data) => data.id == value);
-        setSelected(result[0].id);
+        var _a;
+        const result = options.filter((data) => (data === null || data === void 0 ? void 0 : data.id) == value);
+        setSelected((_a = result[0]) === null || _a === void 0 ? void 0 : _a.id);
         setloading(false);
     }, []);
     // close on click outside
@@ -68,7 +69,7 @@ function Select(props) {
     return (react_1.default.createElement("div", { className: "react-togtokh-dev dev-select-main" },
         loading ? (react_1.default.createElement(react_1.default.Fragment, null)) : (react_1.default.createElement(index_1.default.MiniWeb.Button.XL, { className: `  dev-border-8  ${className}`, backgroundColor: backgroundColor, handleClick: () => setDropdownOpen(!dropdownOpen), disableHover: true, type: "button" },
             react_1.default.createElement("div", { className: "dev-select" },
-                react_1.default.createElement("span", null, (_a = options.filter((data) => data.id == selected)[0]) === null || _a === void 0 ? void 0 : _a.period),
+                react_1.default.createElement("span", null, (_a = options.filter((data) => (data === null || data === void 0 ? void 0 : data.id) == selected)[0]) === null || _a === void 0 ? void 0 : _a.period),
                 !dropdownOpen ? (react_1.default.createElement(react_1.default.Fragment, null,
                     react_1.default.createElement("svg", { className: " dev-select-svg", width: "14", height: "8", viewBox: "0 0 14 8", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
                         react_1.default.createElement("path", { d: "M7 7L1 0.999999", stroke: "#909BC0", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" }),
@@ -78,23 +79,23 @@ function Select(props) {
                         react_1.default.createElement("path", { d: "M1 7L7 1", stroke: "#909BC0", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" }))))))),
         loading ? (react_1.default.createElement(react_1.default.Fragment, null)) : (react_1.default.createElement(index_1.default.utils.Transition, { show: dropdownOpen, tag: "div", className: `dev-select-list ${listClass}`, enter: "transition ease-out duration-100 transform", enterStart: "opacity-0 -translate-y-2", enterEnd: "opacity-100 translate-y-0", leave: "transition ease-out duration-100", leaveStart: "opacity-100", leaveEnd: "opacity-0" },
             react_1.default.createElement("div", { ref: dropdown, className: "", onFocus: () => setDropdownOpen(true), onBlur: () => setDropdownOpen(false) }, options.map((option) => {
-                return (react_1.default.createElement("button", { key: option.id, tabIndex: 0, className: `item text-500-16 `, style: {
-                        color: option.id === selected
+                return (react_1.default.createElement("button", { key: option === null || option === void 0 ? void 0 : option.id, tabIndex: 0, className: `item text-500-16 `, style: {
+                        color: (option === null || option === void 0 ? void 0 : option.id) === selected
                             ? itemColor.selected
                             : itemColor.defualt,
                     }, onClick: () => {
                         setSelected(option.id);
                         setValue(option.id);
                         setDropdownOpen(false);
-                    } },
+                    }, type: "button" },
                     react_1.default.createElement("svg", { className: `item-svg `, style: {
                             fill: option.id === selected
                                 ? itemColor.selected
                                 : itemColor.defualt,
-                            visibility: option.id !== selected ? "hidden" : "visible",
+                            visibility: (option === null || option === void 0 ? void 0 : option.id) !== selected ? "hidden" : "visible",
                         }, width: "12", height: "9", viewBox: "0 0 12 9" },
                         react_1.default.createElement("path", { d: "M10.28.28L3.989 6.575 1.695 4.28A1 1 0 00.28 5.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28.28z" })),
-                    react_1.default.createElement("span", null, option.period)));
+                    react_1.default.createElement("span", null, option === null || option === void 0 ? void 0 : option.period)));
             }))))));
 }
 exports.default = Select;

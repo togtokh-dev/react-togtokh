@@ -32,8 +32,8 @@ function Select(props: Props) {
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
   useEffect(() => {
-    const result = options.filter((data: any) => data.id == value);
-    setSelected(result[0].id);
+    const result = options.filter((data: any) => data?.id == value);
+    setSelected(result[0]?.id);
     setloading(false);
   }, []);
   // close on click outside
@@ -76,7 +76,7 @@ function Select(props: Props) {
         >
           <div className="dev-select">
             <span>
-              {options.filter((data: any) => data.id == selected)[0]?.period}
+              {options.filter((data: any) => data?.id == selected)[0]?.period}
             </span>
             {!dropdownOpen ? (
               <>
@@ -167,12 +167,12 @@ function Select(props: Props) {
             {options.map((option: any) => {
               return (
                 <button
-                  key={option.id}
+                  key={option?.id}
                   tabIndex={0}
                   className={`item text-500-16 `}
                   style={{
                     color:
-                      option.id === selected
+                      option?.id === selected
                         ? itemColor.selected
                         : itemColor.defualt,
                   }}
@@ -181,6 +181,7 @@ function Select(props: Props) {
                     setValue(option.id);
                     setDropdownOpen(false);
                   }}
+                  type="button"
                 >
                   <svg
                     className={`item-svg `}
@@ -190,7 +191,8 @@ function Select(props: Props) {
                           ? itemColor.selected
                           : itemColor.defualt,
 
-                      visibility: option.id !== selected ? "hidden" : "visible",
+                      visibility:
+                        option?.id !== selected ? "hidden" : "visible",
                     }}
                     width="12"
                     height="9"
@@ -198,7 +200,7 @@ function Select(props: Props) {
                   >
                     <path d="M10.28.28L3.989 6.575 1.695 4.28A1 1 0 00.28 5.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28.28z" />
                   </svg>
-                  <span>{option.period}</span>
+                  <span>{option?.period}</span>
                 </button>
               );
             })}

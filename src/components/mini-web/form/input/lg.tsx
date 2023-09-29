@@ -43,6 +43,7 @@ interface Props {
   addSvg: any;
   children?: React.ReactNode;
   disabled?: boolean | undefined;
+  clearButton?: boolean | undefined;
 }
 const showSvg = ({ handleClick, styleConfig }: svgProps) => {
   return (
@@ -158,6 +159,7 @@ export default function (props: Props) {
     statusList,
     status,
     addSvg,
+    clearButton = true,
   } = props;
   const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
   const textInput = useRef<HTMLInputElement>(null);
@@ -311,7 +313,7 @@ export default function (props: Props) {
             <label
               htmlFor={name}
               className={`dev-input-lable ${
-                value
+                value == ""
                   ? "text-400-12 dev-input-lable-deactivate"
                   : `${
                       focusType
@@ -365,14 +367,21 @@ export default function (props: Props) {
                   </div>
                 ) : (
                   <>
-                    {value &&
-                      removeSvg({
-                        handleClick: () => {
-                          setValue("");
-                          textInput.current?.focus({ preventScroll: true });
-                        },
-                        styleConfig: styleConfig,
-                      })}
+                    {value && (
+                      <>
+                        {clearButton ? (
+                          removeSvg({
+                            handleClick: () => {
+                              setValue("");
+                              textInput.current?.focus({ preventScroll: true });
+                            },
+                            styleConfig: styleConfig,
+                          })
+                        ) : (
+                          <></>
+                        )}
+                      </>
+                    )}
                   </>
                 )}
               </>
@@ -382,7 +391,7 @@ export default function (props: Props) {
             id={name}
             ref={textInput}
             type={show ? "text" : type}
-            className="dev-input dev-border-12 text-400-16"
+            className="dev-input  text-400-16 "
             defaultValue={value}
             inputMode={inputMode}
             pattern={pattern}
