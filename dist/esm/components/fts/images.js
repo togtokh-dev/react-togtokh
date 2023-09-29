@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import Library from "../../";
 export default function (props) {
-    const { value, setValue, className, lable, host, username, password, backgroundColor, } = props;
+    const { value, setValue, className, lable, host, public_host, username, password, backgroundColor, } = props;
     const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
     const [loading, setLoading] = useState(false);
     const onFileChange = (event) => {
@@ -82,7 +82,7 @@ export default function (props) {
                         React.createElement(NcAnimations.LoadingRiv, null)))) : (React.createElement(React.Fragment, null, lable))),
                 React.createElement("input", { type: "file", className: "hidden", id: `upload-${name}`, onChange: onFileChange, multiple: true })),
             React.createElement("div", { className: "dev-gallery h-full w-full" }, value.map((el, index) => (React.createElement("div", { className: "relative dev-border-8" },
-                React.createElement(Library.Image.NcImage.PathImage, { src: `https://uploads.togtokh.dev/file/image/${el}`, className: "h-full w-full dev-border-8 ", imageClass: "", containerClassName: "", placeholderClass: "h-full w-auto flex items-center justify-center bg-neutral-200 dark:bg-neutral-6000 text-neutral-100 dark:text-neutral-500" }),
+                React.createElement(Library.Image.NcImage.PathImage, { src: `${public_host}/file/image/${el}`, className: "h-full w-full dev-border-8 ", imageClass: "", containerClassName: "", placeholderClass: "h-full w-auto flex items-center justify-center bg-neutral-200 dark:bg-neutral-6000 text-neutral-100 dark:text-neutral-500" }),
                 React.createElement("svg", { className: "dev-edit", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", onClick: () => __awaiter(this, void 0, void 0, function* () {
                         const newValue = yield arrayRemove(value, el);
                         setValue(newValue);

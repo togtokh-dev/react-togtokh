@@ -9,6 +9,7 @@ interface Props {
   lable: string;
   className?: string;
   host: string;
+  public_host: string;
   username: string;
   password: string;
   backgroundColor: string;
@@ -20,6 +21,7 @@ export default function (props: Props) {
     className,
     lable,
     host,
+    public_host,
     username,
     password,
     backgroundColor,
@@ -68,7 +70,7 @@ export default function (props: Props) {
       <div
         className={` react-togtokh-dev dev-border-8  relative  dev-upload-image ${className}`}
         style={{
-          backgroundImage: `url(https://uploads.togtokh.dev/file/image/${value})`,
+          backgroundImage: `url(${public_host}/file/image/${value})`,
           backgroundColor: backgroundColor,
         }}
       >

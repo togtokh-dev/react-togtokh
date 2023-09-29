@@ -12,7 +12,7 @@ import NcAnimations from "../NcAnimations";
 import { motion } from "framer-motion";
 import axios from "axios";
 export default function (props) {
-    const { value, setValue, className, lable, host, username, password, backgroundColor, } = props;
+    const { value, setValue, className, lable, host, public_host, username, password, backgroundColor, } = props;
     const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
     const [loading, setLoading] = useState(false);
     const onFileChange = (event) => {
@@ -52,7 +52,7 @@ export default function (props) {
     });
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: ` react-togtokh-dev dev-border-8  relative  dev-upload-image ${className}`, style: {
-                backgroundImage: `url(https://uploads.togtokh.dev/file/image/${value})`,
+                backgroundImage: `url(${public_host}/file/image/${value})`,
                 backgroundColor: backgroundColor,
             } },
             value ? (React.createElement(React.Fragment, null,

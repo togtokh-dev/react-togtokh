@@ -41,7 +41,7 @@ const framer_motion_1 = require("framer-motion");
 const axios_1 = __importDefault(require("axios"));
 const __1 = __importDefault(require("../../"));
 function default_1(props) {
-    const { value, setValue, className, lable, host, username, password, backgroundColor, } = props;
+    const { value, setValue, className, lable, host, public_host, username, password, backgroundColor, } = props;
     const [name] = (0, react_1.useState)(`${Math.floor(Math.random() * 600) + 1}`);
     const [loading, setLoading] = (0, react_1.useState)(false);
     const onFileChange = (event) => {
@@ -110,7 +110,7 @@ function default_1(props) {
                         react_1.default.createElement(NcAnimations_1.default.LoadingRiv, null)))) : (react_1.default.createElement(react_1.default.Fragment, null, lable))),
                 react_1.default.createElement("input", { type: "file", className: "hidden", id: `upload-${name}`, onChange: onFileChange, multiple: true })),
             react_1.default.createElement("div", { className: "dev-gallery h-full w-full" }, value.map((el, index) => (react_1.default.createElement("div", { className: "relative dev-border-8" },
-                react_1.default.createElement(__1.default.Image.NcImage.PathImage, { src: `https://uploads.togtokh.dev/file/image/${el}`, className: "h-full w-full dev-border-8 ", imageClass: "", containerClassName: "", placeholderClass: "h-full w-auto flex items-center justify-center bg-neutral-200 dark:bg-neutral-6000 text-neutral-100 dark:text-neutral-500" }),
+                react_1.default.createElement(__1.default.Image.NcImage.PathImage, { src: `${public_host}/file/image/${el}`, className: "h-full w-full dev-border-8 ", imageClass: "", containerClassName: "", placeholderClass: "h-full w-auto flex items-center justify-center bg-neutral-200 dark:bg-neutral-6000 text-neutral-100 dark:text-neutral-500" }),
                 react_1.default.createElement("svg", { className: "dev-edit", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", onClick: () => __awaiter(this, void 0, void 0, function* () {
                         const newValue = yield arrayRemove(value, el);
                         setValue(newValue);

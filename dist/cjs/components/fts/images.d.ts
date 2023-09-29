@@ -5,6 +5,7 @@ interface Props {
     lable: string;
     className?: string;
     host: string;
+    public_host: string;
     username: string;
     password: string;
     backgroundColor: string;
