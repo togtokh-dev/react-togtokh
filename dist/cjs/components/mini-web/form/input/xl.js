@@ -136,7 +136,7 @@ function default_1(props) {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },
-        lable && (react_1.default.createElement("label", { htmlFor: name, className: `dev-input-lable ${value == ""
+        lable && (react_1.default.createElement("label", { htmlFor: name, className: `dev-input-lable ${value != ""
                 ? "text-400-12 dev-input-lable-deactivate"
                 : `${focusType
                     ? "text-400-12 dev-input-lable-deactivate"

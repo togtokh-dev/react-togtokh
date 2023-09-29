@@ -313,7 +313,7 @@ export default function (props: Props) {
             <label
               htmlFor={name}
               className={`dev-input-lable ${
-                value == ""
+                value != ""
                   ? "text-400-12 dev-input-lable-deactivate"
                   : `${
                       focusType

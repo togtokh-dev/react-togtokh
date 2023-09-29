@@ -108,7 +108,7 @@ export default function (props) {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },
-        lable && (React.createElement("label", { htmlFor: name, className: `dev-input-lable ${value == ""
+        lable && (React.createElement("label", { htmlFor: name, className: `dev-input-lable ${value != ""
                 ? "text-400-12 dev-input-lable-deactivate"
                 : `${focusType
                     ? "text-400-12 dev-input-lable-deactivate"
@@ -122,28 +122,26 @@ export default function (props) {
             loading ? (React.createElement(React.Fragment, null, loadingSvg({
                 handleClick: () => { },
                 styleConfig: styleConfig,
-            }))) : (React.createElement(React.Fragment, null,
-                " ",
-                type == "password" ? (React.createElement("div", null, !show
-                    ? hideSvg({
-                        handleClick: () => {
-                            setShow(true);
-                        },
-                        styleConfig: styleConfig,
-                    })
-                    : showSvg({
-                        handleClick: () => {
-                            setShow(false);
-                        },
-                        styleConfig: styleConfig,
-                    }))) : (React.createElement(React.Fragment, null, value && (React.createElement(React.Fragment, null, clearButton ? (removeSvg({
+            }))) : (React.createElement(React.Fragment, null, type == "password" ? (React.createElement("div", null, !show
+                ? hideSvg({
                     handleClick: () => {
-                        var _a;
-                        setValue("");
-                        (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({ preventScroll: true });
+                        setShow(true);
                     },
                     styleConfig: styleConfig,
-                })) : (React.createElement(React.Fragment, null))))))))),
+                })
+                : showSvg({
+                    handleClick: () => {
+                        setShow(false);
+                    },
+                    styleConfig: styleConfig,
+                }))) : (React.createElement(React.Fragment, null, value && (React.createElement(React.Fragment, null, clearButton ? (removeSvg({
+                handleClick: () => {
+                    var _a;
+                    setValue("");
+                    (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({ preventScroll: true });
+                },
+                styleConfig: styleConfig,
+            })) : (React.createElement(React.Fragment, null))))))))),
         React.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input  text-400-16 ", defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                 setfocusType(false);
             }, onFocus: (e) => {

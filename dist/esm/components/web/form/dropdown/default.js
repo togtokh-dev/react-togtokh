@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import ReactTogtokh from "../../../../index";
 function Select(props) {
     var _a;
-    const { options, value, setValue, className, backgroundColor, listClass, itemColor, } = props;
+    const { options, value, setValue, className, backgroundColor, listClass, itemColor, lable, } = props;
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [loading, setloading] = useState(true);
     const [selected, setSelected] = useState(null);
@@ -67,7 +67,7 @@ function Select(props) {
                             visibility: (option === null || option === void 0 ? void 0 : option.id) !== selected ? "hidden" : "visible",
                         }, width: "12", height: "9", viewBox: "0 0 12 9" },
                         React.createElement("path", { d: "M10.28.28L3.989 6.575 1.695 4.28A1 1 0 00.28 5.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28.28z" })),
-                    React.createElement("span", null, option === null || option === void 0 ? void 0 : option.period)));
+                    React.createElement("span", null, (option === null || option === void 0 ? void 0 : option.period) || lable)));
             }))))));
 }
 export default Select;

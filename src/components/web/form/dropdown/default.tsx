@@ -23,6 +23,7 @@ function Select(props: Props) {
     backgroundColor,
     listClass,
     itemColor,
+    lable,
   } = props;
 
   const [dropdownOpen, setDropdownOpen] = useState<any>(false);
@@ -200,7 +201,7 @@ function Select(props: Props) {
                   >
                     <path d="M10.28.28L3.989 6.575 1.695 4.28A1 1 0 00.28 5.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28.28z" />
                   </svg>
-                  <span>{option?.period}</span>
+                  <span>{option?.period || lable}</span>
                 </button>
               );
             })}

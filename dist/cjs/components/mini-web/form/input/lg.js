@@ -136,7 +136,7 @@ function default_1(props) {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },
-        lable && (react_1.default.createElement("label", { htmlFor: name, className: `dev-input-lable ${value == ""
+        lable && (react_1.default.createElement("label", { htmlFor: name, className: `dev-input-lable ${value != ""
                 ? "text-400-12 dev-input-lable-deactivate"
                 : `${focusType
                     ? "text-400-12 dev-input-lable-deactivate"
@@ -150,28 +150,26 @@ function default_1(props) {
             loading ? (react_1.default.createElement(react_1.default.Fragment, null, loadingSvg({
                 handleClick: () => { },
                 styleConfig: styleConfig,
-            }))) : (react_1.default.createElement(react_1.default.Fragment, null,
-                " ",
-                type == "password" ? (react_1.default.createElement("div", null, !show
-                    ? hideSvg({
-                        handleClick: () => {
-                            setShow(true);
-                        },
-                        styleConfig: styleConfig,
-                    })
-                    : showSvg({
-                        handleClick: () => {
-                            setShow(false);
-                        },
-                        styleConfig: styleConfig,
-                    }))) : (react_1.default.createElement(react_1.default.Fragment, null, value && (react_1.default.createElement(react_1.default.Fragment, null, clearButton ? (removeSvg({
+            }))) : (react_1.default.createElement(react_1.default.Fragment, null, type == "password" ? (react_1.default.createElement("div", null, !show
+                ? hideSvg({
                     handleClick: () => {
-                        var _a;
-                        setValue("");
-                        (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({ preventScroll: true });
+                        setShow(true);
                     },
                     styleConfig: styleConfig,
-                })) : (react_1.default.createElement(react_1.default.Fragment, null))))))))),
+                })
+                : showSvg({
+                    handleClick: () => {
+                        setShow(false);
+                    },
+                    styleConfig: styleConfig,
+                }))) : (react_1.default.createElement(react_1.default.Fragment, null, value && (react_1.default.createElement(react_1.default.Fragment, null, clearButton ? (removeSvg({
+                handleClick: () => {
+                    var _a;
+                    setValue("");
+                    (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({ preventScroll: true });
+                },
+                styleConfig: styleConfig,
+            })) : (react_1.default.createElement(react_1.default.Fragment, null))))))))),
         react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input  text-400-16 ", defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                 setfocusType(false);
             }, onFocus: (e) => {
