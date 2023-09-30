@@ -13,7 +13,7 @@ function Select(props) {
         const result = options.filter((data) => (data === null || data === void 0 ? void 0 : data.id) == value);
         setSelected((_a = result[0]) === null || _a === void 0 ? void 0 : _a.id);
         setloading(false);
-    }, []);
+    }, [value]);
     // close on click outside
     useEffect(() => {
         const clickHandler = ({ target }) => {

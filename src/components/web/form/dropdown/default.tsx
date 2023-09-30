@@ -36,7 +36,7 @@ function Select(props: Props) {
     const result = options.filter((data: any) => data?.id == value);
     setSelected(result[0]?.id);
     setloading(false);
-  }, []);
+  }, [value]);
   // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }: any) => {
