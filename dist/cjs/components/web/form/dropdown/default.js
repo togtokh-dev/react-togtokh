@@ -69,7 +69,8 @@ function Select(props) {
     return (react_1.default.createElement("div", { className: "react-togtokh-dev dev-select-main" },
         loading ? (react_1.default.createElement(react_1.default.Fragment, null)) : (react_1.default.createElement(index_1.default.MiniWeb.Button.XL, { className: `  dev-border-8  ${className}`, backgroundColor: backgroundColor, handleClick: () => setDropdownOpen(!dropdownOpen), disableHover: true, type: "button" },
             react_1.default.createElement("div", { className: "dev-select" },
-                react_1.default.createElement("span", null, (_a = options.filter((data) => (data === null || data === void 0 ? void 0 : data.id) == selected)[0]) === null || _a === void 0 ? void 0 : _a.period),
+                react_1.default.createElement("span", null, ((_a = options.filter((data) => (data === null || data === void 0 ? void 0 : data.id) == selected)[0]) === null || _a === void 0 ? void 0 : _a.period) ||
+                    lable),
                 !dropdownOpen ? (react_1.default.createElement(react_1.default.Fragment, null,
                     react_1.default.createElement("svg", { className: " dev-select-svg", width: "14", height: "8", viewBox: "0 0 14 8", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
                         react_1.default.createElement("path", { d: "M7 7L1 0.999999", stroke: "#909BC0", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" }),
@@ -95,7 +96,7 @@ function Select(props) {
                             visibility: (option === null || option === void 0 ? void 0 : option.id) !== selected ? "hidden" : "visible",
                         }, width: "12", height: "9", viewBox: "0 0 12 9" },
                         react_1.default.createElement("path", { d: "M10.28.28L3.989 6.575 1.695 4.28A1 1 0 00.28 5.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28.28z" })),
-                    react_1.default.createElement("span", null, (option === null || option === void 0 ? void 0 : option.period) || lable)));
+                    react_1.default.createElement("span", null, option === null || option === void 0 ? void 0 : option.period)));
             }))))));
 }
 exports.default = Select;
