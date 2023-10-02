@@ -19,3 +19,11 @@
 .react-togtokh-dev .text-center {
   align-items: center;
 }
+
+.react-togtokh-dev .w-full {
+  width: 100%;
+}
+
+.react-togtokh-dev .h-full {
+  height: 100%;
+}

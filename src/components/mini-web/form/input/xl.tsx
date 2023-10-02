@@ -188,9 +188,7 @@ export default function (props: Props) {
     <>
       {children ? (
         <div
-          className={
-            "react-togtokh-dev dev-input-box w-full  dev-border-12 " + className
-          }
+          className={"react-togtokh-dev dev-input-box w-full " + className}
           style={{
             backgroundColor: styleConfig?.bgColor,
             color: styleConfig?.textColor,
@@ -274,7 +272,7 @@ export default function (props: Props) {
               ref={textInput}
               type={show ? "text" : type}
               className={
-                "dev-input-children-icon  text-400-16" + inputClassName
+                "dev-input-children-icon  text-400-16 " + inputClassName
               }
               defaultValue={value}
               inputMode={inputMode}
@@ -309,9 +307,7 @@ export default function (props: Props) {
         </div>
       ) : (
         <div
-          className={
-            "react-togtokh-dev dev-input-box w-full  dev-border-12 " + className
-          }
+          className={"react-togtokh-dev dev-input-box w-full   " + className}
           style={{
             backgroundColor: styleConfig?.bgColor,
             color: styleConfig?.textColor,

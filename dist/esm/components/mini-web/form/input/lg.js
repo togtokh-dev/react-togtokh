@@ -40,7 +40,7 @@ export default function (props) {
         const a = statusList.filter((el) => el.status == status);
         setStyleConfig(a[0]);
     }, [status]);
-    return (React.createElement(React.Fragment, null, children ? (React.createElement("div", { className: "react-togtokh-dev dev-input-box w-full  dev-border-12 " + className, style: {
+    return (React.createElement(React.Fragment, null, children ? (React.createElement("div", { className: "react-togtokh-dev dev-input-box w-full " + className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },
@@ -84,7 +84,7 @@ export default function (props) {
                             },
                             styleConfig: styleConfig,
                         })))))),
-            React.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input-children-icon  text-400-16" + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
+            React.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input-children-icon  text-400-16 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                     setfocusType(false);
                 }, onFocus: (e) => {
                     setfocusType(true);
@@ -104,7 +104,7 @@ export default function (props) {
                 }, disabled: disabled, style: {
                     caretColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.caretColor,
                     borderColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.borderColor,
-                } })))) : (React.createElement("div", { className: "react-togtokh-dev dev-input-box w-full  dev-border-12 " + className, style: {
+                } })))) : (React.createElement("div", { className: "react-togtokh-dev dev-input-box w-full   " + className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },
