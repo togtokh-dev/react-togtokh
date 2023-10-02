@@ -28,6 +28,9 @@ interface Props {
   onFocus: any;
   loading: Boolean;
   className?: string;
+  inputClassName?: string;
+  lableClassName?: string;
+  svgClassName?: string;
   maxLength?: number;
   inputMode?:
     | "none"
@@ -160,6 +163,9 @@ export default function (props: Props) {
     status,
     addSvg,
     clearButton = true,
+    inputClassName,
+    lableClassName,
+    svgClassName,
   } = props;
   const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
   const textInput = useRef<HTMLInputElement>(null);
@@ -203,7 +209,7 @@ export default function (props: Props) {
                         focusType
                           ? "text-400-12 dev-input-lable-deactivate"
                           : "text-400-16 dev-input-lable-active"
-                      } `
+                      } ${lableClassName}`
                 }`}
                 style={{
                   color: styleConfig?.placeholderColor,
@@ -212,7 +218,7 @@ export default function (props: Props) {
                 {lable}
               </label>
             )}
-            <div className="dev-svg-box ">
+            <div className={"dev-svg-box " + svgClassName}>
               {addSvg ? (
                 <>
                   {addSvg({
@@ -267,7 +273,9 @@ export default function (props: Props) {
               id={name}
               ref={textInput}
               type={show ? "text" : type}
-              className="dev-input-children-icon dev-border-12 text-400-16"
+              className={
+                "dev-input-children-icon  text-400-16" + inputClassName
+              }
               defaultValue={value}
               inputMode={inputMode}
               pattern={pattern}
@@ -319,7 +327,7 @@ export default function (props: Props) {
                       focusType
                         ? "text-400-12 dev-input-lable-deactivate"
                         : "text-400-16 dev-input-lable-active"
-                    } `
+                    } ${lableClassName}`
               }`}
               style={{
                 color: styleConfig?.placeholderColor,
@@ -329,7 +337,7 @@ export default function (props: Props) {
             </label>
           )}
 
-          <div className="dev-svg-box ">
+          <div className={"dev-svg-box " + svgClassName}>
             {addSvg ? (
               <>
                 {addSvg({
@@ -390,7 +398,7 @@ export default function (props: Props) {
             id={name}
             ref={textInput}
             type={show ? "text" : type}
-            className="dev-input  text-400-16 "
+            className={"dev-input  text-400-16 " + inputClassName}
             defaultValue={value}
             inputMode={inputMode}
             pattern={pattern}

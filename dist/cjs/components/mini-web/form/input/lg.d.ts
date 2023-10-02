@@ -26,6 +26,9 @@ interface Props {
     onFocus: any;
     loading: Boolean;
     className?: string;
+    inputClassName?: string;
+    lableClassName?: string;
+    svgClassName?: string;
     maxLength?: number;
     inputMode?: "none" | "text" | "tel" | "url" | "email" | "numeric" | "decimal" | "search" | undefined;
     onClick: (event: React.MouseEvent<HTMLElement>) => void;

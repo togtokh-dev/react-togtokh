@@ -13,6 +13,7 @@ input[type="number"] {
 .dev-input-box {
   position: relative;
   height: 56px;
+  width: 100%;
 }
 
 .dev-input-box .dev-input {
@@ -170,4 +171,8 @@ input[type="number"] {
   top: 0;
   right: 0;
   margin: 16px 48px 16px 0;
+}
+
+*:focus {
+  outline: none !important;
 }

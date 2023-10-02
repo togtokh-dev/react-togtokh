@@ -50,7 +50,7 @@ const loadingSvg = ({ handleClick, styleConfig }) => {
         react_1.default.createElement(NcAnimations_1.default.LoadingRiv, null)));
 };
 function default_1(props) {
-    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading, statusList, status, addSvg, clearButton = true, } = props;
+    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading, statusList, status, addSvg, clearButton = true, inputClassName, lableClassName, svgClassName, } = props;
     const [name] = (0, react_1.useState)(`${Math.floor(Math.random() * 600) + 1}`);
     const textInput = (0, react_1.useRef)(null);
     const [focusType, setfocusType] = (0, react_1.useState)(false);
@@ -79,10 +79,10 @@ function default_1(props) {
                     ? "text-400-12 dev-input-lable-deactivate"
                     : `${focusType
                         ? "text-400-12 dev-input-lable-deactivate"
-                        : "text-400-16 dev-input-lable-active"} `}`, style: {
+                        : "text-400-16 dev-input-lable-active"} ${lableClassName}`}`, style: {
                     color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
                 } }, lable)),
-            react_1.default.createElement("div", { className: "dev-svg-box " },
+            react_1.default.createElement("div", { className: "dev-svg-box " + svgClassName },
                 addSvg ? (react_1.default.createElement(react_1.default.Fragment, null, addSvg({
                     handleClick: () => { },
                 }))) : (react_1.default.createElement(react_1.default.Fragment, null)),
@@ -112,7 +112,7 @@ function default_1(props) {
                             },
                             styleConfig: styleConfig,
                         })))))),
-            react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input-children-icon dev-border-12 text-400-16", defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
+            react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input-children-icon  text-400-16" + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                     setfocusType(false);
                 }, onFocus: (e) => {
                     setfocusType(true);
@@ -140,10 +140,10 @@ function default_1(props) {
                 ? "text-400-12 dev-input-lable-deactivate"
                 : `${focusType
                     ? "text-400-12 dev-input-lable-deactivate"
-                    : "text-400-16 dev-input-lable-active"} `}`, style: {
+                    : "text-400-16 dev-input-lable-active"} ${lableClassName}`}`, style: {
                 color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
             } }, lable)),
-        react_1.default.createElement("div", { className: "dev-svg-box " },
+        react_1.default.createElement("div", { className: "dev-svg-box " + svgClassName },
             addSvg ? (react_1.default.createElement(react_1.default.Fragment, null, addSvg({
                 handleClick: () => { },
             }))) : (react_1.default.createElement(react_1.default.Fragment, null)),
@@ -170,7 +170,7 @@ function default_1(props) {
                 },
                 styleConfig: styleConfig,
             })) : (react_1.default.createElement(react_1.default.Fragment, null))))))))),
-        react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input  text-400-16 ", defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
+        react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input  text-400-16 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                 setfocusType(false);
             }, onFocus: (e) => {
                 setfocusType(true);
