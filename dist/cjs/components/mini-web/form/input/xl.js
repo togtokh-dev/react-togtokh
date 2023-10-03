@@ -46,8 +46,7 @@ const removeSvg = ({ handleClick, styleConfig }) => {
         react_1.default.createElement("path", { d: "M15 15L9 9", stroke: "white", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" })));
 };
 const loadingSvg = ({ handleClick, styleConfig }) => {
-    return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement(NcAnimations_1.default.LoadingRiv, null)));
+    return react_1.default.createElement(NcAnimations_1.default.LoadingRiv, null);
 };
 function default_1(props) {
     const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading, statusList, status, addSvg, clearButton = true, inputClassName, lableClassName, svgClassName, } = props;
@@ -55,6 +54,7 @@ function default_1(props) {
     const textInput = (0, react_1.useRef)(null);
     const [focusType, setfocusType] = (0, react_1.useState)(false);
     const [show, setShow] = (0, react_1.useState)(false);
+    const [svgWidth, setSvgWidth] = (0, react_1.useState)("24px");
     const [styleConfig, setStyleConfig] = (0, react_1.useState)({
         bgColor: "#FFFFFF",
         textColor: "#101318",
@@ -68,6 +68,27 @@ function default_1(props) {
         const a = statusList.filter((el) => el.status == status);
         setStyleConfig(a[0]);
     }, [status]);
+    (0, react_1.useEffect)(() => {
+        let count = 0;
+        if (addSvg) {
+            count++;
+        }
+        if (loading) {
+            count++;
+            if (type == "password") {
+                count++;
+            }
+        }
+        else {
+            if (type == "password") {
+                count++;
+            }
+            else if (clearButton && value) {
+                count++;
+            }
+        }
+        setSvgWidth(`${count * 24 + count * 8 - 8}px`);
+    }, [addSvg, loading, type, clearButton, value]);
     return (react_1.default.createElement(react_1.default.Fragment, null, children ? (react_1.default.createElement("div", { className: "react-togtokh-dev dev-input-box w-full " + className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
@@ -82,7 +103,9 @@ function default_1(props) {
                         : "text-400-16 dev-input-lable-active"} ${lableClassName}`}`, style: {
                     color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
                 } }, lable)),
-            react_1.default.createElement("div", { className: "dev-svg-box " + svgClassName },
+            react_1.default.createElement("div", { className: "dev-svg-box " + svgClassName, style: {
+                    width: svgWidth,
+                } },
                 addSvg ? (react_1.default.createElement(react_1.default.Fragment, null, addSvg({
                     handleClick: () => { },
                 }))) : (react_1.default.createElement(react_1.default.Fragment, null)),
@@ -143,7 +166,9 @@ function default_1(props) {
                     : "text-400-16 dev-input-lable-active"} ${lableClassName}`}`, style: {
                 color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
             } }, lable)),
-        react_1.default.createElement("div", { className: "dev-svg-box " + svgClassName },
+        react_1.default.createElement("div", { className: "dev-svg-box " + svgClassName, style: {
+                width: svgWidth,
+            } },
             addSvg ? (react_1.default.createElement(react_1.default.Fragment, null, addSvg({
                 handleClick: () => { },
             }))) : (react_1.default.createElement(react_1.default.Fragment, null)),

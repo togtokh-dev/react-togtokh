@@ -139,11 +139,7 @@ const removeSvg = ({ handleClick, styleConfig }: svgProps) => {
   );
 };
 const loadingSvg = ({ handleClick, styleConfig }: svgProps) => {
-  return (
-    <>
-      <NcAnimations.LoadingRiv />
-    </>
-  );
+  return <NcAnimations.LoadingRiv />;
 };
 export default function (props: Props) {
   const {
@@ -171,6 +167,7 @@ export default function (props: Props) {
   const textInput = useRef<HTMLInputElement>(null);
   const [focusType, setfocusType] = useState(false);
   const [show, setShow] = useState(false);
+  const [svgWidth, setSvgWidth] = useState("24px");
   const [styleConfig, setStyleConfig] = useState<InStatusList>({
     bgColor: "#FFFFFF",
     textColor: "#101318",
@@ -184,6 +181,25 @@ export default function (props: Props) {
     const a = statusList.filter((el) => el.status == status);
     setStyleConfig(a[0]);
   }, [status]);
+  useEffect(() => {
+    let count = 0;
+    if (addSvg) {
+      count++;
+    }
+    if (loading) {
+      count++;
+      if (type == "password") {
+        count++;
+      }
+    } else {
+      if (type == "password") {
+        count++;
+      } else if (clearButton && value) {
+        count++;
+      }
+    }
+    setSvgWidth(`${count * 24 + count * 8 - 8}px`);
+  }, [addSvg, loading, type, clearButton, value]);
   return (
     <>
       {children ? (
@@ -219,15 +235,7 @@ export default function (props: Props) {
             <div
               className={"dev-svg-box " + svgClassName}
               style={{
-                width: `${
-                  (addSvg ? 1 : 0) +
-                  (loading ? 1 : 0) +
-                  (type == "password" ? 1 : 0) * 24 +
-                  ((addSvg ? 1 : 0) +
-                    (loading ? 1 : 0) +
-                    (type == "password" ? 1 : 0) -
-                    1 * 8)
-                }px`,
+                width: svgWidth,
               }}
             >
               {addSvg ? (
@@ -349,15 +357,7 @@ export default function (props: Props) {
           <div
             className={"dev-svg-box " + svgClassName}
             style={{
-              width: `${
-                (addSvg ? 1 : 0) +
-                (loading ? 1 : 0) +
-                (type == "password" ? 1 : 0) * 24 +
-                ((addSvg ? 1 : 0) +
-                  (loading ? 1 : 0) +
-                  (type == "password" ? 1 : 0) -
-                  1 * 8)
-              }px`,
+              width: svgWidth,
             }}
           >
             {addSvg ? (
