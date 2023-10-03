@@ -81,14 +81,16 @@ export default function (props) {
                     React.createElement("div", { style: { width: "24px", height: "24px" } },
                         React.createElement(NcAnimations.LoadingRiv, null)))) : (React.createElement(React.Fragment, null, lable))),
                 React.createElement("input", { type: "file", className: "hidden", id: `upload-${name}`, onChange: onFileChange, multiple: true })),
-            React.createElement("div", { className: "dev-gallery h-full w-full" }, value.map((el, index) => (React.createElement("div", { className: "relative dev-border-8" },
+            React.createElement("div", { className: "dev-gallery h-full w-full" }, value.map((el, index) => (React.createElement("div", { className: "relative dev-border-8", key: `bfkdsfm-${index}` },
                 React.createElement(Library.Image.NcImage.PathImage, { src: `${public_host}/file/image/${el}`, className: "h-full w-full dev-border-8 ", imageClass: "", containerClassName: "", placeholderClass: "h-full w-auto flex items-center justify-center bg-neutral-200 dark:bg-neutral-6000 text-neutral-100 dark:text-neutral-500" }),
-                React.createElement("svg", { className: "dev-edit", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", onClick: () => __awaiter(this, void 0, void 0, function* () {
-                        const newValue = yield arrayRemove(value, el);
-                        setValue(newValue);
-                    }) },
-                    React.createElement("circle", { cx: "12", cy: "12", r: "9", fill: "#D1D8DD" }),
-                    React.createElement("path", { d: "M15 9L9 15", stroke: "white", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }),
-                    React.createElement("path", { d: "M15 15L9 9", stroke: "white", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" })))))))));
+                React.createElement("i", { className: "dev-upload-image-content" },
+                    React.createElement("i", { className: "dev-edit" },
+                        React.createElement("svg", { className: "", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", onClick: () => __awaiter(this, void 0, void 0, function* () {
+                                const newValue = yield arrayRemove(value, el);
+                                setValue(newValue);
+                            }) },
+                            React.createElement("circle", { cx: "12", cy: "12", r: "9", fill: "#D1D8DD" }),
+                            React.createElement("path", { d: "M15 9L9 15", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }),
+                            React.createElement("path", { d: "M15 15L9 9", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })))))))))));
 }
 //# sourceMappingURL=images.js.map

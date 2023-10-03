@@ -14,8 +14,8 @@ import axios from "axios";
 const removeSvg = ({ handleClick, svgColor }) => {
     return (React.createElement("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: svgColor, xmlns: "http://www.w3.org/2000/svg", className: ` dev-svg `, onClick: handleClick },
         React.createElement("circle", { cx: "12", cy: "12", r: "9" }),
-        React.createElement("path", { d: "M15 9L9 15", stroke: "white", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }),
-        React.createElement("path", { d: "M15 15L9 9", stroke: "white", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" })));
+        React.createElement("path", { d: "M15 9L9 15", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }),
+        React.createElement("path", { d: "M15 15L9 9", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })));
 };
 export default function (props) {
     const { value, setValue, className, lable, host, username, password, backgroundColor, svgColor, } = props;

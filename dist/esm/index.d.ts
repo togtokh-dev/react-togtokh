@@ -75,6 +75,7 @@ declare const _default: {
         UBASE64: typeof import("./components/fts/base64").default;
         UIMAGE: typeof import("./components/fts/image").default;
         UIMAGES: typeof import("./components/fts/images").default;
+        CKEDITOR: typeof import("./components/fts/ckeditor").default;
     };
 };
 export default _default;

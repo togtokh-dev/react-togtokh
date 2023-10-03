@@ -76,7 +76,10 @@ export default function (props: Props) {
       >
         {value ? (
           <>
-            <motion.label htmlFor={`upload-${name}`}>
+            <motion.label
+              htmlFor={`upload-${name}`}
+              className="dev-upload-image-content"
+            >
               <div className="dev-edit">
                 <svg
                   width="16"
@@ -102,7 +105,10 @@ export default function (props: Props) {
         ) : (
           <>
             {" "}
-            <motion.label htmlFor={`upload-${name}`}>
+            <motion.label
+              htmlFor={`upload-${name}`}
+              className="dev-upload-image-content"
+            >
               <div className="dev-edit-center text-center">
                 <div className="dev-edit-center text-center">
                   <svg

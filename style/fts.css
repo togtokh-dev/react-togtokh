@@ -8,9 +8,9 @@
   /* Resize the background image to cover the entire container */
 }
 
-.dev-upload-image label {
+/* .dev-upload-image label {
   position: relative;
-}
+} */
 
 .dev-images-upload {
   width: 100%;
@@ -42,10 +42,14 @@
 }
 
 .dev-edit {
-  position: absolute;
-  top: 5%;
-  right: 5%;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: end;
+  justify-items: center;
   cursor: pointer;
+  flex-direction: row;
+  padding: 5px 5px 0 0px;
 }
 
 .dev-edit-center {

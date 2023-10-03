@@ -73,11 +73,11 @@ function Select(props) {
                     lable),
                 !dropdownOpen ? (react_1.default.createElement(react_1.default.Fragment, null,
                     react_1.default.createElement("svg", { className: " dev-select-svg", width: "14", height: "8", viewBox: "0 0 14 8", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-                        react_1.default.createElement("path", { d: "M7 7L1 0.999999", stroke: "#909BC0", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" }),
-                        react_1.default.createElement("path", { d: "M13 1L7 7", stroke: "#909BC0", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" })))) : (react_1.default.createElement(react_1.default.Fragment, null,
+                        react_1.default.createElement("path", { d: "M7 7L1 0.999999", stroke: "#909BC0", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }),
+                        react_1.default.createElement("path", { d: "M13 1L7 7", stroke: "#909BC0", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })))) : (react_1.default.createElement(react_1.default.Fragment, null,
                     react_1.default.createElement("svg", { className: "  dev-select-svg", width: "14", height: "8", viewBox: "0 0 14 8", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-                        react_1.default.createElement("path", { d: "M7 1L13 7", stroke: "#909BC0", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" }),
-                        react_1.default.createElement("path", { d: "M1 7L7 1", stroke: "#909BC0", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" }))))))),
+                        react_1.default.createElement("path", { d: "M7 1L13 7", stroke: "#909BC0", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }),
+                        react_1.default.createElement("path", { d: "M1 7L7 1", stroke: "#909BC0", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }))))))),
         loading ? (react_1.default.createElement(react_1.default.Fragment, null)) : (react_1.default.createElement(index_1.default.utils.Transition, { show: dropdownOpen, tag: "div", className: `dev-select-list ${listClass}`, enter: "transition ease-out duration-100 transform", enterStart: "opacity-0 -translate-y-2", enterEnd: "opacity-100 translate-y-0", leave: "transition ease-out duration-100", leaveStart: "opacity-100", leaveEnd: "opacity-0" },
             react_1.default.createElement("div", { ref: dropdown, className: "", onFocus: () => setDropdownOpen(true), onBlur: () => setDropdownOpen(false) }, options.map((option) => {
                 return (react_1.default.createElement("button", { key: option === null || option === void 0 ? void 0 : option.id, tabIndex: 0, className: `item text-500-16 `, style: {

@@ -1,6 +1,6 @@
 {
   "name": "react-togtokh",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/togtokh-dev/react-togtokh.git"
@@ -41,6 +41,8 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^39.0.2",
+    "@ckeditor/ckeditor5-react": "^6.1.0",
     "@rive-app/react-canvas": "^4.1.4",
     "axios": "^1.5.0",
     "framer-motion": "^10.16.0",
