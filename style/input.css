@@ -72,7 +72,6 @@ input[type="number"] {
 .dev-input-box .dev-svg-box {
   position: absolute;
   display: flex;
-  width: auto;
   gap: 8px 8px;
   height: 24px;
   top: 0;
@@ -156,7 +155,6 @@ input[type="number"] {
 .dev-input-box-web .dev-svg-box {
   position: absolute;
   display: flex;
-  width: auto;
   gap: 8px 8px;
   height: 24px;
   top: 0;

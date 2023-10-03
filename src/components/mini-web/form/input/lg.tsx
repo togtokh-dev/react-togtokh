@@ -216,7 +216,20 @@ export default function (props: Props) {
                 {lable}
               </label>
             )}
-            <div className={"dev-svg-box " + svgClassName}>
+            <div
+              className={"dev-svg-box " + svgClassName}
+              style={{
+                width: `${
+                  (addSvg ? 1 : 0) +
+                  (loading ? 1 : 0) +
+                  (type == "password" ? 1 : 0) * 24 +
+                  ((addSvg ? 1 : 0) +
+                    (loading ? 1 : 0) +
+                    (type == "password" ? 1 : 0) -
+                    1 * 8)
+                }px`,
+              }}
+            >
               {addSvg ? (
                 <>
                   {addSvg({
@@ -333,7 +346,20 @@ export default function (props: Props) {
             </label>
           )}
 
-          <div className={"dev-svg-box " + svgClassName}>
+          <div
+            className={"dev-svg-box " + svgClassName}
+            style={{
+              width: `${
+                (addSvg ? 1 : 0) +
+                (loading ? 1 : 0) +
+                (type == "password" ? 1 : 0) * 24 +
+                ((addSvg ? 1 : 0) +
+                  (loading ? 1 : 0) +
+                  (type == "password" ? 1 : 0) -
+                  1 * 8)
+              }px`,
+            }}
+          >
             {addSvg ? (
               <>
                 {addSvg({

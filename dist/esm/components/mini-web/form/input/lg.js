@@ -54,7 +54,15 @@ export default function (props) {
                         : "text-400-16 dev-input-lable-active"} ${lableClassName}`}`, style: {
                     color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
                 } }, lable)),
-            React.createElement("div", { className: "dev-svg-box " + svgClassName },
+            React.createElement("div", { className: "dev-svg-box " + svgClassName, style: {
+                    width: `${(addSvg ? 1 : 0) +
+                        (loading ? 1 : 0) +
+                        (type == "password" ? 1 : 0) * 24 +
+                        ((addSvg ? 1 : 0) +
+                            (loading ? 1 : 0) +
+                            (type == "password" ? 1 : 0) -
+                            1 * 8)}px`,
+                } },
                 addSvg ? (React.createElement(React.Fragment, null, addSvg({
                     handleClick: () => { },
                 }))) : (React.createElement(React.Fragment, null)),
@@ -115,7 +123,15 @@ export default function (props) {
                     : "text-400-16 dev-input-lable-active"} ${lableClassName}`}`, style: {
                 color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
             } }, lable)),
-        React.createElement("div", { className: "dev-svg-box " + svgClassName },
+        React.createElement("div", { className: "dev-svg-box " + svgClassName, style: {
+                width: `${(addSvg ? 1 : 0) +
+                    (loading ? 1 : 0) +
+                    (type == "password" ? 1 : 0) * 24 +
+                    ((addSvg ? 1 : 0) +
+                        (loading ? 1 : 0) +
+                        (type == "password" ? 1 : 0) -
+                        1 * 8)}px`,
+            } },
             addSvg ? (React.createElement(React.Fragment, null, addSvg({
                 handleClick: () => { },
             }))) : (React.createElement(React.Fragment, null)),
