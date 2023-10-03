@@ -8,6 +8,10 @@
   /* Resize the background image to cover the entire container */
 }
 
+.dev-upload-image label {
+  position: relative;
+}
+
 .dev-images-upload {
   width: 100%;
   height: auto;
