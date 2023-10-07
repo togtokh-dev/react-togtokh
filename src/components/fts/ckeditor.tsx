@@ -10,19 +10,21 @@ interface Props {
   username: string;
   password: string;
 }
+
 export default function (props: Props) {
   const { value, setValue, className, lable, host, username, password } = props;
+  const editor: { create(...args: any): Promise<any> } = ClassicEditor;
   return (
     <div className={className}>
       <div className="text-500-16">{lable}</div>
       <CKEditor
-        editor={ClassicEditor}
+        editor={editor}
         data={value}
         onReady={(editor) => {
           console.log("Editor is ready to use!", editor);
         }}
         onChange={(event, editor) => {
-          const data = editor.getData();
+          const data = editor.data;
           setValue(data);
           console.log({ event, editor, data });
         }}

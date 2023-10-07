@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import NcAnimations from "../../../NcAnimations";
+import React from "react";
+
 interface InStatusList {
   isOn: boolean;
   handleToggle: (Event: any) => any;
@@ -7,13 +7,13 @@ interface InStatusList {
   inactiveColor: string;
   className: string;
 }
-const Switch = ({
+export default function ({
   isOn,
   handleToggle,
   activeColor,
   className,
   inactiveColor,
-}: InStatusList) => {
+}: InStatusList) {
   return (
     <>
       <input
@@ -34,6 +34,4 @@ const Switch = ({
       </label>
     </>
   );
-};
-
-export default Switch;
+}

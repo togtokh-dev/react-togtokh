@@ -3,12 +3,13 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 export default function (props) {
     const { value, setValue, className, lable, host, username, password } = props;
+    const editor = ClassicEditor;
     return (React.createElement("div", { className: className },
         React.createElement("div", { className: "text-500-16" }, lable),
-        React.createElement(CKEditor, { editor: ClassicEditor, data: value, onReady: (editor) => {
+        React.createElement(CKEditor, { editor: editor, data: value, onReady: (editor) => {
                 console.log("Editor is ready to use!", editor);
             }, onChange: (event, editor) => {
-                const data = editor.getData();
+                const data = editor.data;
                 setValue(data);
                 console.log({ event, editor, data });
             }, onBlur: (event, editor) => {
