@@ -1,4 +1,5 @@
 import Input from "./input";
 import dropdown from "./dropdown";
-export default { Input, dropdown };
+import Switch from "./switch";
+export default { Input, dropdown, Switch };
 //

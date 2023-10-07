@@ -1,62 +1,79 @@
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 35px;
-  height: 20px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
+.dev-switch-checkbox-xl {
   height: 0;
+  width: 0;
+  visibility: hidden;
 }
 
-.slider {
-  position: absolute;
+.dev-switch-label-xl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  width: 51px;
+  height: 31px;
+  border-radius: 100px;
+  position: relative;
+  transition: background-color 0.2s;
 }
 
-.slider:before {
-  position: absolute;
+.dev-switch-label-xl .dev-switch-button-xl {
   content: "";
-  height: 16px;
-  width: 16px;
-  left: 10%;
-  bottom: 10%;
-  background-color: white;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  box-shadow: 2.5px 0px 5px rgba(30, 35, 53, 0.25);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 27px;
+  height: 27px;
+  border-radius: 45px;
+  transition: 0.2s;
+  background: #fff;
+  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
 }
 
-input:checked + .slider {
-  background-color: #1bb683;
+.dev-switch-checkbox-xl:checked + .dev-switch-label-xl .dev-switch-button-xl {
+  left: calc(100% - 1px);
+  transform: translateX(-100%);
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #3abbee;
+.dev-switch-label-xl:active .dev-switch-button-xl {
+  width: 35px;
 }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(11px);
-  -ms-transform: translateX(11px);
-  transform: translateX(11px);
-  box-shadow: -2.5px 0px 5px #3abbee;
+.dev-switch-checkbox-lg {
+  height: 0;
+  width: 0;
+  visibility: hidden;
 }
 
-/* Rounded sliders */
-
-.slider.round {
-  border-radius: 15px;
+.dev-switch-label-lg {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 40px;
+  height: 24px;
+  border-radius: 100px;
+  position: relative;
+  transition: background-color 0.2s;
 }
 
-.slider.round:before {
-  border-radius: 50%;
+.dev-switch-label-lg .dev-switch-button-lg {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 45px;
+  transition: 0.2s;
+  background: #fff;
+  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+}
+
+.dev-switch-checkbox-lg:checked + .dev-switch-label-lg .dev-switch-button-lg {
+  left: calc(100% - 1px);
+  transform: translateX(-100%);
+}
+
+.dev-switch-label-lg:active .dev-switch-button-lg {
+  width: 28px;
 }

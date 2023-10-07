@@ -13,6 +13,7 @@ interface Props {
     password: string;
     backgroundColor: string;
     svgColor: string;
+    restype?: string;
 }
 export default function (props: Props): React.JSX.Element;
 export {};

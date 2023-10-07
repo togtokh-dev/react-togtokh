@@ -1,3 +1,4 @@
 import Input from "./input";
-export default { Input };
+import Switch from "./switch";
+export default { Input, Switch };
 //

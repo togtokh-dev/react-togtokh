@@ -18,7 +18,7 @@ const removeSvg = ({ handleClick, svgColor }) => {
         React.createElement("path", { d: "M15 15L9 9", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })));
 };
 export default function (props) {
-    const { value, setValue, className, lable, host, username, password, backgroundColor, svgColor, } = props;
+    const { value, setValue, className, lable, host, username, password, backgroundColor, svgColor, restype = "id", } = props;
     const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
     const [loading, setLoading] = useState(false);
     const style = {
@@ -47,9 +47,8 @@ export default function (props) {
         };
         axios(config)
             .then((res) => {
-            var _a;
             if (res.data.success) {
-                setValue((_a = res.data.data) === null || _a === void 0 ? void 0 : _a.id);
+                setValue(res.data.data[restype]);
             }
             else {
                 console.log(res.data);

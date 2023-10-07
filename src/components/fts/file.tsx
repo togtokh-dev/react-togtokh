@@ -17,6 +17,7 @@ interface Props {
   password: string;
   backgroundColor: string;
   svgColor: string;
+  restype?: string;
 }
 const removeSvg = ({ handleClick, svgColor }: svgProps) => {
   return (
@@ -59,6 +60,7 @@ export default function (props: Props) {
     password,
     backgroundColor,
     svgColor,
+    restype = "id",
   } = props;
   const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
   const [loading, setLoading] = useState(false);
@@ -92,7 +94,7 @@ export default function (props: Props) {
     axios(config)
       .then((res) => {
         if (res.data.success) {
-          setValue(res.data.data?.id);
+          setValue(res.data.data[restype]);
         } else {
           console.log(res.data);
         }
