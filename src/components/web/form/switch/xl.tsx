@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface InStatusList {
   isOn: boolean;
@@ -14,13 +14,14 @@ export default function ({
   className,
   inactiveColor,
 }: InStatusList) {
+  const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
   return (
     <>
       <input
         checked={isOn}
         onChange={handleToggle}
         className="react-togtokh-dev dev-switch-checkbox-xl absolute"
-        id={`switch`}
+        id={`switch+${name}`}
         type="checkbox"
       />
       <label
@@ -28,7 +29,7 @@ export default function ({
           isOn ? { background: activeColor } : { background: inactiveColor }
         }
         className={" dev-switch-label-xl " + className}
-        htmlFor={`switch`}
+        htmlFor={`switch+${name}`}
       >
         <span className={` dev-switch-button-xl `} />
       </label>
