@@ -10,6 +10,7 @@ interface Props {
   disabled?: Boolean;
   handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   disableHover?: Boolean;
+  ref?: any;
 }
 
 export default function (props: Props) {
@@ -22,6 +23,7 @@ export default function (props: Props) {
     disabled,
     handleClick,
     disableHover = false,
+    ref,
   } = props;
   const [isFocused, setFocus] = useState(false);
   const style = {
@@ -42,6 +44,7 @@ export default function (props: Props) {
       title={title}
       onClick={handleClick}
       disabled={disabled ? true : false}
+      ref={ref}
     >
       {children}
     </motion.button>

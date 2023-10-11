@@ -8,6 +8,7 @@ interface Props {
     disabled?: Boolean;
     handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
     disableHover?: Boolean;
+    ref?: any;
 }
 export default function (props: Props): React.JSX.Element;
 export {};

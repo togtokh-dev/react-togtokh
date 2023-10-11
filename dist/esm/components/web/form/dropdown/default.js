@@ -39,7 +39,7 @@ function Select(props) {
         return () => document.removeEventListener("keydown", keyHandler);
     });
     return (React.createElement("div", { className: "react-togtokh-dev dev-select-main" },
-        loading ? (React.createElement(React.Fragment, null)) : (React.createElement(ReactTogtokh.MiniWeb.Button.XL, { className: `  dev-border-8  ${className}`, backgroundColor: backgroundColor, handleClick: () => setDropdownOpen(!dropdownOpen), disableHover: true, type: "button" },
+        loading ? (React.createElement(React.Fragment, null)) : (React.createElement(ReactTogtokh.MiniWeb.Button.XL, { className: `  dev-border-8  ${className}`, backgroundColor: backgroundColor, handleClick: () => setDropdownOpen(!dropdownOpen), disableHover: true, type: "button", ref: trigger },
             React.createElement("div", { className: "dev-select" },
                 React.createElement("span", null, ((_a = options.filter((data) => (data === null || data === void 0 ? void 0 : data.id) == selected)[0]) === null || _a === void 0 ? void 0 : _a.period) ||
                     lable),

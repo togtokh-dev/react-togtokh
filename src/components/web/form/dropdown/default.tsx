@@ -74,6 +74,7 @@ function Select(props: Props) {
           handleClick={() => setDropdownOpen(!dropdownOpen)}
           disableHover={true}
           type="button"
+          ref={trigger}
         >
           <div className="dev-select">
             <span>
