@@ -24,7 +24,7 @@ export default function (props: Props) {
           console.log("Editor is ready to use!", editor);
         }}
         onChange={(event, editor) => {
-          const data = editor.data;
+          const data = editor.getData();
           setValue(data);
           console.log({ event, editor, data });
         }}

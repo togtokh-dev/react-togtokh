@@ -9,7 +9,7 @@ export default function (props) {
         React.createElement(CKEditor, { editor: editor, data: value, onReady: (editor) => {
                 console.log("Editor is ready to use!", editor);
             }, onChange: (event, editor) => {
-                const data = editor.data;
+                const data = editor.getData();
                 setValue(data);
                 console.log({ event, editor, data });
             }, onBlur: (event, editor) => {
