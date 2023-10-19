@@ -41,7 +41,7 @@ const framer_motion_1 = require("framer-motion");
 const axios_1 = __importDefault(require("axios"));
 const __1 = __importDefault(require("../../"));
 function default_1(props) {
-    const { value, setValue, className, lable, host, public_host, username, password, backgroundColor, } = props;
+    const { value, setValue, className, lable, host, public_host, username, password, backgroundColor, restype = "id", } = props;
     const [name] = (0, react_1.useState)(`${Math.floor(Math.random() * 600) + 1}`);
     const [loading, setLoading] = (0, react_1.useState)(false);
     const onFileChange = (event) => {
@@ -76,7 +76,7 @@ function default_1(props) {
                 else {
                     for (let index = 0; index < ((_c = (_b = res.data) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.length); index++) {
                         const element = res.data.data[index];
-                        rawdata.push(element.id);
+                        rawdata.push(element[restype]);
                     }
                 }
                 setValue(rawdata);

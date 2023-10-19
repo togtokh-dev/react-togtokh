@@ -24,5 +24,8 @@ declare const _default: {
         useQuery: typeof import("./support").useQuery;
         hexToRGB: (h: any) => string;
     };
+    HIPAY: {
+        buy: typeof import("./hipay").buy;
+    };
 };
 export default _default;

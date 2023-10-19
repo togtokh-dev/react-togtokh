@@ -9,6 +9,7 @@ interface Props {
     username: string;
     password: string;
     backgroundColor: string;
+    restype?: string;
 }
 export default function (props: Props): React.JSX.Element;
 export {};

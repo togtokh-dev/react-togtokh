@@ -13,6 +13,7 @@ interface Props {
   username: string;
   password: string;
   backgroundColor: string;
+  restype?: string;
 }
 export default function (props: Props) {
   const {
@@ -25,6 +26,7 @@ export default function (props: Props) {
     username,
     password,
     backgroundColor,
+    restype = "id",
   } = props;
   const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
   const [loading, setLoading] = useState(false);
@@ -64,7 +66,7 @@ export default function (props: Props) {
           } else {
             for (let index = 0; index < res.data?.data?.length; index++) {
               const element = res.data.data[index];
-              rawdata.push(element.id);
+              rawdata.push(element[restype]);
             }
           }
           setValue(rawdata);

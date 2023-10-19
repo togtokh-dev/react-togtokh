@@ -13,6 +13,7 @@ interface Props {
   username: string;
   password: string;
   backgroundColor: string;
+  restype?: string;
 }
 export default function (props: Props) {
   const {
@@ -25,6 +26,7 @@ export default function (props: Props) {
     username,
     password,
     backgroundColor,
+    restype = "id",
   } = props;
   const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
   const [loading, setLoading] = useState(false);
@@ -54,7 +56,7 @@ export default function (props: Props) {
     axios(config)
       .then((res) => {
         if (res.data.success) {
-          setValue(res.data.data?.id);
+          setValue(res.data.data[restype]);
         } else {
           console.log(res.data);
         }

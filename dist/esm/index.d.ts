@@ -12,6 +12,10 @@ declare const _default: {
                 LG: typeof import("./components/mini-web/form/input/lg").default;
                 XL: typeof import("./components/mini-web/form/input/xl").default;
             };
+            ClearInput: {
+                LG: typeof import("./components/mini-web/form/clear-input/lg").default;
+                XL: typeof import("./components/mini-web/form/clear-input/xl").default;
+            };
             Switch: {
                 LG: typeof import("./components/mini-web/form/switch/lg").default;
                 XL: typeof import("./components/mini-web/form/switch/xl").default;
@@ -37,6 +41,10 @@ declare const _default: {
             Switch: {
                 LG: typeof import("./components/web/form/switch/lg").default;
                 XL: typeof import("./components/web/form/switch/xl").default;
+            };
+            ClearInput: {
+                LG: typeof import("./components/web/form/clear-input/lg").default;
+                XL: typeof import("./components/web/form/clear-input/xl").default;
             };
         };
     };
@@ -65,6 +73,9 @@ declare const _default: {
             useParam: typeof import("./service/support").useParam;
             useQuery: typeof import("./service/support").useQuery;
             hexToRGB: (h: any) => string;
+        };
+        HIPAY: {
+            buy: typeof import("./service/hipay").buy;
         };
     };
     utils: {

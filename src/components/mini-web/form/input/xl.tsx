@@ -194,12 +194,12 @@ export default function (props: Props) {
     } else {
       if (type == "password") {
         count++;
-      } else if (clearButton && value) {
+      } else if (clearButton && value && focusType) {
         count++;
       }
     }
     setSvgWidth(`${count * 24 + count * 8 - 8}px`);
-  }, [addSvg, loading, type, clearButton, value]);
+  }, [addSvg, loading, type, clearButton, value, focusType]);
   return (
     <>
       {children ? (
@@ -275,14 +275,25 @@ export default function (props: Props) {
                     </div>
                   ) : (
                     <>
-                      {value &&
-                        removeSvg({
-                          handleClick: () => {
-                            setValue("");
-                            textInput.current?.focus({ preventScroll: true });
-                          },
-                          styleConfig: styleConfig,
-                        })}
+                      {clearButton ? (
+                        <>
+                          {focusType ? (
+                            removeSvg({
+                              handleClick: () => {
+                                setValue("");
+                                textInput.current?.focus({
+                                  preventScroll: true,
+                                });
+                              },
+                              styleConfig: styleConfig,
+                            })
+                          ) : (
+                            <></>
+                          )}
+                        </>
+                      ) : (
+                        <></>
+                      )}
                     </>
                   )}
                 </>
@@ -399,13 +410,21 @@ export default function (props: Props) {
                     {value && (
                       <>
                         {clearButton ? (
-                          removeSvg({
-                            handleClick: () => {
-                              setValue("");
-                              textInput.current?.focus({ preventScroll: true });
-                            },
-                            styleConfig: styleConfig,
-                          })
+                          <>
+                            {focusType ? (
+                              removeSvg({
+                                handleClick: () => {
+                                  setValue("");
+                                  textInput.current?.focus({
+                                    preventScroll: true,
+                                  });
+                                },
+                                styleConfig: styleConfig,
+                              })
+                            ) : (
+                              <></>
+                            )}
+                          </>
                         ) : (
                           <></>
                         )}

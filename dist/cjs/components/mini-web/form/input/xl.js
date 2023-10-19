@@ -83,12 +83,12 @@ function default_1(props) {
             if (type == "password") {
                 count++;
             }
-            else if (clearButton && value) {
+            else if (clearButton && value && focusType) {
                 count++;
             }
         }
         setSvgWidth(`${count * 24 + count * 8 - 8}px`);
-    }, [addSvg, loading, type, clearButton, value]);
+    }, [addSvg, loading, type, clearButton, value, focusType]);
     return (react_1.default.createElement(react_1.default.Fragment, null, children ? (react_1.default.createElement("div", { className: "react-togtokh-dev dev-input-box w-full " + className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
@@ -126,15 +126,16 @@ function default_1(props) {
                                 setShow(false);
                             },
                             styleConfig: styleConfig,
-                        }))) : (react_1.default.createElement(react_1.default.Fragment, null, value &&
-                        removeSvg({
-                            handleClick: () => {
-                                var _a;
-                                setValue("");
-                                (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({ preventScroll: true });
-                            },
-                            styleConfig: styleConfig,
-                        })))))),
+                        }))) : (react_1.default.createElement(react_1.default.Fragment, null, clearButton ? (react_1.default.createElement(react_1.default.Fragment, null, focusType ? (removeSvg({
+                        handleClick: () => {
+                            var _a;
+                            setValue("");
+                            (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({
+                                preventScroll: true,
+                            });
+                        },
+                        styleConfig: styleConfig,
+                    })) : (react_1.default.createElement(react_1.default.Fragment, null)))) : (react_1.default.createElement(react_1.default.Fragment, null))))))),
             react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input-children-icon  text-400-16 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                     setfocusType(false);
                 }, onFocus: (e) => {
@@ -187,14 +188,16 @@ function default_1(props) {
                         setShow(false);
                     },
                     styleConfig: styleConfig,
-                }))) : (react_1.default.createElement(react_1.default.Fragment, null, value && (react_1.default.createElement(react_1.default.Fragment, null, clearButton ? (removeSvg({
+                }))) : (react_1.default.createElement(react_1.default.Fragment, null, value && (react_1.default.createElement(react_1.default.Fragment, null, clearButton ? (react_1.default.createElement(react_1.default.Fragment, null, focusType ? (removeSvg({
                 handleClick: () => {
                     var _a;
                     setValue("");
-                    (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({ preventScroll: true });
+                    (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({
+                        preventScroll: true,
+                    });
                 },
                 styleConfig: styleConfig,
-            })) : (react_1.default.createElement(react_1.default.Fragment, null))))))))),
+            })) : (react_1.default.createElement(react_1.default.Fragment, null)))) : (react_1.default.createElement(react_1.default.Fragment, null))))))))),
         react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input  text-400-16 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                 setfocusType(false);
             }, onFocus: (e) => {

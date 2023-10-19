@@ -40,7 +40,7 @@ const NcAnimations_1 = __importDefault(require("../NcAnimations"));
 const framer_motion_1 = require("framer-motion");
 const axios_1 = __importDefault(require("axios"));
 function default_1(props) {
-    const { value, setValue, className, lable, host, public_host, username, password, backgroundColor, } = props;
+    const { value, setValue, className, lable, host, public_host, username, password, backgroundColor, restype = "id", } = props;
     const [name] = (0, react_1.useState)(`${Math.floor(Math.random() * 600) + 1}`);
     const [loading, setLoading] = (0, react_1.useState)(false);
     const onFileChange = (event) => {
@@ -64,9 +64,8 @@ function default_1(props) {
         };
         (0, axios_1.default)(config)
             .then((res) => {
-            var _a;
             if (res.data.success) {
-                setValue((_a = res.data.data) === null || _a === void 0 ? void 0 : _a.id);
+                setValue(res.data.data[restype]);
             }
             else {
                 console.log(res.data);

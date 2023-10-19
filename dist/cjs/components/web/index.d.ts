@@ -18,6 +18,10 @@ declare const _default: {
             LG: typeof import("./form/switch/lg").default;
             XL: typeof import("./form/switch/xl").default;
         };
+        ClearInput: {
+            LG: typeof import("./form/clear-input/lg").default;
+            XL: typeof import("./form/clear-input/xl").default;
+        };
     };
 };
 export default _default;
