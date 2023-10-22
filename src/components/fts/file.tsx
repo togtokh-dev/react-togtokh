@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NcAnimations from "../NcAnimations";
 import { motion } from "framer-motion";
 import axios from "axios";
+import ReactTogtokh from "../../";
 export interface svgProps {
   handleClick?: (event: React.MouseEvent<HTMLOrSVGElement>) => void;
   svgColor: any;
@@ -18,6 +19,7 @@ interface Props {
   backgroundColor: string;
   svgColor: string;
   restype?: string;
+  icon?: string;
 }
 const removeSvg = ({ handleClick, svgColor }: svgProps) => {
   return (
@@ -61,6 +63,7 @@ export default function (props: Props) {
     backgroundColor,
     svgColor,
     restype = "id",
+    icon = "",
   } = props;
   const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
   const [loading, setLoading] = useState(false);
@@ -114,7 +117,15 @@ export default function (props: Props) {
     >
       <div className="dev-input-children">
         <motion.label htmlFor={`upload-${name}`}>
-          <div className="upload-icon"></div>
+          <div className="upload-icon" style={{ backgroundColor: svgColor }}>
+            <ReactTogtokh.Image.NcImage.PathImage
+              src={icon}
+              className="dev-border-8"
+              imageClass="h-full w-auto"
+              containerClassName="h-full w-full"
+              placeholderClass="h-full w-auto flex items-center justify-center text-neutral-100 "
+            />
+          </div>
           <input
             type="file"
             className="hidden"

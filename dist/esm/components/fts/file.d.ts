@@ -14,6 +14,7 @@ interface Props {
     backgroundColor: string;
     svgColor: string;
     restype?: string;
+    icon?: string;
 }
 export default function (props: Props): React.JSX.Element;
 export {};

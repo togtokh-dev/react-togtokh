@@ -11,6 +11,7 @@ import React, { useState } from "react";
 import NcAnimations from "../NcAnimations";
 import { motion } from "framer-motion";
 import axios from "axios";
+import ReactTogtokh from "../../";
 const removeSvg = ({ handleClick, svgColor }) => {
     return (React.createElement("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: svgColor, xmlns: "http://www.w3.org/2000/svg", className: ` dev-svg `, onClick: handleClick },
         React.createElement("circle", { cx: "12", cy: "12", r: "9" }),
@@ -18,7 +19,7 @@ const removeSvg = ({ handleClick, svgColor }) => {
         React.createElement("path", { d: "M15 15L9 9", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })));
 };
 export default function (props) {
-    const { value, setValue, className, lable, host, username, password, backgroundColor, svgColor, restype = "id", } = props;
+    const { value, setValue, className, lable, host, username, password, backgroundColor, svgColor, restype = "id", icon = "", } = props;
     const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
     const [loading, setLoading] = useState(false);
     const style = {
@@ -63,7 +64,8 @@ export default function (props) {
     return (React.createElement("div", { className: "react-togtokh-dev dev-input-box w-full  dev-border-12 " + className, style: style },
         React.createElement("div", { className: "dev-input-children" },
             React.createElement(motion.label, { htmlFor: `upload-${name}` },
-                React.createElement("div", { className: "upload-icon" }),
+                React.createElement("div", { className: "upload-icon", style: { backgroundColor: svgColor } },
+                    React.createElement(ReactTogtokh.Image.NcImage.PathImage, { src: icon, className: "dev-border-8", imageClass: "h-full w-auto", containerClassName: "h-full w-full", placeholderClass: "h-full w-auto flex items-center justify-center text-neutral-100 " })),
                 React.createElement("input", { type: "file", className: "hidden", id: `upload-${name}`, onChange: onFileChange }))),
         React.createElement("div", { className: " w-full h-full " },
             React.createElement("div", { className: "dev-svg-box " },
