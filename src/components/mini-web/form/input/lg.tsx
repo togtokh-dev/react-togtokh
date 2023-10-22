@@ -194,12 +194,12 @@ export default function (props: Props) {
     } else {
       if (type == "password") {
         count++;
-      } else if (clearButton && value) {
+      } else if (clearButton && value && focusType) {
         count++;
       }
     }
     setSvgWidth(`${count * 24 + count * 8 - 8}px`);
-  }, [addSvg, loading, type, clearButton, value]);
+  }, [addSvg, loading, type, clearButton, value, focusType]);
   return (
     <>
       {children ? (

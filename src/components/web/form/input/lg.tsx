@@ -139,7 +139,11 @@ const removeSvg = ({ handleClick, styleConfig }: svgProps) => {
   );
 };
 const loadingSvg = ({ handleClick, styleConfig }: svgProps) => {
-  return <NcAnimations.LoadingRiv />;
+  return (
+    <>
+      <NcAnimations.LoadingRiv />
+    </>
+  );
 };
 export default function (props: Props) {
   const {
@@ -194,17 +198,20 @@ export default function (props: Props) {
     } else {
       if (type == "password") {
         count++;
-      } else if (clearButton && value) {
+      } else if (clearButton && value && focusType) {
         count++;
       }
     }
     setSvgWidth(`${count * 24 + count * 8 - 8}px`);
-  }, [addSvg, loading, type, clearButton, value]);
+  }, [addSvg, loading, type, clearButton, value, focusType]);
   return (
     <>
       {children ? (
         <div
-          className={"react-togtokh-dev dev-input-box w-full " + className}
+          className={
+            "react-togtokh-dev dev-input-box-web w-full  dev-border-12 " +
+            className
+          }
           style={{
             backgroundColor: styleConfig?.bgColor,
             color: styleConfig?.textColor,
@@ -218,11 +225,11 @@ export default function (props: Props) {
                 htmlFor={name}
                 className={`dev-input-lable-children-icon ${
                   value
-                    ? "text-400-12 dev-input-lable-deactivate"
+                    ? "text-400-14 dev-input-lable-deactivate"
                     : `${
                         focusType
-                          ? "text-400-12 dev-input-lable-deactivate"
-                          : "text-400-16 dev-input-lable-active"
+                          ? "text-400-14 dev-input-lable-deactivate"
+                          : "text-400-14 dev-input-lable-active"
                       } ${lableClassName}`
                 }`}
                 style={{
@@ -275,14 +282,23 @@ export default function (props: Props) {
                     </div>
                   ) : (
                     <>
-                      {value &&
-                        removeSvg({
-                          handleClick: () => {
-                            setValue("");
-                            textInput.current?.focus({ preventScroll: true });
-                          },
-                          styleConfig: styleConfig,
-                        })}
+                      {value && (
+                        <>
+                          {clearButton ? (
+                            removeSvg({
+                              handleClick: () => {
+                                setValue("");
+                                textInput.current?.focus({
+                                  preventScroll: true,
+                                });
+                              },
+                              styleConfig: styleConfig,
+                            })
+                          ) : (
+                            <></>
+                          )}
+                        </>
+                      )}
                     </>
                   )}
                 </>
@@ -293,7 +309,7 @@ export default function (props: Props) {
               ref={textInput}
               type={show ? "text" : type}
               className={
-                "dev-input-children-icon  text-400-16 " + inputClassName
+                "dev-input-children-icon  text-400-14 " + inputClassName
               }
               defaultValue={value}
               inputMode={inputMode}
@@ -328,7 +344,10 @@ export default function (props: Props) {
         </div>
       ) : (
         <div
-          className={"react-togtokh-dev dev-input-box w-full   " + className}
+          className={
+            "react-togtokh-dev dev-input-box-web w-full  dev-border-12 " +
+            className
+          }
           style={{
             backgroundColor: styleConfig?.bgColor,
             color: styleConfig?.textColor,
@@ -338,12 +357,12 @@ export default function (props: Props) {
             <label
               htmlFor={name}
               className={`dev-input-lable ${
-                value != ""
-                  ? "text-400-12 dev-input-lable-deactivate"
+                value
+                  ? "text-400-14 dev-input-lable-deactivate"
                   : `${
                       focusType
-                        ? "text-400-12 dev-input-lable-deactivate"
-                        : "text-400-16 dev-input-lable-active"
+                        ? "text-400-14 dev-input-lable-deactivate"
+                        : "text-400-14 dev-input-lable-active"
                     } ${lableClassName}`
               }`}
               style={{
@@ -378,6 +397,7 @@ export default function (props: Props) {
               </>
             ) : (
               <>
+                {" "}
                 {type == "password" ? (
                   <div>
                     {!show
@@ -420,7 +440,7 @@ export default function (props: Props) {
             id={name}
             ref={textInput}
             type={show ? "text" : type}
-            className={"dev-input  text-400-16 " + inputClassName}
+            className={"dev-input  text-400-14 " + inputClassName}
             defaultValue={value}
             inputMode={inputMode}
             pattern={pattern}

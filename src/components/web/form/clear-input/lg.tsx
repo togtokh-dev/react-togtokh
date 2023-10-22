@@ -28,9 +28,6 @@ interface Props {
   onFocus: any;
   loading: Boolean;
   className?: string;
-  inputClassName?: string;
-  lableClassName?: string;
-  svgClassName?: string;
   maxLength?: number;
   inputMode?:
     | "none"
@@ -46,7 +43,6 @@ interface Props {
   addSvg: any;
   children?: React.ReactNode;
   disabled?: boolean | undefined;
-  clearButton?: boolean | undefined;
 }
 const showSvg = ({ handleClick, styleConfig }: svgProps) => {
   return (
@@ -139,7 +135,11 @@ const removeSvg = ({ handleClick, styleConfig }: svgProps) => {
   );
 };
 const loadingSvg = ({ handleClick, styleConfig }: svgProps) => {
-  return <NcAnimations.LoadingRiv />;
+  return (
+    <>
+      <NcAnimations.LoadingRiv />
+    </>
+  );
 };
 export default function (props: Props) {
   const {
@@ -158,16 +158,11 @@ export default function (props: Props) {
     statusList,
     status,
     addSvg,
-    clearButton = true,
-    inputClassName,
-    lableClassName,
-    svgClassName,
   } = props;
   const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
   const textInput = useRef<HTMLInputElement>(null);
   const [focusType, setfocusType] = useState(false);
   const [show, setShow] = useState(false);
-  const [svgWidth, setSvgWidth] = useState("24px");
   const [styleConfig, setStyleConfig] = useState<InStatusList>({
     bgColor: "#FFFFFF",
     textColor: "#101318",
@@ -181,30 +176,14 @@ export default function (props: Props) {
     const a = statusList.filter((el) => el.status == status);
     setStyleConfig(a[0]);
   }, [status]);
-  useEffect(() => {
-    let count = 0;
-    if (addSvg) {
-      count++;
-    }
-    if (loading) {
-      count++;
-      if (type == "password") {
-        count++;
-      }
-    } else {
-      if (type == "password") {
-        count++;
-      } else if (clearButton && value) {
-        count++;
-      }
-    }
-    setSvgWidth(`${count * 24 + count * 8 - 8}px`);
-  }, [addSvg, loading, type, clearButton, value]);
   return (
     <>
       {children ? (
         <div
-          className={"react-togtokh-dev dev-input-box w-full " + className}
+          className={
+            "react-togtokh-dev dev-input-box-web w-full  dev-border-12 " +
+            className
+          }
           style={{
             backgroundColor: styleConfig?.bgColor,
             color: styleConfig?.textColor,
@@ -218,12 +197,12 @@ export default function (props: Props) {
                 htmlFor={name}
                 className={`dev-input-lable-children-icon ${
                   value
-                    ? "text-400-12 dev-input-lable-deactivate"
+                    ? "text-400-14 dev-input-lable-deactivate"
                     : `${
                         focusType
-                          ? "text-400-12 dev-input-lable-deactivate"
-                          : "text-400-16 dev-input-lable-active"
-                      } ${lableClassName}`
+                          ? "text-400-14 dev-input-lable-deactivate"
+                          : "text-400-14 dev-input-lable-active"
+                      } `
                 }`}
                 style={{
                   color: styleConfig?.placeholderColor,
@@ -232,12 +211,7 @@ export default function (props: Props) {
                 {lable}
               </label>
             )}
-            <div
-              className={"dev-svg-box " + svgClassName}
-              style={{
-                width: svgWidth,
-              }}
-            >
+            <div className="dev-svg-box ">
               {addSvg ? (
                 <>
                   {addSvg({
@@ -292,9 +266,7 @@ export default function (props: Props) {
               id={name}
               ref={textInput}
               type={show ? "text" : type}
-              className={
-                "dev-input-children-icon  text-400-16 " + inputClassName
-              }
+              className="dev-input-children-icon dev-border-12 text-400-14"
               defaultValue={value}
               inputMode={inputMode}
               pattern={pattern}
@@ -328,7 +300,10 @@ export default function (props: Props) {
         </div>
       ) : (
         <div
-          className={"react-togtokh-dev dev-input-box w-full   " + className}
+          className={
+            "react-togtokh-dev dev-input-box-web w-full  dev-border-12 " +
+            className
+          }
           style={{
             backgroundColor: styleConfig?.bgColor,
             color: styleConfig?.textColor,
@@ -338,13 +313,13 @@ export default function (props: Props) {
             <label
               htmlFor={name}
               className={`dev-input-lable ${
-                value != ""
-                  ? "text-400-12 dev-input-lable-deactivate"
+                value
+                  ? "text-400-14 dev-input-lable-deactivate"
                   : `${
                       focusType
-                        ? "text-400-12 dev-input-lable-deactivate"
-                        : "text-400-16 dev-input-lable-active"
-                    } ${lableClassName}`
+                        ? "text-400-14 dev-input-lable-deactivate"
+                        : "text-400-14 dev-input-lable-active"
+                    } `
               }`}
               style={{
                 color: styleConfig?.placeholderColor,
@@ -354,12 +329,7 @@ export default function (props: Props) {
             </label>
           )}
 
-          <div
-            className={"dev-svg-box " + svgClassName}
-            style={{
-              width: svgWidth,
-            }}
-          >
+          <div className="dev-svg-box ">
             {addSvg ? (
               <>
                 {addSvg({
@@ -378,6 +348,7 @@ export default function (props: Props) {
               </>
             ) : (
               <>
+                {" "}
                 {type == "password" ? (
                   <div>
                     {!show
@@ -396,21 +367,14 @@ export default function (props: Props) {
                   </div>
                 ) : (
                   <>
-                    {value && (
-                      <>
-                        {clearButton ? (
-                          removeSvg({
-                            handleClick: () => {
-                              setValue("");
-                              textInput.current?.focus({ preventScroll: true });
-                            },
-                            styleConfig: styleConfig,
-                          })
-                        ) : (
-                          <></>
-                        )}
-                      </>
-                    )}
+                    {value &&
+                      removeSvg({
+                        handleClick: () => {
+                          setValue("");
+                          textInput.current?.focus({ preventScroll: true });
+                        },
+                        styleConfig: styleConfig,
+                      })}
                   </>
                 )}
               </>
@@ -420,7 +384,7 @@ export default function (props: Props) {
             id={name}
             ref={textInput}
             type={show ? "text" : type}
-            className={"dev-input  text-400-16 " + inputClassName}
+            className="dev-input dev-border-12 text-400-14"
             defaultValue={value}
             inputMode={inputMode}
             pattern={pattern}

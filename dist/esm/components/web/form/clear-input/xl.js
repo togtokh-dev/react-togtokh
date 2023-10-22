@@ -18,15 +18,15 @@ const removeSvg = ({ handleClick, styleConfig }) => {
         React.createElement("path", { d: "M15 15L9 9", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })));
 };
 const loadingSvg = ({ handleClick, styleConfig }) => {
-    return React.createElement(NcAnimations.LoadingRiv, null);
+    return (React.createElement(React.Fragment, null,
+        React.createElement(NcAnimations.LoadingRiv, null)));
 };
 export default function (props) {
-    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading, statusList, status, addSvg, clearButton = true, inputClassName, lableClassName, svgClassName, } = props;
+    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading, statusList, status, addSvg, } = props;
     const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
     const textInput = useRef(null);
     const [focusType, setfocusType] = useState(false);
     const [show, setShow] = useState(false);
-    const [svgWidth, setSvgWidth] = useState("24px");
     const [styleConfig, setStyleConfig] = useState({
         bgColor: "#FFFFFF",
         textColor: "#101318",
@@ -40,28 +40,8 @@ export default function (props) {
         const a = statusList.filter((el) => el.status == status);
         setStyleConfig(a[0]);
     }, [status]);
-    useEffect(() => {
-        let count = 0;
-        if (addSvg) {
-            count++;
-        }
-        if (loading) {
-            count++;
-            if (type == "password") {
-                count++;
-            }
-        }
-        else {
-            if (type == "password") {
-                count++;
-            }
-            else if (clearButton && value) {
-                count++;
-            }
-        }
-        setSvgWidth(`${count * 24 + count * 8 - 8}px`);
-    }, [addSvg, loading, type, clearButton, value]);
-    return (React.createElement(React.Fragment, null, children ? (React.createElement("div", { className: "react-togtokh-dev dev-input-box w-full " + className, style: {
+    return (React.createElement(React.Fragment, null, children ? (React.createElement("div", { className: "react-togtokh-dev dev-input-box-web w-full  dev-border-12 " +
+            className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },
@@ -69,15 +49,13 @@ export default function (props) {
         React.createElement("div", { className: " w-full h-full " },
             " ",
             lable && (React.createElement("label", { htmlFor: name, className: `dev-input-lable-children-icon ${value
-                    ? "text-400-12 dev-input-lable-deactivate"
+                    ? "text-400-14 dev-input-lable-deactivate"
                     : `${focusType
-                        ? "text-400-12 dev-input-lable-deactivate"
-                        : "text-400-16 dev-input-lable-active"} ${lableClassName}`}`, style: {
+                        ? "text-400-14 dev-input-lable-deactivate"
+                        : "text-400-14 dev-input-lable-active"} `}`, style: {
                     color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
                 } }, lable)),
-            React.createElement("div", { className: "dev-svg-box " + svgClassName, style: {
-                    width: svgWidth,
-                } },
+            React.createElement("div", { className: "dev-svg-box " },
                 addSvg ? (React.createElement(React.Fragment, null, addSvg({
                     handleClick: () => { },
                 }))) : (React.createElement(React.Fragment, null)),
@@ -107,7 +85,7 @@ export default function (props) {
                             },
                             styleConfig: styleConfig,
                         })))))),
-            React.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input-children-icon  text-400-16 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
+            React.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input-children-icon dev-border-12 text-400-14", defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                     setfocusType(false);
                 }, onFocus: (e) => {
                     setfocusType(true);
@@ -127,47 +105,49 @@ export default function (props) {
                 }, disabled: disabled, style: {
                     caretColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.caretColor,
                     borderColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.borderColor,
-                } })))) : (React.createElement("div", { className: "react-togtokh-dev dev-input-box w-full   " + className, style: {
+                } })))) : (React.createElement("div", { className: "react-togtokh-dev dev-input-box-web w-full  dev-border-12 " +
+            className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },
-        lable && (React.createElement("label", { htmlFor: name, className: `dev-input-lable ${value != ""
-                ? "text-400-12 dev-input-lable-deactivate"
+        lable && (React.createElement("label", { htmlFor: name, className: `dev-input-lable ${value
+                ? "text-400-14 dev-input-lable-deactivate"
                 : `${focusType
-                    ? "text-400-12 dev-input-lable-deactivate"
-                    : "text-400-16 dev-input-lable-active"} ${lableClassName}`}`, style: {
+                    ? "text-400-14 dev-input-lable-deactivate"
+                    : "text-400-14 dev-input-lable-active"} `}`, style: {
                 color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
             } }, lable)),
-        React.createElement("div", { className: "dev-svg-box " + svgClassName, style: {
-                width: svgWidth,
-            } },
+        React.createElement("div", { className: "dev-svg-box " },
             addSvg ? (React.createElement(React.Fragment, null, addSvg({
                 handleClick: () => { },
             }))) : (React.createElement(React.Fragment, null)),
             loading ? (React.createElement(React.Fragment, null, loadingSvg({
                 handleClick: () => { },
                 styleConfig: styleConfig,
-            }))) : (React.createElement(React.Fragment, null, type == "password" ? (React.createElement("div", null, !show
-                ? hideSvg({
-                    handleClick: () => {
-                        setShow(true);
-                    },
-                    styleConfig: styleConfig,
-                })
-                : showSvg({
-                    handleClick: () => {
-                        setShow(false);
-                    },
-                    styleConfig: styleConfig,
-                }))) : (React.createElement(React.Fragment, null, value && (React.createElement(React.Fragment, null, clearButton ? (removeSvg({
-                handleClick: () => {
-                    var _a;
-                    setValue("");
-                    (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({ preventScroll: true });
-                },
-                styleConfig: styleConfig,
-            })) : (React.createElement(React.Fragment, null))))))))),
-        React.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input  text-400-16 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
+            }))) : (React.createElement(React.Fragment, null,
+                " ",
+                type == "password" ? (React.createElement("div", null, !show
+                    ? hideSvg({
+                        handleClick: () => {
+                            setShow(true);
+                        },
+                        styleConfig: styleConfig,
+                    })
+                    : showSvg({
+                        handleClick: () => {
+                            setShow(false);
+                        },
+                        styleConfig: styleConfig,
+                    }))) : (React.createElement(React.Fragment, null, value &&
+                    removeSvg({
+                        handleClick: () => {
+                            var _a;
+                            setValue("");
+                            (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({ preventScroll: true });
+                        },
+                        styleConfig: styleConfig,
+                    })))))),
+        React.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input dev-border-12 text-400-14", defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                 setfocusType(false);
             }, onFocus: (e) => {
                 setfocusType(true);

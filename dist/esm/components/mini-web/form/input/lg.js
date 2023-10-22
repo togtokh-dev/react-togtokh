@@ -55,12 +55,12 @@ export default function (props) {
             if (type == "password") {
                 count++;
             }
-            else if (clearButton && value) {
+            else if (clearButton && value && focusType) {
                 count++;
             }
         }
         setSvgWidth(`${count * 24 + count * 8 - 8}px`);
-    }, [addSvg, loading, type, clearButton, value]);
+    }, [addSvg, loading, type, clearButton, value, focusType]);
     return (React.createElement(React.Fragment, null, children ? (React.createElement("div", { className: "react-togtokh-dev dev-input-box w-full " + className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
