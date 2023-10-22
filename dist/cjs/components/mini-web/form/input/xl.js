@@ -188,7 +188,7 @@ function default_1(props) {
                         setShow(false);
                     },
                     styleConfig: styleConfig,
-                }))) : (react_1.default.createElement(react_1.default.Fragment, null, value && (react_1.default.createElement(react_1.default.Fragment, null, clearButton ? (react_1.default.createElement(react_1.default.Fragment, null, focusType ? (removeSvg({
+                }))) : (react_1.default.createElement(react_1.default.Fragment, null, clearButton ? (react_1.default.createElement(react_1.default.Fragment, null, focusType ? (removeSvg({
                 handleClick: () => {
                     var _a;
                     setValue("");
@@ -197,7 +197,7 @@ function default_1(props) {
                     });
                 },
                 styleConfig: styleConfig,
-            })) : (react_1.default.createElement(react_1.default.Fragment, null)))) : (react_1.default.createElement(react_1.default.Fragment, null))))))))),
+            })) : (react_1.default.createElement(react_1.default.Fragment, null)))) : (react_1.default.createElement(react_1.default.Fragment, null))))))),
         react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input  text-400-16 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                 setfocusType(false);
             }, onFocus: (e) => {

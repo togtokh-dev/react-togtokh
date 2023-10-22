@@ -98,15 +98,16 @@ export default function (props) {
                                 setShow(false);
                             },
                             styleConfig: styleConfig,
-                        }))) : (React.createElement(React.Fragment, null, value &&
-                        removeSvg({
-                            handleClick: () => {
-                                var _a;
-                                setValue("");
-                                (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({ preventScroll: true });
-                            },
-                            styleConfig: styleConfig,
-                        })))))),
+                        }))) : (React.createElement(React.Fragment, null, clearButton ? (React.createElement(React.Fragment, null, focusType ? (removeSvg({
+                        handleClick: () => {
+                            var _a;
+                            setValue("");
+                            (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({
+                                preventScroll: true,
+                            });
+                        },
+                        styleConfig: styleConfig,
+                    })) : (React.createElement(React.Fragment, null)))) : (React.createElement(React.Fragment, null))))))),
             React.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input-children-icon  text-400-16 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                     setfocusType(false);
                 }, onFocus: (e) => {
@@ -159,14 +160,16 @@ export default function (props) {
                         setShow(false);
                     },
                     styleConfig: styleConfig,
-                }))) : (React.createElement(React.Fragment, null, value && (React.createElement(React.Fragment, null, clearButton ? (removeSvg({
+                }))) : (React.createElement(React.Fragment, null, clearButton ? (React.createElement(React.Fragment, null, focusType ? (removeSvg({
                 handleClick: () => {
                     var _a;
                     setValue("");
-                    (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({ preventScroll: true });
+                    (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({
+                        preventScroll: true,
+                    });
                 },
                 styleConfig: styleConfig,
-            })) : (React.createElement(React.Fragment, null))))))))),
+            })) : (React.createElement(React.Fragment, null)))) : (React.createElement(React.Fragment, null))))))),
         React.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input  text-400-16 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                 setfocusType(false);
             }, onFocus: (e) => {

@@ -208,10 +208,7 @@ export default function (props: Props) {
     <>
       {children ? (
         <div
-          className={
-            "react-togtokh-dev dev-input-box-web w-full  dev-border-12 " +
-            className
-          }
+          className={"react-togtokh-dev dev-input-box-web w-full " + className}
           style={{
             backgroundColor: styleConfig?.bgColor,
             color: styleConfig?.textColor,
@@ -282,9 +279,9 @@ export default function (props: Props) {
                     </div>
                   ) : (
                     <>
-                      {value && (
+                      {clearButton ? (
                         <>
-                          {clearButton ? (
+                          {focusType ? (
                             removeSvg({
                               handleClick: () => {
                                 setValue("");
@@ -298,6 +295,8 @@ export default function (props: Props) {
                             <></>
                           )}
                         </>
+                      ) : (
+                        <></>
                       )}
                     </>
                   )}
@@ -344,10 +343,7 @@ export default function (props: Props) {
         </div>
       ) : (
         <div
-          className={
-            "react-togtokh-dev dev-input-box-web w-full  dev-border-12 " +
-            className
-          }
+          className={"react-togtokh-dev dev-input-box-web w-full " + className}
           style={{
             backgroundColor: styleConfig?.bgColor,
             color: styleConfig?.textColor,
@@ -416,13 +412,15 @@ export default function (props: Props) {
                   </div>
                 ) : (
                   <>
-                    {value && (
+                    {clearButton ? (
                       <>
-                        {clearButton ? (
+                        {focusType ? (
                           removeSvg({
                             handleClick: () => {
                               setValue("");
-                              textInput.current?.focus({ preventScroll: true });
+                              textInput.current?.focus({
+                                preventScroll: true,
+                              });
                             },
                             styleConfig: styleConfig,
                           })
@@ -430,6 +428,8 @@ export default function (props: Props) {
                           <></>
                         )}
                       </>
+                    ) : (
+                      <></>
                     )}
                   </>
                 )}

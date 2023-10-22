@@ -275,14 +275,25 @@ export default function (props: Props) {
                     </div>
                   ) : (
                     <>
-                      {value &&
-                        removeSvg({
-                          handleClick: () => {
-                            setValue("");
-                            textInput.current?.focus({ preventScroll: true });
-                          },
-                          styleConfig: styleConfig,
-                        })}
+                      {clearButton ? (
+                        <>
+                          {focusType ? (
+                            removeSvg({
+                              handleClick: () => {
+                                setValue("");
+                                textInput.current?.focus({
+                                  preventScroll: true,
+                                });
+                              },
+                              styleConfig: styleConfig,
+                            })
+                          ) : (
+                            <></>
+                          )}
+                        </>
+                      ) : (
+                        <></>
+                      )}
                     </>
                   )}
                 </>
@@ -396,13 +407,15 @@ export default function (props: Props) {
                   </div>
                 ) : (
                   <>
-                    {value && (
+                    {clearButton ? (
                       <>
-                        {clearButton ? (
+                        {focusType ? (
                           removeSvg({
                             handleClick: () => {
                               setValue("");
-                              textInput.current?.focus({ preventScroll: true });
+                              textInput.current?.focus({
+                                preventScroll: true,
+                              });
                             },
                             styleConfig: styleConfig,
                           })
@@ -410,6 +423,8 @@ export default function (props: Props) {
                           <></>
                         )}
                       </>
+                    ) : (
+                      <></>
                     )}
                   </>
                 )}

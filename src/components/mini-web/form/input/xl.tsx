@@ -407,28 +407,24 @@ export default function (props: Props) {
                   </div>
                 ) : (
                   <>
-                    {value && (
+                    {clearButton ? (
                       <>
-                        {clearButton ? (
-                          <>
-                            {focusType ? (
-                              removeSvg({
-                                handleClick: () => {
-                                  setValue("");
-                                  textInput.current?.focus({
-                                    preventScroll: true,
-                                  });
-                                },
-                                styleConfig: styleConfig,
-                              })
-                            ) : (
-                              <></>
-                            )}
-                          </>
+                        {focusType ? (
+                          removeSvg({
+                            handleClick: () => {
+                              setValue("");
+                              textInput.current?.focus({
+                                preventScroll: true,
+                              });
+                            },
+                            styleConfig: styleConfig,
+                          })
                         ) : (
                           <></>
                         )}
                       </>
+                    ) : (
+                      <></>
                     )}
                   </>
                 )}
