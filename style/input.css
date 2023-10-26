@@ -91,11 +91,13 @@ input[type="number"] {
 .dev-svg-box .dev-svg {
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 
 .dev-svg-box_add .dev-svg {
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 
 .dev-input-box-web {
