@@ -28,6 +28,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
 const NcAnimations_1 = __importDefault(require("../../../NcAnimations"));
+const framer_motion_1 = require("framer-motion");
 const showSvg = ({ handleClick, styleConfig }) => {
     return (react_1.default.createElement("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", onClick: handleClick },
         react_1.default.createElement("path", { d: "M17.32 6.93C15.73 5.68 13.9 5 12 5C8.19 5 4.71 7.72 2.75 12.25C3.73 14.51 5.09 16.32 6.68 17.57M9.88 14.37C9.34 13.83 9 13.08 9 12.25C9 10.59 10.35 9.25 12 9.25C12.83 9.25 13.58 9.59 14.12 10.13M19.5 4.75L4.5 19.75", stroke: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.svgFill, strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }),
@@ -84,12 +85,14 @@ function default_1(props) {
             if (type == "password") {
                 count++;
             }
-            else if (clearButton && value && focusType) {
-                count++;
+            else if (clearButton) {
+                if (focusType) {
+                    count++;
+                }
             }
         }
-        setSvgWidth(`${count * 24 + count * 8 - 8}px`);
-    }, [addSvg, loading, type, clearButton, value, focusType]);
+        setSvgWidth(`${count * 24 + count * 8 - 8 > 0 ? count * 24 + count * 8 - 8 : 0}px`);
+    }, [addSvg, loading, type, clearButton, focusType]);
     return (react_1.default.createElement(react_1.default.Fragment, null, children ? (react_1.default.createElement("div", { className: "react-togtokh-dev dev-input-box-web w-full " + className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
@@ -127,16 +130,29 @@ function default_1(props) {
                                 setShow(false);
                             },
                             styleConfig: styleConfig,
-                        }))) : (react_1.default.createElement(react_1.default.Fragment, null, clearButton ? (react_1.default.createElement(react_1.default.Fragment, null, focusType ? (removeSvg({
-                        handleClick: () => {
+                        }))) : (react_1.default.createElement(react_1.default.Fragment, null, clearButton ? (react_1.default.createElement(framer_motion_1.AnimatePresence, null, focusType && (react_1.default.createElement(framer_motion_1.motion.div, { onClick: (event) => {
                             var _a;
+                            event.preventDefault();
+                            setValue("");
+                            (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({
+                                preventScroll: true,
+                            });
+                        }, id: "minus", animate: {
+                            opacity: 1,
+                            transition: {
+                                opacity: { duration: 0.4 },
+                            },
+                        }, exit: { opacity: 0 }, className: "" }, removeSvg({
+                        handleClick: (event) => {
+                            var _a;
+                            event.preventDefault();
                             setValue("");
                             (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({
                                 preventScroll: true,
                             });
                         },
                         styleConfig: styleConfig,
-                    })) : (react_1.default.createElement(react_1.default.Fragment, null)))) : (react_1.default.createElement(react_1.default.Fragment, null))))))),
+                    }))))) : (react_1.default.createElement(react_1.default.Fragment, null))))))),
             react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input-children-icon  text-400-14 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                     setfocusType(false);
                 }, onFocus: (e) => {
@@ -191,16 +207,29 @@ function default_1(props) {
                             setShow(false);
                         },
                         styleConfig: styleConfig,
-                    }))) : (react_1.default.createElement(react_1.default.Fragment, null, clearButton ? (react_1.default.createElement(react_1.default.Fragment, null, focusType ? (removeSvg({
-                    handleClick: () => {
+                    }))) : (react_1.default.createElement(react_1.default.Fragment, null, clearButton ? (react_1.default.createElement(framer_motion_1.AnimatePresence, null, focusType && (react_1.default.createElement(framer_motion_1.motion.div, { onClick: (event) => {
                         var _a;
+                        event.preventDefault();
+                        setValue("");
+                        (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({
+                            preventScroll: true,
+                        });
+                    }, id: "minus", animate: {
+                        opacity: 1,
+                        transition: {
+                            opacity: { duration: 0.4 },
+                        },
+                    }, exit: { opacity: 0 }, className: "" }, removeSvg({
+                    handleClick: (event) => {
+                        var _a;
+                        event.preventDefault();
                         setValue("");
                         (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({
                             preventScroll: true,
                         });
                     },
                     styleConfig: styleConfig,
-                })) : (react_1.default.createElement(react_1.default.Fragment, null)))) : (react_1.default.createElement(react_1.default.Fragment, null))))))),
+                }))))) : (react_1.default.createElement(react_1.default.Fragment, null))))))),
         react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input  text-400-14 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                 setfocusType(false);
             }, onFocus: (e) => {

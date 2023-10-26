@@ -28,6 +28,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
 const NcAnimations_1 = __importDefault(require("../../../NcAnimations"));
+const framer_motion_1 = require("framer-motion");
 const showSvg = ({ handleClick, styleConfig }) => {
     return (react_1.default.createElement("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", onClick: handleClick },
         react_1.default.createElement("path", { d: "M17.32 6.93C15.73 5.68 13.9 5 12 5C8.19 5 4.71 7.72 2.75 12.25C3.73 14.51 5.09 16.32 6.68 17.57M9.88 14.37C9.34 13.83 9 13.08 9 12.25C9 10.59 10.35 9.25 12 9.25C12.83 9.25 13.58 9.59 14.12 10.13M19.5 4.75L4.5 19.75", stroke: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.svgFill, strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }),
@@ -50,11 +51,12 @@ const loadingSvg = ({ handleClick, styleConfig }) => {
         react_1.default.createElement(NcAnimations_1.default.LoadingRiv, null)));
 };
 function default_1(props) {
-    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading, statusList, status, addSvg, } = props;
+    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading, statusList, status, addSvg, clearButton = true, inputClassName, lableClassName, svgClassName, } = props;
     const [name] = (0, react_1.useState)(`${Math.floor(Math.random() * 600) + 1}`);
     const textInput = (0, react_1.useRef)(null);
     const [focusType, setfocusType] = (0, react_1.useState)(false);
     const [show, setShow] = (0, react_1.useState)(false);
+    const [svgWidth, setSvgWidth] = (0, react_1.useState)("24px");
     const [styleConfig, setStyleConfig] = (0, react_1.useState)({
         bgColor: "#FFFFFF",
         textColor: "#101318",
@@ -68,8 +70,30 @@ function default_1(props) {
         const a = statusList.filter((el) => el.status == status);
         setStyleConfig(a[0]);
     }, [status]);
-    return (react_1.default.createElement(react_1.default.Fragment, null, children ? (react_1.default.createElement("div", { className: "react-togtokh-dev dev-input-box-web w-full  dev-border-12 " +
-            className, style: {
+    (0, react_1.useEffect)(() => {
+        let count = 0;
+        if (addSvg) {
+            count++;
+        }
+        if (loading) {
+            count++;
+            if (type == "password") {
+                count++;
+            }
+        }
+        else {
+            if (type == "password") {
+                count++;
+            }
+            else if (clearButton) {
+                if (focusType) {
+                    count++;
+                }
+            }
+        }
+        setSvgWidth(`${count * 24 + count * 8 - 8 > 0 ? count * 24 + count * 8 - 8 : 0}px`);
+    }, [addSvg, loading, type, clearButton, focusType]);
+    return (react_1.default.createElement(react_1.default.Fragment, null, children ? (react_1.default.createElement("div", { className: "react-togtokh-dev dev-input-box-web w-full " + className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },
@@ -80,10 +104,12 @@ function default_1(props) {
                     ? "text-400-14 dev-input-lable-deactivate"
                     : `${focusType
                         ? "text-400-14 dev-input-lable-deactivate"
-                        : "text-400-14 dev-input-lable-active"} `}`, style: {
+                        : "text-400-14 dev-input-lable-active"} ${lableClassName}`}`, style: {
                     color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
                 } }, lable)),
-            react_1.default.createElement("div", { className: "dev-svg-box " },
+            react_1.default.createElement("div", { className: "dev-svg-box " + svgClassName, style: {
+                    width: svgWidth,
+                } },
                 addSvg ? (react_1.default.createElement(react_1.default.Fragment, null, addSvg({
                     handleClick: () => { },
                 }))) : (react_1.default.createElement(react_1.default.Fragment, null)),
@@ -104,16 +130,31 @@ function default_1(props) {
                                 setShow(false);
                             },
                             styleConfig: styleConfig,
-                        }))) : (react_1.default.createElement(react_1.default.Fragment, null, value &&
-                        removeSvg({
-                            handleClick: () => {
+                        }))) : (react_1.default.createElement(react_1.default.Fragment, null, clearButton ? (react_1.default.createElement(framer_motion_1.AnimatePresence, null,
+                        react_1.default.createElement(framer_motion_1.motion.div, { onClick: (event) => {
                                 var _a;
+                                event.preventDefault();
                                 setValue("");
-                                (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({ preventScroll: true });
+                                (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({
+                                    preventScroll: true,
+                                });
+                            }, id: "minus", animate: {
+                                opacity: 1,
+                                transition: {
+                                    opacity: { duration: 0.4 },
+                                },
+                            }, exit: { opacity: 0 }, className: "" }, removeSvg({
+                            handleClick: (event) => {
+                                var _a;
+                                event.preventDefault();
+                                setValue("");
+                                (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({
+                                    preventScroll: true,
+                                });
                             },
                             styleConfig: styleConfig,
-                        })))))),
-            react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input-children-icon dev-border-12 text-400-14", defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
+                        })))) : (react_1.default.createElement(react_1.default.Fragment, null))))))),
+            react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input-children-icon  text-400-14 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                     setfocusType(false);
                 }, onFocus: (e) => {
                     setfocusType(true);
@@ -133,8 +174,7 @@ function default_1(props) {
                 }, disabled: disabled, style: {
                     caretColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.caretColor,
                     borderColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.borderColor,
-                } })))) : (react_1.default.createElement("div", { className: "react-togtokh-dev dev-input-box-web w-full  dev-border-12 " +
-            className, style: {
+                } })))) : (react_1.default.createElement("div", { className: "react-togtokh-dev dev-input-box-web w-full " + className, style: {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },
@@ -142,10 +182,12 @@ function default_1(props) {
                 ? "text-400-14 dev-input-lable-deactivate"
                 : `${focusType
                     ? "text-400-14 dev-input-lable-deactivate"
-                    : "text-400-14 dev-input-lable-active"} `}`, style: {
+                    : "text-400-14 dev-input-lable-active"} ${lableClassName}`}`, style: {
                 color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
             } }, lable)),
-        react_1.default.createElement("div", { className: "dev-svg-box " },
+        react_1.default.createElement("div", { className: "dev-svg-box " + svgClassName, style: {
+                width: svgWidth,
+            } },
             addSvg ? (react_1.default.createElement(react_1.default.Fragment, null, addSvg({
                 handleClick: () => { },
             }))) : (react_1.default.createElement(react_1.default.Fragment, null)),
@@ -166,16 +208,31 @@ function default_1(props) {
                             setShow(false);
                         },
                         styleConfig: styleConfig,
-                    }))) : (react_1.default.createElement(react_1.default.Fragment, null, value &&
-                    removeSvg({
-                        handleClick: () => {
+                    }))) : (react_1.default.createElement(react_1.default.Fragment, null, clearButton ? (react_1.default.createElement(framer_motion_1.AnimatePresence, null,
+                    react_1.default.createElement(framer_motion_1.motion.div, { onClick: (event) => {
                             var _a;
+                            event.preventDefault();
                             setValue("");
-                            (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({ preventScroll: true });
+                            (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({
+                                preventScroll: true,
+                            });
+                        }, id: "minus", animate: {
+                            opacity: 1,
+                            transition: {
+                                opacity: { duration: 0.4 },
+                            },
+                        }, exit: { opacity: 0 }, className: "" }, removeSvg({
+                        handleClick: (event) => {
+                            var _a;
+                            event.preventDefault();
+                            setValue("");
+                            (_a = textInput.current) === null || _a === void 0 ? void 0 : _a.focus({
+                                preventScroll: true,
+                            });
                         },
                         styleConfig: styleConfig,
-                    })))))),
-        react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input dev-border-12 text-400-14", defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
+                    })))) : (react_1.default.createElement(react_1.default.Fragment, null))))))),
+        react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input  text-400-14 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
                 setfocusType(false);
             }, onFocus: (e) => {
                 setfocusType(true);

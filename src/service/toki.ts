@@ -1,4 +1,5 @@
 import { isAndroid, isIOS } from "mobile-device-detect";
+import { useState, useEffect } from "react";
 declare global {
   interface Window {
     contactSelected: any;
@@ -7,6 +8,7 @@ declare global {
     isEnabledNotification: any;
     JSReceiver: any;
     webkit: any;
+    afterScan: any;
   }
 }
 
@@ -138,6 +140,41 @@ export function selectDownloadImage(type: any, callback: any) {
   }
   callback();
   // window.downloadImageSelected = (data) => callback(data)
+}
+
+export function useQrScan({
+  value,
+  setValue,
+  Scan,
+}: {
+  value: string;
+  setValue: (value: string) => void;
+  Scan: number;
+}) {
+  const [URL, setURL] = useState<string>(value);
+  useEffect(() => {
+    if (URL) {
+      setValue(URL);
+    }
+  }, [URL]);
+  useEffect(() => {
+    if (Scan > 0) {
+      run();
+    }
+  }, [Scan]);
+  const run = () => {
+    if (window.JSReceiver) {
+      window.JSReceiver.openNativeScanner(); //Toki app will inject by this function in Android;
+    }
+    // in case of iOS webkit
+    if (window.webkit && window.webkit.messageHandlers) {
+      const message = JSON.stringify({
+        message: "Opening native scanner",
+      });
+      window.webkit.messageHandlers.openNativeScanner.postMessage(message); //Toki app will inject by this function in iOS
+    }
+    return (window.afterScan = (url: string) => setURL(url));
+  };
 }
 
 export default {

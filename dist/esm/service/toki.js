@@ -1,4 +1,5 @@
 import { isAndroid, isIOS } from "mobile-device-detect";
+import { useState, useEffect } from "react";
 export function buy(merchantId, amount, orderId, description, callback, callbackUrl) {
     if (window.JSReceiver) {
         window.JSReceiver.buyfromShoppy(merchantId, `${amount}`, orderId, description, callbackUrl);
@@ -96,6 +97,32 @@ export function selectDownloadImage(type, callback) {
     }
     callback();
     // window.downloadImageSelected = (data) => callback(data)
+}
+export function useQrScan({ value, setValue, Scan, }) {
+    const [URL, setURL] = useState(value);
+    useEffect(() => {
+        if (URL) {
+            setValue(URL);
+        }
+    }, [URL]);
+    useEffect(() => {
+        if (Scan > 0) {
+            run();
+        }
+    }, [Scan]);
+    const run = () => {
+        if (window.JSReceiver) {
+            window.JSReceiver.openNativeScanner(); //Toki app will inject by this function in Android;
+        }
+        // in case of iOS webkit
+        if (window.webkit && window.webkit.messageHandlers) {
+            const message = JSON.stringify({
+                message: "Opening native scanner",
+            });
+            window.webkit.messageHandlers.openNativeScanner.postMessage(message); //Toki app will inject by this function in iOS
+        }
+        return (window.afterScan = (url) => setURL(url));
+    };
 }
 export default {
     buy,

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import NcAnimations from "../../../NcAnimations";
+import { motion, AnimatePresence } from "framer-motion";
 interface InStatusList {
   bgColor: string;
   textColor: string;
@@ -194,12 +195,16 @@ export default function (props: Props) {
     } else {
       if (type == "password") {
         count++;
-      } else if (clearButton && value && focusType) {
-        count++;
+      } else if (clearButton) {
+        if (focusType) {
+          count++;
+        }
       }
     }
-    setSvgWidth(`${count * 24 + count * 8 - 8}px`);
-  }, [addSvg, loading, type, clearButton, value, focusType]);
+    setSvgWidth(
+      `${count * 24 + count * 8 - 8 > 0 ? count * 24 + count * 8 - 8 : 0}px`
+    );
+  }, [addSvg, loading, type, clearButton, focusType]);
   return (
     <>
       {children ? (
@@ -276,21 +281,39 @@ export default function (props: Props) {
                   ) : (
                     <>
                       {clearButton ? (
-                        <>
-                          {focusType ? (
-                            removeSvg({
-                              handleClick: () => {
+                        <AnimatePresence>
+                          {focusType && (
+                            <motion.div
+                              onClick={(event) => {
+                                event.preventDefault();
                                 setValue("");
                                 textInput.current?.focus({
                                   preventScroll: true,
                                 });
-                              },
-                              styleConfig: styleConfig,
-                            })
-                          ) : (
-                            <></>
+                              }}
+                              id="minus"
+                              animate={{
+                                opacity: 1,
+                                transition: {
+                                  opacity: { duration: 0.4 },
+                                },
+                              }}
+                              exit={{ opacity: 0 }}
+                              className=""
+                            >
+                              {removeSvg({
+                                handleClick: (event) => {
+                                  event.preventDefault();
+                                  setValue("");
+                                  textInput.current?.focus({
+                                    preventScroll: true,
+                                  });
+                                },
+                                styleConfig: styleConfig,
+                              })}
+                            </motion.div>
                           )}
-                        </>
+                        </AnimatePresence>
                       ) : (
                         <></>
                       )}
@@ -364,7 +387,6 @@ export default function (props: Props) {
               {lable}
             </label>
           )}
-
           <div
             className={"dev-svg-box " + svgClassName}
             style={{
@@ -408,21 +430,39 @@ export default function (props: Props) {
                 ) : (
                   <>
                     {clearButton ? (
-                      <>
-                        {focusType ? (
-                          removeSvg({
-                            handleClick: () => {
+                      <AnimatePresence>
+                        {focusType && (
+                          <motion.div
+                            onClick={(event) => {
+                              event.preventDefault();
                               setValue("");
                               textInput.current?.focus({
                                 preventScroll: true,
                               });
-                            },
-                            styleConfig: styleConfig,
-                          })
-                        ) : (
-                          <></>
+                            }}
+                            id=""
+                            animate={{
+                              opacity: 1,
+                              transition: {
+                                opacity: { duration: 0.4 },
+                              },
+                            }}
+                            exit={{ opacity: 0 }}
+                            className="dev-svg"
+                          >
+                            {removeSvg({
+                              handleClick: (event) => {
+                                event.preventDefault();
+                                setValue("");
+                                textInput.current?.focus({
+                                  preventScroll: true,
+                                });
+                              },
+                              styleConfig: styleConfig,
+                            })}
+                          </motion.div>
                         )}
-                      </>
+                      </AnimatePresence>
                     ) : (
                       <></>
                     )}

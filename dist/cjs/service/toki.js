@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.selectDownloadImage = exports.selectWalk = exports.openLink = exports.closeWebView = exports.setScreenProtection = exports.setColor = exports.checkNotification = exports.selectContact = exports.buy = void 0;
+exports.useQrScan = exports.selectDownloadImage = exports.selectWalk = exports.openLink = exports.closeWebView = exports.setScreenProtection = exports.setColor = exports.checkNotification = exports.selectContact = exports.buy = void 0;
 const mobile_device_detect_1 = require("mobile-device-detect");
+const react_1 = require("react");
 function buy(merchantId, amount, orderId, description, callback, callbackUrl) {
     if (window.JSReceiver) {
         window.JSReceiver.buyfromShoppy(merchantId, `${amount}`, orderId, description, callbackUrl);
@@ -109,6 +110,33 @@ function selectDownloadImage(type, callback) {
     // window.downloadImageSelected = (data) => callback(data)
 }
 exports.selectDownloadImage = selectDownloadImage;
+function useQrScan({ value, setValue, Scan, }) {
+    const [URL, setURL] = (0, react_1.useState)(value);
+    (0, react_1.useEffect)(() => {
+        if (URL) {
+            setValue(URL);
+        }
+    }, [URL]);
+    (0, react_1.useEffect)(() => {
+        if (Scan > 0) {
+            run();
+        }
+    }, [Scan]);
+    const run = () => {
+        if (window.JSReceiver) {
+            window.JSReceiver.openNativeScanner(); //Toki app will inject by this function in Android;
+        }
+        // in case of iOS webkit
+        if (window.webkit && window.webkit.messageHandlers) {
+            const message = JSON.stringify({
+                message: "Opening native scanner",
+            });
+            window.webkit.messageHandlers.openNativeScanner.postMessage(message); //Toki app will inject by this function in iOS
+        }
+        return (window.afterScan = (url) => setURL(url));
+    };
+}
+exports.useQrScan = useQrScan;
 exports.default = {
     buy,
     selectContact,

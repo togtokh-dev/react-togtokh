@@ -6,6 +6,7 @@ declare global {
         isEnabledNotification: any;
         JSReceiver: any;
         webkit: any;
+        afterScan: any;
     }
 }
 export declare function buy(merchantId: string, amount: number, orderId: string, description: string, callback: Function, callbackUrl: string): void;
@@ -17,6 +18,11 @@ export declare function closeWebView(): void;
 export declare function openLink(url: string): void;
 export declare function selectWalk(willOpen: any, callback: any): void;
 export declare function selectDownloadImage(type: any, callback: any): void;
+export declare function useQrScan({ value, setValue, Scan, }: {
+    value: string;
+    setValue: (value: string) => void;
+    Scan: number;
+}): void;
 declare const _default: {
     buy: typeof buy;
     selectContact: typeof selectContact;
