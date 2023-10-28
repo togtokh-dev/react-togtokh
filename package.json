@@ -1,6 +1,6 @@
 {
   "name": "react-togtokh",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/togtokh-dev/react-togtokh.git"
@@ -27,8 +27,6 @@
   },
   "homepage": "https://github.com/togtokh-dev/react-togtokh#readme",
   "devDependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^39.0.2",
-    "@ckeditor/ckeditor5-react": "^6.1.0",
     "@types/node": "^20.5.1",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
