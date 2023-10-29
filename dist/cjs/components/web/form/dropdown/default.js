@@ -34,7 +34,7 @@ function Select(props) {
     const [dropdownOpen, setDropdownOpen] = (0, react_1.useState)(false);
     const [loading, setloading] = (0, react_1.useState)(true);
     const [selected, setSelected] = (0, react_1.useState)(null);
-    const trigger = (0, react_1.useRef)(null);
+    const [isFocused, setFocus] = (0, react_1.useState)(false);
     const dropdown = (0, react_1.useRef)(null);
     (0, react_1.useEffect)(() => {
         var _a;
@@ -47,11 +47,10 @@ function Select(props) {
         const clickHandler = ({ target }) => {
             if (!dropdown.current)
                 return;
-            if (!dropdownOpen ||
-                dropdown.current.contains(target) ||
-                trigger.current.contains(target))
-                return;
-            setDropdownOpen(false);
+            if (dropdownOpen && !dropdown.current.contains(target)) {
+                setDropdownOpen(false);
+            }
+            return;
         };
         document.addEventListener("click", clickHandler);
         return () => document.removeEventListener("click", clickHandler);
@@ -66,21 +65,24 @@ function Select(props) {
         document.addEventListener("keydown", keyHandler);
         return () => document.removeEventListener("keydown", keyHandler);
     });
-    return (react_1.default.createElement("div", { className: "react-togtokh-dev dev-select-main" },
-        loading ? (react_1.default.createElement(react_1.default.Fragment, null)) : (react_1.default.createElement(index_1.default.MiniWeb.Button.XL, { className: `  dev-border-8  ${className}`, backgroundColor: backgroundColor, handleClick: () => setDropdownOpen(!dropdownOpen), disableHover: true, type: "button", ref: trigger },
+    const style = {
+        background: isFocused
+            ? `linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.12) 100%), ${backgroundColor}`
+            : backgroundColor,
+    };
+    return (react_1.default.createElement("div", { className: "react-toki-app dev-select-main ", ref: dropdown },
+        loading ? (react_1.default.createElement(react_1.default.Fragment, null)) : (react_1.default.createElement("button", { className: `react-toki-app dev-dropdown-button text-500-14 dev-border-8  ${className}`, onMouseEnter: () => setFocus(true), onMouseLeave: () => setFocus(false), style: style, type: "button", onClick: () => setDropdownOpen(!dropdownOpen) },
             react_1.default.createElement("div", { className: "dev-select" },
                 react_1.default.createElement("span", null, ((_a = options.filter((data) => (data === null || data === void 0 ? void 0 : data.id) == selected)[0]) === null || _a === void 0 ? void 0 : _a.period) ||
                     lable),
                 !dropdownOpen ? (react_1.default.createElement(react_1.default.Fragment, null,
-                    react_1.default.createElement("svg", { className: " dev-select-svg", width: "14", height: "8", viewBox: "0 0 14 8", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-                        react_1.default.createElement("path", { d: "M7 7L1 0.999999", stroke: "#909BC0", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }),
-                        react_1.default.createElement("path", { d: "M13 1L7 7", stroke: "#909BC0", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })))) : (react_1.default.createElement(react_1.default.Fragment, null,
-                    react_1.default.createElement("svg", { className: "  dev-select-svg", width: "14", height: "8", viewBox: "0 0 14 8", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-                        react_1.default.createElement("path", { d: "M7 1L13 7", stroke: "#909BC0", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }),
-                        react_1.default.createElement("path", { d: "M1 7L7 1", stroke: "#909BC0", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }))))))),
+                    react_1.default.createElement("svg", { className: "  dev-select-svg", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
+                        react_1.default.createElement("path", { d: "M6 9L12 15L18 9", stroke: "#101318", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" })))) : (react_1.default.createElement(react_1.default.Fragment, null,
+                    react_1.default.createElement("svg", { className: "  dev-select-svg", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
+                        react_1.default.createElement("path", { d: "M6 15L12 9L18 15", stroke: "#101318", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }))))))),
         loading ? (react_1.default.createElement(react_1.default.Fragment, null)) : (react_1.default.createElement(index_1.default.utils.Transition, { show: dropdownOpen, tag: "div", className: `dev-select-list ${listClass}`, enter: "transition ease-out duration-100 transform", enterStart: "opacity-0 -translate-y-2", enterEnd: "opacity-100 translate-y-0", leave: "transition ease-out duration-100", leaveStart: "opacity-100", leaveEnd: "opacity-0" },
-            react_1.default.createElement("div", { ref: dropdown, className: "", onFocus: () => setDropdownOpen(true), onBlur: () => setDropdownOpen(false) }, options.map((option) => {
-                return (react_1.default.createElement("button", { key: option === null || option === void 0 ? void 0 : option.id, tabIndex: 0, className: `item text-500-16 `, style: {
+            react_1.default.createElement("div", { className: "", onFocus: () => setDropdownOpen(true), onBlur: () => setDropdownOpen(false) }, options.map((option) => {
+                return (react_1.default.createElement("button", { key: option === null || option === void 0 ? void 0 : option.id, tabIndex: 0, className: `item text-500-14 dev-dropdown-button `, style: {
                         color: (option === null || option === void 0 ? void 0 : option.id) === selected
                             ? itemColor.selected
                             : itemColor.defualt,

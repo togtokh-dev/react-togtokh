@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import ReactTogtokh from "../../../../index";
+import ReactTokiApp from "../../../../index";
 interface options {
   id: string;
   period: string;
@@ -26,14 +26,14 @@ function Select(props: Props) {
     lable,
   } = props;
 
-  const [dropdownOpen, setDropdownOpen] = useState<any>(false);
+  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const [loading, setloading] = useState<any>(true);
   const [selected, setSelected] = useState<any>(null);
+  const [isFocused, setFocus] = useState(false);
+  const dropdown = useRef<HTMLDivElement | null>(null);
 
-  const trigger = useRef<any>(null);
-  const dropdown = useRef<any>(null);
   useEffect(() => {
-    const result = options.filter((data: any) => data?.id == value);
+    const result = options.filter((data) => data?.id == value);
     setSelected(result[0]?.id);
     setloading(false);
   }, [value]);
@@ -41,13 +41,10 @@ function Select(props: Props) {
   useEffect(() => {
     const clickHandler = ({ target }: any) => {
       if (!dropdown.current) return;
-      if (
-        !dropdownOpen ||
-        dropdown.current.contains(target) ||
-        trigger.current.contains(target)
-      )
-        return;
-      setDropdownOpen(false);
+      if (dropdownOpen && !dropdown.current.contains(target)) {
+        setDropdownOpen(false);
+      }
+      return;
     };
     document.addEventListener("click", clickHandler);
     return () => document.removeEventListener("click", clickHandler);
@@ -62,19 +59,23 @@ function Select(props: Props) {
     document.addEventListener("keydown", keyHandler);
     return () => document.removeEventListener("keydown", keyHandler);
   });
-
+  const style = {
+    background: isFocused
+      ? `linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.12) 100%), ${backgroundColor}`
+      : backgroundColor,
+  };
   return (
-    <div className="react-togtokh-dev dev-select-main">
+    <div className="react-toki-app dev-select-main " ref={dropdown}>
       {loading ? (
         <></>
       ) : (
-        <ReactTogtokh.MiniWeb.Button.XL
-          className={`  dev-border-8  ${className}`}
-          backgroundColor={backgroundColor}
-          handleClick={() => setDropdownOpen(!dropdownOpen)}
-          disableHover={true}
-          type="button"
-          ref={trigger}
+        <button
+          className={`react-toki-app dev-dropdown-button text-500-14 dev-border-8  ${className}`}
+          onMouseEnter={() => setFocus(true)}
+          onMouseLeave={() => setFocus(false)}
+          style={style}
+          type={"button"}
+          onClick={() => setDropdownOpen(!dropdownOpen)}
         >
           <div className="dev-select">
             <span>
@@ -84,26 +85,19 @@ function Select(props: Props) {
             {!dropdownOpen ? (
               <>
                 <svg
-                  className=" dev-select-svg"
-                  width="14"
-                  height="8"
-                  viewBox="0 0 14 8"
+                  className="  dev-select-svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M7 7L1 0.999999"
-                    stroke="#909BC0"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M13 1L7 7"
-                    stroke="#909BC0"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                    d="M6 9L12 15L18 9"
+                    stroke="#101318"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                   />
                 </svg>
               </>
@@ -111,25 +105,18 @@ function Select(props: Props) {
               <>
                 <svg
                   className="  dev-select-svg"
-                  width="14"
-                  height="8"
-                  viewBox="0 0 14 8"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M7 1L13 7"
-                    stroke="#909BC0"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M1 7L7 1"
-                    stroke="#909BC0"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                    d="M6 15L12 9L18 15"
+                    stroke="#101318"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                   />
                 </svg>
               </>
@@ -144,13 +131,13 @@ function Select(props: Props) {
               <path d="M5.4 6.8L0 1.4 1.4 0l4 4 4-4 1.4 1.4z" />
             </svg> */}
           </div>
-        </ReactTogtokh.MiniWeb.Button.XL>
+        </button>
       )}
 
       {loading ? (
         <></>
       ) : (
-        <ReactTogtokh.utils.Transition
+        <ReactTokiApp.utils.Transition
           show={dropdownOpen}
           tag="div"
           className={`dev-select-list ${listClass}`}
@@ -162,7 +149,6 @@ function Select(props: Props) {
           leaveEnd="opacity-0"
         >
           <div
-            ref={dropdown}
             className=""
             onFocus={() => setDropdownOpen(true)}
             onBlur={() => setDropdownOpen(false)}
@@ -172,7 +158,7 @@ function Select(props: Props) {
                 <button
                   key={option?.id}
                   tabIndex={0}
-                  className={`item text-500-16 `}
+                  className={`item text-500-14 dev-dropdown-button `}
                   style={{
                     color:
                       option?.id === selected
@@ -208,7 +194,7 @@ function Select(props: Props) {
               );
             })}
           </div>
-        </ReactTogtokh.utils.Transition>
+        </ReactTokiApp.utils.Transition>
       )}
     </div>
   );
