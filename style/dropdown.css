@@ -54,6 +54,7 @@
   border-bottom: 2px solid transparent;
   outline-width: 0;
   padding: 12px 12px 8px 16px;
+  white-space: nowrap;
 }
 
 .dev-select-main {

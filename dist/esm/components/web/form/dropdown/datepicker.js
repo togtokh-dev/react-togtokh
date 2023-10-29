@@ -34,6 +34,8 @@ function Datepicker({ align, setStartDate, setEndDate, defaultDate, className, l
                 value != lable ? (React.createElement(React.Fragment, null,
                     React.createElement("svg", { className: "  dev-select-svg", width: "24", height: "24", viewBox: "0 0 24 24", fill: "#000", xmlns: "http://www.w3.org/2000/svg", onClick: () => {
                             setValue(lable || "");
+                            setStartDate(null);
+                            setEndDate(null);
                         } },
                         React.createElement("circle", { cx: "12", cy: "12", r: "9" }),
                         React.createElement("path", { d: "M15 9L9 15", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }),

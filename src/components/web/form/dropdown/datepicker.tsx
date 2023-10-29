@@ -72,6 +72,8 @@ function Datepicker({
                 xmlns="http://www.w3.org/2000/svg"
                 onClick={() => {
                   setValue(lable || "");
+                  setStartDate(null);
+                  setEndDate(null);
                 }}
               >
                 <circle cx="12" cy="12" r="9" />

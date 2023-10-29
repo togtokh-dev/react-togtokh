@@ -62,6 +62,8 @@ function Datepicker({ align, setStartDate, setEndDate, defaultDate, className, l
                 value != lable ? (react_1.default.createElement(react_1.default.Fragment, null,
                     react_1.default.createElement("svg", { className: "  dev-select-svg", width: "24", height: "24", viewBox: "0 0 24 24", fill: "#000", xmlns: "http://www.w3.org/2000/svg", onClick: () => {
                             setValue(lable || "");
+                            setStartDate(null);
+                            setEndDate(null);
                         } },
                         react_1.default.createElement("circle", { cx: "12", cy: "12", r: "9" }),
                         react_1.default.createElement("path", { d: "M15 9L9 15", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }),
