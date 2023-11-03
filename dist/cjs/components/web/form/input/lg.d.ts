@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FocusEvent, ChangeEvent } from "react";
 interface InStatusList {
     bgColor: string;
     textColor: string;
@@ -21,18 +21,18 @@ interface Props {
     pattern?: string;
     statusList: InStatusList[];
     status: string;
-    onBlur: any;
-    onChange: any;
-    onFocus: any;
-    loading: Boolean;
+    onBlur?: (value: FocusEvent<HTMLInputElement>) => void;
+    onChange?: (value: ChangeEvent<HTMLInputElement>) => void;
+    onFocus?: (value: FocusEvent<HTMLInputElement>) => void;
+    loading?: Boolean;
     className?: string;
     inputClassName?: string;
     lableClassName?: string;
     svgClassName?: string;
     maxLength?: number;
     inputMode?: "none" | "text" | "tel" | "url" | "email" | "numeric" | "decimal" | "search" | undefined;
-    onClick: (event: React.MouseEvent<HTMLElement>) => void;
-    addSvg: any;
+    onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+    addSvg?: any;
     children?: React.ReactNode;
     disabled?: boolean | undefined;
     clearButton?: boolean | undefined;

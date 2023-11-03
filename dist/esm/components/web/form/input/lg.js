@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, } from "react";
 import NcAnimations from "../../../NcAnimations";
 import { motion, AnimatePresence } from "framer-motion";
 const showSvg = ({ handleClick, styleConfig }) => {
@@ -23,7 +23,7 @@ const loadingSvg = ({ handleClick, styleConfig }) => {
         React.createElement(NcAnimations.LoadingRiv, null)));
 };
 export default function (props) {
-    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading, statusList, status, addSvg, clearButton = true, inputClassName, lableClassName, svgClassName, } = props;
+    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading = false, statusList, status, addSvg = null, clearButton = true, inputClassName, lableClassName, svgClassName, onBlur = (event) => { }, onChange = (event) => { }, onFocus = (event) => { }, onClick = (event) => { }, } = props;
     const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
     const textInput = useRef(null);
     const [focusType, setfocusType] = useState(false);
@@ -126,11 +126,14 @@ export default function (props) {
                         styleConfig: styleConfig,
                     }))))) : (React.createElement(React.Fragment, null))))))),
             React.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input-children-icon  text-400-14 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
+                    onBlur(e);
                     setfocusType(false);
                 }, onFocus: (e) => {
+                    onFocus(e);
                     setfocusType(true);
-                }, onChange: (e) => {
+                }, onClick: onClick, onChange: (e) => {
                     var _a;
+                    onChange(e);
                     if (maxLength) {
                         if (e.target.value.length <= maxLength) {
                             setValue(e.target.value);
@@ -203,11 +206,14 @@ export default function (props) {
                     styleConfig: styleConfig,
                 }))))) : (React.createElement(React.Fragment, null))))))),
         React.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input  text-400-14 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
+                onBlur(e);
                 setfocusType(false);
             }, onFocus: (e) => {
+                onFocus(e);
                 setfocusType(true);
-            }, onChange: (e) => {
+            }, onClick: onClick, onChange: (e) => {
                 var _a;
+                onChange(e);
                 if (maxLength) {
                     if (e.target.value.length <= maxLength) {
                         setValue(e.target.value);

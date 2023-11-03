@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  FocusEvent,
+  ChangeEvent,
+} from "react";
 import NcAnimations from "../../../NcAnimations";
 import { motion, AnimatePresence } from "framer-motion";
 interface InStatusList {
@@ -24,10 +30,10 @@ interface Props {
   pattern?: string;
   statusList: InStatusList[];
   status: string;
-  onBlur: any;
-  onChange: any;
-  onFocus: any;
-  loading: Boolean;
+  onBlur?: (value: FocusEvent<HTMLInputElement>) => void;
+  onChange?: (value: ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: (value: FocusEvent<HTMLInputElement>) => void;
+  loading?: Boolean;
   className?: string;
   inputClassName?: string;
   lableClassName?: string;
@@ -43,8 +49,8 @@ interface Props {
     | "decimal"
     | "search"
     | undefined;
-  onClick: (event: React.MouseEvent<HTMLElement>) => void;
-  addSvg: any;
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  addSvg?: any;
   children?: React.ReactNode;
   disabled?: boolean | undefined;
   clearButton?: boolean | undefined;
@@ -155,14 +161,18 @@ export default function (props: Props) {
     pattern,
     lable,
     children,
-    loading,
+    loading = false,
     statusList,
     status,
-    addSvg,
+    addSvg = null,
     clearButton = true,
     inputClassName,
     lableClassName,
     svgClassName,
+    onBlur = (event) => {},
+    onChange = (event) => {},
+    onFocus = (event) => {},
+    onClick = (event) => {},
   } = props;
   const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
   const textInput = useRef<HTMLInputElement>(null);
@@ -335,12 +345,16 @@ export default function (props: Props) {
               value={value}
               placeholder={focusType ? placeholder : ""}
               onBlur={(e) => {
+                onBlur(e);
                 setfocusType(false);
               }}
               onFocus={(e) => {
+                onFocus(e);
                 setfocusType(true);
               }}
+              onClick={onClick}
               onChange={(e) => {
+                onChange(e);
                 if (maxLength) {
                   if (e.target.value.length <= maxLength) {
                     setValue(e.target.value);
@@ -482,12 +496,16 @@ export default function (props: Props) {
             value={value}
             placeholder={focusType ? placeholder : ""}
             onBlur={(e) => {
+              onBlur(e);
               setfocusType(false);
             }}
             onFocus={(e) => {
+              onFocus(e);
               setfocusType(true);
             }}
+            onClick={onClick}
             onChange={(e) => {
+              onChange(e);
               if (maxLength) {
                 if (e.target.value.length <= maxLength) {
                   setValue(e.target.value);

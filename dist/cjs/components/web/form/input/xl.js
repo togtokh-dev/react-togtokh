@@ -51,7 +51,7 @@ const loadingSvg = ({ handleClick, styleConfig }) => {
         react_1.default.createElement(NcAnimations_1.default.LoadingRiv, null)));
 };
 function default_1(props) {
-    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading, statusList, status, addSvg, clearButton = true, inputClassName, lableClassName, svgClassName, } = props;
+    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading = false, statusList, status, addSvg = null, clearButton = true, inputClassName, lableClassName, svgClassName, onBlur = (event) => { }, onChange = (event) => { }, onFocus = (event) => { }, onClick = (event) => { }, } = props;
     const [name] = (0, react_1.useState)(`${Math.floor(Math.random() * 600) + 1}`);
     const textInput = (0, react_1.useRef)(null);
     const [focusType, setfocusType] = (0, react_1.useState)(false);
@@ -154,11 +154,14 @@ function default_1(props) {
                         styleConfig: styleConfig,
                     }))))) : (react_1.default.createElement(react_1.default.Fragment, null))))))),
             react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input-children-icon  text-400-14 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
+                    onBlur(e);
                     setfocusType(false);
                 }, onFocus: (e) => {
+                    onFocus(e);
                     setfocusType(true);
-                }, onChange: (e) => {
+                }, onClick: onClick, onChange: (e) => {
                     var _a;
+                    onChange(e);
                     if (maxLength) {
                         if (e.target.value.length <= maxLength) {
                             setValue(e.target.value);
@@ -231,11 +234,14 @@ function default_1(props) {
                     styleConfig: styleConfig,
                 }))))) : (react_1.default.createElement(react_1.default.Fragment, null))))))),
         react_1.default.createElement("input", { id: name, ref: textInput, type: show ? "text" : type, className: "dev-input  text-400-14 " + inputClassName, defaultValue: value, inputMode: inputMode, pattern: pattern, value: value, placeholder: focusType ? placeholder : "", onBlur: (e) => {
+                onBlur(e);
                 setfocusType(false);
             }, onFocus: (e) => {
+                onFocus(e);
                 setfocusType(true);
-            }, onChange: (e) => {
+            }, onClick: onClick, onChange: (e) => {
                 var _a;
+                onChange(e);
                 if (maxLength) {
                     if (e.target.value.length <= maxLength) {
                         setValue(e.target.value);
