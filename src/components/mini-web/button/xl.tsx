@@ -11,6 +11,7 @@ interface Props {
   handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   disableHover?: Boolean;
   ref?: any;
+  useStyle?: Boolean;
 }
 
 export default function (props: Props) {
@@ -23,16 +24,19 @@ export default function (props: Props) {
     disabled,
     handleClick,
     disableHover = false,
+    useStyle = false,
     ref,
   } = props;
   const [isFocused, setFocus] = useState(false);
-  const style = {
-    background: disableHover
-      ? backgroundColor
-      : isFocused
-      ? `linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.12) 100%), ${backgroundColor}`
-      : backgroundColor,
-  };
+  const style = useStyle
+    ? {
+        background: disableHover
+          ? backgroundColor
+          : isFocused
+          ? `linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.12) 100%), ${backgroundColor}`
+          : backgroundColor,
+      }
+    : {};
 
   return (
     <motion.button

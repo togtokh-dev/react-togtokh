@@ -1,11 +1,11 @@
 .dev-btn {
 }
 
-.dev-btn:disabled,
+/* .dev-btn:disabled,
 .dev-btn[disabled] {
   background-color: #eaebef !important;
   color: #c0c3ce !important;
-}
+} */
 
 .dev-btn-48 {
   padding: 12px 24px 12px 24px;

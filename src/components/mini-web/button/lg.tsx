@@ -9,6 +9,9 @@ interface Props {
   title?: string;
   disabled?: Boolean;
   handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  disableHover?: Boolean;
+  ref?: any;
+  useStyle?: Boolean;
 }
 
 export default function (props: Props) {
@@ -20,13 +23,20 @@ export default function (props: Props) {
     title,
     disabled,
     handleClick,
+    disableHover = false,
+    useStyle = false,
+    ref,
   } = props;
   const [isFocused, setFocus] = useState(false);
-  const style = {
-    background: isFocused
-      ? `linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.12) 100%), ${backgroundColor}`
-      : backgroundColor,
-  };
+  const style = useStyle
+    ? {
+        background: disableHover
+          ? backgroundColor
+          : isFocused
+          ? `linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.12) 100%), ${backgroundColor}`
+          : backgroundColor,
+      }
+    : {};
 
   return (
     <motion.button
@@ -38,6 +48,7 @@ export default function (props: Props) {
       title={title}
       onClick={handleClick}
       disabled={disabled ? true : false}
+      ref={ref}
     >
       {children}
     </motion.button>
