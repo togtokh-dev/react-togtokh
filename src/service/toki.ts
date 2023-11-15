@@ -21,7 +21,7 @@ export function buy(
   callbackUrl: string
 ) {
   if (window.JSReceiver) {
-    window.JSReceiver.buyfromShoppy(
+    window?.JSReceiver?.buyfromShoppy(
       merchantId,
       `${amount}`,
       orderId,
@@ -29,7 +29,7 @@ export function buy(
       callbackUrl
     );
   }
-  if (window.webkit && window.webkit.messageHandlers) {
+  if (window?.webkit && window?.webkit?.messageHandlers) {
     const message = JSON.stringify({
       merchantId,
       amount,
@@ -37,7 +37,7 @@ export function buy(
       description,
       callbackUrl,
     });
-    window.webkit.messageHandlers.buyfromShoppy.postMessage(message);
+    window?.webkit?.messageHandlers?.buyfromShoppy?.postMessage(message);
   }
   window.afterPurchase = (
     transactionID: any,
@@ -49,23 +49,23 @@ export function buy(
 }
 
 export function selectContact(type: boolean, callback: any) {
-  if (window.JSReceiver) {
-    window.JSReceiver.selectContact(type);
+  if (window?.JSReceiver) {
+    window?.JSReceiver?.selectContact(type);
   }
-  if (window.webkit && window.webkit.messageHandlers) {
+  if (window?.webkit && window?.webkit?.messageHandlers) {
     const message = JSON.stringify({ type });
-    window.webkit.messageHandlers.selectContact.postMessage(message);
+    window?.webkit?.messageHandlers?.selectContact?.postMessage(message);
   }
   window.contactSelected = (contact: string) => callback(contact);
 }
 
 export function checkNotification(callback: Function) {
-  if (window.JSReceiver) {
-    window.JSReceiver.checkNotificationForOrder();
+  if (window?.JSReceiver) {
+    window?.JSReceiver.checkNotificationForOrder();
   }
-  if (window.webkit && window.webkit.messageHandlers) {
+  if (window?.webkit && window?.webkit?.messageHandlers) {
     const message = JSON.stringify({});
-    window.webkit.messageHandlers.checkNotificationForOrder.postMessage(
+    window?.webkit?.messageHandlers?.checkNotificationForOrder.postMessage(
       message
     );
   }
@@ -73,52 +73,52 @@ export function checkNotification(callback: Function) {
 }
 
 export function setColor(color: string, isStatusDark: boolean) {
-  if (window.JSReceiver) {
-    window.JSReceiver.setColor(color, isStatusDark);
+  if (window?.JSReceiver) {
+    window?.JSReceiver?.setColor(color, isStatusDark);
   }
-  if (window.webkit && window.webkit.messageHandlers) {
+  if (window?.webkit && window?.webkit?.messageHandlers) {
     const message = JSON.stringify({ color, isStatusDark });
-    window.webkit.messageHandlers.setColor.postMessage(message);
+    window?.webkit?.messageHandlers?.setColor?.postMessage(message);
   }
 }
 
 export function setScreenProtection(status: boolean) {
-  if (window.JSReceiver) {
-    window.JSReceiver.setScreenProtection(status);
+  if (window?.JSReceiver) {
+    window?.JSReceiver.setScreenProtection(status);
   }
-  if (window.webkit && window.webkit.messageHandlers) {
+  if (window?.webkit && window?.webkit?.messageHandlers) {
     // const message = JSON.stringify({});
-    window.webkit.messageHandlers.setScreenProtection.postMessage(status);
+    window?.webkit?.messageHandlers?.setScreenProtection?.postMessage(status);
   }
 }
 
 export function closeWebView() {
-  if (window.JSReceiver) window.JSReceiver.closeWebView();
-  if (window.webkit && window.webkit.messageHandlers)
-    window.webkit.messageHandlers.closeWebView.postMessage("close");
+  if (window?.JSReceiver) window?.JSReceiver?.closeWebView();
+  if (window?.webkit && window?.webkit?.messageHandlers)
+    window?.webkit?.messageHandlers?.closeWebView.postMessage("close");
 }
 
 export function openLink(url: string) {
   console.log("opening browser with this url", url);
   if (window?.JSReceiver && isAndroid) {
-    window.JSReceiver.openLink(url);
+    window?.JSReceiver?.openLink(url);
   }
   if (window?.webkit?.messageHandlers && isIOS) {
     const message = JSON.stringify({ url });
-    window.webkit.messageHandlers.openLink.postMessage(message);
+    window?.webkit?.messageHandlers?.openLink?.postMessage(message);
   }
 }
 export function selectWalk(willOpen: any, callback: any) {
   console.log("selectWalk called");
-  if (window && window.JSReceiver && isAndroid) {
-    window.JSReceiver.onWalkCountConcentAccepted(willOpen); //Toki app will inject by this function in Android;
+  if (window && window?.JSReceiver && isAndroid) {
+    window?.JSReceiver?.onWalkCountConcentAccepted(willOpen); //Toki app will inject by this function in Android;
   }
 
   // in case of iOS webkit
 
-  if (window.webkit && window.webkit.messageHandlers && isIOS) {
+  if (window?.webkit && window?.webkit?.messageHandlers && isIOS) {
     const message = JSON.stringify({ willOpen });
-    window.webkit.messageHandlers.onWalkCountConcentAccepted.postMessage(
+    window?.webkit?.messageHandlers?.onWalkCountConcentAccepted?.postMessage(
       message
     ); //Toki app will inject by this function in iOS
   }
@@ -126,17 +126,17 @@ export function selectWalk(willOpen: any, callback: any) {
 }
 export function selectDownloadImage(type: any, callback: any) {
   console.log("selectDownloadImage called", type);
-  if (window && window.JSReceiver && isAndroid) {
-    window.JSReceiver.selectDownloadImage(type); //Toki app will inject by this function in Android;
+  if (window && window?.JSReceiver && isAndroid) {
+    window?.JSReceiver?.selectDownloadImage(type); //Toki app will inject by this function in Android;
   }
 
   // in case of iOS webkit
 
-  if (window.webkit && window.webkit.messageHandlers && isIOS) {
+  if (window.webkit && window.webkit?.messageHandlers && isIOS) {
     const message = JSON.stringify({
       url: type,
     });
-    window.webkit.messageHandlers.selectDownloadImage.postMessage(message); //Toki app will inject by this function in iOS
+    window?.webkit?.messageHandlers?.selectDownloadImage?.postMessage(message); //Toki app will inject by this function in iOS
   }
   callback();
   // window.downloadImageSelected = (data) => callback(data)
@@ -163,15 +163,15 @@ export function useQrScan({
     }
   }, [Scan]);
   const run = () => {
-    if (window.JSReceiver) {
-      window.JSReceiver.openNativeScanner(); //Toki app will inject by this function in Android;
+    if (window?.JSReceiver) {
+      window?.JSReceiver?.openNativeScanner(); //Toki app will inject by this function in Android;
     }
     // in case of iOS webkit
-    if (window.webkit && window.webkit.messageHandlers) {
+    if (window?.webkit && window?.webkit?.messageHandlers) {
       const message = JSON.stringify({
         message: "Opening native scanner",
       });
-      window.webkit.messageHandlers.openNativeScanner.postMessage(message); //Toki app will inject by this function in iOS
+      window?.webkit?.messageHandlers?.openNativeScanner?.postMessage(message); //Toki app will inject by this function in iOS
     }
     return (window.afterScan = (url: string) => setURL(url));
   };

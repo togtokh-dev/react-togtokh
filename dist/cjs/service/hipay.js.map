@@ -1,1 +1,1 @@
-{"version":3,"file":"hipay.js","sourceRoot":"","sources":["../../../src/service/hipay.ts"],"names":[],"mappings":";;;AAKA,SAAgB,GAAG,CAAC,UAAkB;IACpC,MAAM,CAAC,UAAU,CAAC,UAAU,CAAC,CAAC;AAChC,CAAC;AAFD,kBAEC;AACD,kBAAe;IACb,GAAG;CACJ,CAAC"}
+{"version":3,"file":"hipay.js","sourceRoot":"","sources":["../../../src/service/hipay.ts"],"names":[],"mappings":";;;AAKA,SAAgB,GAAG,CAAC,UAAkB;IACpC,MAAM,aAAN,MAAM,uBAAN,MAAM,CAAE,UAAU,CAAC,UAAU,CAAC,CAAC;AACjC,CAAC;AAFD,kBAEC;AACD,kBAAe;IACb,GAAG;CACJ,CAAC"}

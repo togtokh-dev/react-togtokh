@@ -4,7 +4,7 @@ declare global {
   }
 }
 export function buy(checkoutId: string) {
-  window.hpsPayment(checkoutId);
+  window?.hpsPayment(checkoutId);
 }
 export default {
   buy,
