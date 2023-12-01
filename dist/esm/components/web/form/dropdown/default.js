@@ -16,13 +16,12 @@ function Select(props) {
     }, [value]);
     // close on click outside
     useEffect(() => {
-        const clickHandler = ({ target }) => {
-            if (!dropdown.current)
+        const clickHandler = (event) => {
+            if (!dropdown.current || !(event.target instanceof Node))
                 return;
-            if (dropdownOpen && !dropdown.current.contains(target)) {
+            if (dropdownOpen && !dropdown.current.contains(event.target)) {
                 setDropdownOpen(false);
             }
-            return;
         };
         document.addEventListener("click", clickHandler);
         return () => document.removeEventListener("click", clickHandler);

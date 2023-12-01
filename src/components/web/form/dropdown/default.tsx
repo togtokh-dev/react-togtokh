@@ -27,8 +27,8 @@ function Select(props: Props) {
   } = props;
 
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
-  const [loading, setloading] = useState<any>(true);
-  const [selected, setSelected] = useState<any>(null);
+  const [loading, setloading] = useState<boolean>(true);
+  const [selected, setSelected] = useState<string | null>(null);
   const [isFocused, setFocus] = useState(false);
   const dropdown = useRef<HTMLDivElement | null>(null);
 
@@ -39,12 +39,12 @@ function Select(props: Props) {
   }, [value]);
   // close on click outside
   useEffect(() => {
-    const clickHandler = ({ target }: any) => {
-      if (!dropdown.current) return;
-      if (dropdownOpen && !dropdown.current.contains(target)) {
+    const clickHandler = (event: React.MouseEvent | MouseEvent) => {
+      if (!dropdown.current || !(event.target instanceof Node)) return;
+
+      if (dropdownOpen && !dropdown.current.contains(event.target)) {
         setDropdownOpen(false);
       }
-      return;
     };
     document.addEventListener("click", clickHandler);
     return () => document.removeEventListener("click", clickHandler);
@@ -52,7 +52,7 @@ function Select(props: Props) {
 
   // close if the esc key is pressed
   useEffect(() => {
-    const keyHandler = ({ keyCode }: any) => {
+    const keyHandler = ({ keyCode }: React.KeyboardEvent | KeyboardEvent) => {
       if (!dropdownOpen || keyCode !== 27) return;
       setDropdownOpen(false);
     };
@@ -79,7 +79,7 @@ function Select(props: Props) {
         >
           <div className="dev-select">
             <span>
-              {options.filter((data: any) => data?.id == selected)[0]?.period ||
+              {options.filter((data) => data?.id == selected)[0]?.period ||
                 lable}
             </span>
             {!dropdownOpen ? (
@@ -153,7 +153,7 @@ function Select(props: Props) {
             onFocus={() => setDropdownOpen(true)}
             onBlur={() => setDropdownOpen(false)}
           >
-            {options.map((option: any) => {
+            {options.map((option) => {
               return (
                 <button
                   key={option?.id}
