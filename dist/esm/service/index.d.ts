@@ -27,5 +27,8 @@ declare const _default: {
     HIPAY: {
         buy: typeof import("./hipay").buy;
     };
+    TOGTOKH: {
+        message: typeof import("./togtokh").message;
+    };
 };
 export default _default;

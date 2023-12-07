@@ -77,6 +77,9 @@ declare const _default: {
         HIPAY: {
             buy: typeof import("./service/hipay").buy;
         };
+        TOGTOKH: {
+            message: typeof import("./service/togtokh").message;
+        };
     };
     utils: {
         Transition: typeof import("./utils/transition").default;

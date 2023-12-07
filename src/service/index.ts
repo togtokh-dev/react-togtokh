@@ -3,4 +3,5 @@ import HIPAY from "./hipay";
 import cookie from "./cookie";
 import format from "./format";
 import support from "./support";
-export default { TOKI, cookie, format, support, HIPAY };
+import togtokh from "./togtokh";
+export default { TOKI, cookie, format, support, HIPAY, TOGTOKH: togtokh };
