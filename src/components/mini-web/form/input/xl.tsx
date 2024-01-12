@@ -54,6 +54,7 @@ interface Props {
   children?: React.ReactNode;
   disabled?: boolean | undefined;
   clearButton?: boolean | undefined;
+  childrenUse?: boolean | undefined;
 }
 const showSvg = ({ handleClick, styleConfig }: svgProps) => {
   return (
@@ -173,6 +174,7 @@ export default function (props: Props) {
     onChange = (event) => {},
     onFocus = (event) => {},
     onClick = (event) => {},
+    childrenUse = true,
   } = props;
   const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
   const textInput = useRef<HTMLInputElement>(null);
@@ -217,7 +219,7 @@ export default function (props: Props) {
   }, [addSvg, loading, type, clearButton, focusType]);
   return (
     <>
-      {children ? (
+      {childrenUse && children ? (
         <div
           className={"react-togtokh-dev dev-input-box w-full " + className}
           style={{

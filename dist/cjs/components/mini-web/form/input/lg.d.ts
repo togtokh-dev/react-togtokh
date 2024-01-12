@@ -36,6 +36,7 @@ interface Props {
     children?: React.ReactNode;
     disabled?: boolean | undefined;
     clearButton?: boolean | undefined;
+    childrenUse?: boolean | undefined;
 }
 export default function (props: Props): React.JSX.Element;
 export {};
