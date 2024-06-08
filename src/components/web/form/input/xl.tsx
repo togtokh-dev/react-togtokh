@@ -4,6 +4,7 @@ import React, {
   useRef,
   FocusEvent,
   ChangeEvent,
+  KeyboardEvent,
 } from "react";
 import NcAnimations from "../../../NcAnimations";
 import { motion, AnimatePresence } from "framer-motion";
@@ -33,6 +34,7 @@ interface Props {
   onBlur?: (value: FocusEvent<HTMLInputElement>) => void;
   onChange?: (value: ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (value: FocusEvent<HTMLInputElement>) => void;
+  onKeyDown?: (value: KeyboardEvent<HTMLInputElement> | undefined) => void;
   loading?: Boolean;
   className?: string;
   inputClassName?: string;
@@ -177,6 +179,7 @@ export default function (props: Props) {
     onChange = (event) => {},
     onFocus = (event) => {},
     onClick = (event) => {},
+    onKeyDown = (event) => {},
   } = props;
   const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
   const textInput = useRef<HTMLInputElement>(null);
@@ -357,6 +360,7 @@ export default function (props: Props) {
                 setfocusType(true);
               }}
               onClick={onClick}
+              onKeyDown={onKeyDown}
               onChange={(e) => {
                 onChange(e);
                 if (maxLength) {
@@ -510,6 +514,7 @@ export default function (props: Props) {
               setfocusType(true);
             }}
             onClick={onClick}
+            onKeyDown={onKeyDown}
             onChange={(e) => {
               onChange(e);
               if (maxLength) {

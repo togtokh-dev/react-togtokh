@@ -1,4 +1,4 @@
-import React, { FocusEvent, ChangeEvent } from "react";
+import React, { FocusEvent, ChangeEvent, KeyboardEvent } from "react";
 interface InStatusList {
     bgColor: string;
     textColor: string;
@@ -24,6 +24,7 @@ interface Props {
     onBlur?: (value: FocusEvent<HTMLInputElement>) => void;
     onChange?: (value: ChangeEvent<HTMLInputElement>) => void;
     onFocus?: (value: FocusEvent<HTMLInputElement>) => void;
+    onKeyDown?: (value: KeyboardEvent<HTMLInputElement> | undefined) => void;
     loading?: Boolean;
     className?: string;
     inputClassName?: string;

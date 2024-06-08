@@ -50,7 +50,7 @@ const loadingSvg = ({ handleClick, styleConfig }) => {
     return react_1.default.createElement(NcAnimations_1.default.LoadingRiv, null);
 };
 function default_1(props) {
-    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading = false, statusList, status, addSvg = null, clearButton = true, inputClassName, lableClassName, svgClassName, onBlur = (event) => { }, onChange = (event) => { }, onFocus = (event) => { }, onClick = (event) => { }, childrenUse = true, } = props;
+    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading = false, statusList, status, addSvg = null, clearButton = true, inputClassName, lableClassName, svgClassName, onBlur = (event) => { }, onChange = (event) => { }, onFocus = (event) => { }, onClick = (event) => { }, onKeyDown = (event) => { }, childrenUse = true, } = props;
     const [name] = (0, react_1.useState)(`${Math.floor(Math.random() * 600) + 1}`);
     const textInput = (0, react_1.useRef)(null);
     const [focusType, setfocusType] = (0, react_1.useState)(false);
@@ -172,7 +172,7 @@ function default_1(props) {
                     else {
                         setValue(e.target.value);
                     }
-                }, disabled: disabled, style: {
+                }, onKeyDown: onKeyDown, disabled: disabled, style: {
                     caretColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.caretColor,
                     borderColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.borderColor,
                 } })))) : (react_1.default.createElement("div", { className: "react-togtokh-dev dev-input-box w-full   " + className, style: {
@@ -236,7 +236,7 @@ function default_1(props) {
             }, onFocus: (e) => {
                 onFocus(e);
                 setfocusType(true);
-            }, onClick: onClick, onChange: (e) => {
+            }, onClick: onClick, onKeyDown: onKeyDown, onChange: (e) => {
                 var _a;
                 onChange(e);
                 if (maxLength) {

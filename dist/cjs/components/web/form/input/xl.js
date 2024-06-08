@@ -51,7 +51,7 @@ const loadingSvg = ({ handleClick, styleConfig }) => {
         react_1.default.createElement(NcAnimations_1.default.LoadingRiv, null)));
 };
 function default_1(props) {
-    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading = false, statusList, status, addSvg = null, clearButton = true, inputClassName, lableClassName, svgClassName, onBlur = (event) => { }, onChange = (event) => { }, onFocus = (event) => { }, onClick = (event) => { }, } = props;
+    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading = false, statusList, status, addSvg = null, clearButton = true, inputClassName, lableClassName, svgClassName, onBlur = (event) => { }, onChange = (event) => { }, onFocus = (event) => { }, onClick = (event) => { }, onKeyDown = (event) => { }, } = props;
     const [name] = (0, react_1.useState)(`${Math.floor(Math.random() * 600) + 1}`);
     const textInput = (0, react_1.useRef)(null);
     const [focusType, setfocusType] = (0, react_1.useState)(false);
@@ -159,7 +159,7 @@ function default_1(props) {
                 }, onFocus: (e) => {
                     onFocus(e);
                     setfocusType(true);
-                }, onClick: onClick, onChange: (e) => {
+                }, onClick: onClick, onKeyDown: onKeyDown, onChange: (e) => {
                     var _a;
                     onChange(e);
                     if (maxLength) {
@@ -239,7 +239,7 @@ function default_1(props) {
             }, onFocus: (e) => {
                 onFocus(e);
                 setfocusType(true);
-            }, onClick: onClick, onChange: (e) => {
+            }, onClick: onClick, onKeyDown: onKeyDown, onChange: (e) => {
                 var _a;
                 onChange(e);
                 if (maxLength) {
