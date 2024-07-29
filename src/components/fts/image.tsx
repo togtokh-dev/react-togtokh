@@ -6,7 +6,7 @@ import axios from "axios";
 interface Props {
   value: any;
   setValue: (value: any) => void;
-  lable: string;
+  label: string;
   className?: string;
   host: string;
   public_host: string;
@@ -20,7 +20,7 @@ export default function (props: Props) {
     value,
     setValue,
     className,
-    lable,
+    label,
     host,
     public_host,
     username,
@@ -129,7 +129,7 @@ export default function (props: Props) {
                     className=" text-400-16 text-center"
                     style={{ color: "#909BC0" }}
                   >
-                    {lable}
+                    {label}
                   </div>
                 </div>
               </div>

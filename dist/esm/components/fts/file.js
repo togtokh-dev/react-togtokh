@@ -19,7 +19,7 @@ const removeSvg = ({ handleClick, svgColor }) => {
         React.createElement("path", { d: "M15 15L9 9", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })));
 };
 export default function (props) {
-    const { value, setValue, className, lable, host, username, password, backgroundColor, svgColor, restype = "id", icon = "", } = props;
+    const { value, setValue, className, label, host, username, password, backgroundColor, svgColor, restype = "id", icon = "", } = props;
     const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
     const [loading, setLoading] = useState(false);
     const style = {
@@ -78,8 +78,8 @@ export default function (props) {
                     }),
                 loading && React.createElement(NcAnimations.LoadingRiv, null)),
             React.createElement("div", { className: "dev-input-children-icon dev-border-12 text-400-16" }, value),
-            lable && (React.createElement("label", { className: `dev-input-lable-children-icon ${value
-                    ? "text-400-12 dev-input-lable-deactivate"
-                    : `text-400-16 dev-input-lable-active `}` }, lable)))));
+            label && (React.createElement("label", { className: `dev-input-label-children-icon ${value
+                    ? "text-400-12 dev-input-label-deactivate"
+                    : `text-400-16 dev-input-label-active `}` }, label)))));
 }
 //# sourceMappingURL=file.js.map

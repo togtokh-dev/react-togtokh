@@ -28,8 +28,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
 const react_flatpickr_1 = __importDefault(require("react-flatpickr"));
-function Datepicker({ align, setStartDate, setEndDate, defaultDate, className, lable = "Өдөр сонгох", }) {
-    const [value, setValue] = (0, react_1.useState)(lable);
+function Datepicker({ align, setStartDate, setEndDate, defaultDate, className, label = "Өдөр сонгох", }) {
+    const [value, setValue] = (0, react_1.useState)(label);
     const options = {
         mode: "range",
         static: true,
@@ -56,12 +56,12 @@ function Datepicker({ align, setStartDate, setEndDate, defaultDate, className, l
     return (react_1.default.createElement("div", { className: "react-toki-app dev-select-main" },
         react_1.default.createElement("div", { className: `react-toki-app text-500-14 dev-dropdown-button dev-border-8  ${className}` },
             react_1.default.createElement("div", { className: "dev-select" },
-                react_1.default.createElement(react_flatpickr_1.default, { className: `bg-transparent w-full text-500-14`, options: options, defaultValue: lable, style: {
+                react_1.default.createElement(react_flatpickr_1.default, { className: `bg-transparent w-full text-500-14`, options: options, defaultValue: label, style: {
                         fontSize: "14px",
                     }, value: value }),
-                value != lable ? (react_1.default.createElement(react_1.default.Fragment, null,
+                value != label ? (react_1.default.createElement(react_1.default.Fragment, null,
                     react_1.default.createElement("svg", { className: "  dev-select-svg", width: "24", height: "24", viewBox: "0 0 24 24", fill: "#000", xmlns: "http://www.w3.org/2000/svg", onClick: () => {
-                            setValue(lable || "");
+                            setValue(label || "");
                             setStartDate(null);
                             setEndDate(null);
                         } },

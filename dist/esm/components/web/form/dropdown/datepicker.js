@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Flatpickr from "react-flatpickr";
-function Datepicker({ align, setStartDate, setEndDate, defaultDate, className, lable = "Өдөр сонгох", }) {
-    const [value, setValue] = useState(lable);
+function Datepicker({ align, setStartDate, setEndDate, defaultDate, className, label = "Өдөр сонгох", }) {
+    const [value, setValue] = useState(label);
     const options = {
         mode: "range",
         static: true,
@@ -28,12 +28,12 @@ function Datepicker({ align, setStartDate, setEndDate, defaultDate, className, l
     return (React.createElement("div", { className: "react-toki-app dev-select-main" },
         React.createElement("div", { className: `react-toki-app text-500-14 dev-dropdown-button dev-border-8  ${className}` },
             React.createElement("div", { className: "dev-select" },
-                React.createElement(Flatpickr, { className: `bg-transparent w-full text-500-14`, options: options, defaultValue: lable, style: {
+                React.createElement(Flatpickr, { className: `bg-transparent w-full text-500-14`, options: options, defaultValue: label, style: {
                         fontSize: "14px",
                     }, value: value }),
-                value != lable ? (React.createElement(React.Fragment, null,
+                value != label ? (React.createElement(React.Fragment, null,
                     React.createElement("svg", { className: "  dev-select-svg", width: "24", height: "24", viewBox: "0 0 24 24", fill: "#000", xmlns: "http://www.w3.org/2000/svg", onClick: () => {
-                            setValue(lable || "");
+                            setValue(label || "");
                             setStartDate(null);
                             setEndDate(null);
                         } },

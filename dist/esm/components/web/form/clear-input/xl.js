@@ -23,7 +23,7 @@ const loadingSvg = ({ handleClick, styleConfig }) => {
         React.createElement(NcAnimations.LoadingRiv, null)));
 };
 export default function (props) {
-    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading, statusList, status, addSvg, clearButton = true, inputClassName, lableClassName, svgClassName, } = props;
+    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, label, children, loading, statusList, status, addSvg, clearButton = true, inputClassName, labelClassName, svgClassName, } = props;
     const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
     const textInput = useRef(null);
     const [focusType, setfocusType] = useState(false);
@@ -72,13 +72,13 @@ export default function (props) {
         React.createElement("div", { className: "dev-input-children" }, children),
         React.createElement("div", { className: " w-full h-full " },
             " ",
-            lable && (React.createElement("label", { htmlFor: name, className: `dev-input-lable-children-icon ${value
-                    ? "text-400-14 dev-input-lable-deactivate"
+            label && (React.createElement("label", { htmlFor: name, className: `dev-input-label-children-icon ${value
+                    ? "text-400-14 dev-input-label-deactivate"
                     : `${focusType
-                        ? "text-400-14 dev-input-lable-deactivate"
-                        : "text-400-14 dev-input-lable-active"} ${lableClassName}`}`, style: {
+                        ? "text-400-14 dev-input-label-deactivate"
+                        : "text-400-14 dev-input-label-active"} ${labelClassName}`}`, style: {
                     color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
-                } }, lable)),
+                } }, label)),
             React.createElement("div", { className: "dev-svg-box " + svgClassName, style: {
                     width: svgWidth,
                 } },
@@ -150,13 +150,13 @@ export default function (props) {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },
-        lable && (React.createElement("label", { htmlFor: name, className: `dev-input-lable ${value
-                ? "text-400-14 dev-input-lable-deactivate"
+        label && (React.createElement("label", { htmlFor: name, className: `dev-input-label ${value
+                ? "text-400-14 dev-input-label-deactivate"
                 : `${focusType
-                    ? "text-400-14 dev-input-lable-deactivate"
-                    : "text-400-14 dev-input-lable-active"} ${lableClassName}`}`, style: {
+                    ? "text-400-14 dev-input-label-deactivate"
+                    : "text-400-14 dev-input-label-active"} ${labelClassName}`}`, style: {
                 color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
-            } }, lable)),
+            } }, label)),
         React.createElement("div", { className: "dev-svg-box " + svgClassName, style: {
                 width: svgWidth,
             } },

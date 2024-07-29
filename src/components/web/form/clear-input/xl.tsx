@@ -18,7 +18,7 @@ export interface svgProps {
 interface Props {
   value: any;
   setValue: (value: any) => void;
-  lable?: string;
+  label?: string;
   placeholder?: string;
   type: string;
   pattern?: string;
@@ -30,7 +30,7 @@ interface Props {
   loading: Boolean;
   className?: string;
   inputClassName?: string;
-  lableClassName?: string;
+  labelClassName?: string;
   svgClassName?: string;
   maxLength?: number;
   inputMode?:
@@ -157,7 +157,7 @@ export default function (props: Props) {
     maxLength,
     inputMode,
     pattern,
-    lable,
+    label,
     children,
     loading,
     statusList,
@@ -165,7 +165,7 @@ export default function (props: Props) {
     addSvg,
     clearButton = true,
     inputClassName,
-    lableClassName,
+    labelClassName,
     svgClassName,
   } = props;
   const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
@@ -222,23 +222,23 @@ export default function (props: Props) {
           <div className="dev-input-children">{children}</div>
           <div className=" w-full h-full ">
             {" "}
-            {lable && (
+            {label && (
               <label
                 htmlFor={name}
-                className={`dev-input-lable-children-icon ${
+                className={`dev-input-label-children-icon ${
                   value
-                    ? "text-400-14 dev-input-lable-deactivate"
+                    ? "text-400-14 dev-input-label-deactivate"
                     : `${
                         focusType
-                          ? "text-400-14 dev-input-lable-deactivate"
-                          : "text-400-14 dev-input-lable-active"
-                      } ${lableClassName}`
+                          ? "text-400-14 dev-input-label-deactivate"
+                          : "text-400-14 dev-input-label-active"
+                      } ${labelClassName}`
                 }`}
                 style={{
                   color: styleConfig?.placeholderColor,
                 }}
               >
-                {lable}
+                {label}
               </label>
             )}
             <div
@@ -370,23 +370,23 @@ export default function (props: Props) {
             color: styleConfig?.textColor,
           }}
         >
-          {lable && (
+          {label && (
             <label
               htmlFor={name}
-              className={`dev-input-lable ${
+              className={`dev-input-label ${
                 value
-                  ? "text-400-14 dev-input-lable-deactivate"
+                  ? "text-400-14 dev-input-label-deactivate"
                   : `${
                       focusType
-                        ? "text-400-14 dev-input-lable-deactivate"
-                        : "text-400-14 dev-input-lable-active"
-                    } ${lableClassName}`
+                        ? "text-400-14 dev-input-label-deactivate"
+                        : "text-400-14 dev-input-label-active"
+                    } ${labelClassName}`
               }`}
               style={{
                 color: styleConfig?.placeholderColor,
               }}
             >
-              {lable}
+              {label}
             </label>
           )}
 

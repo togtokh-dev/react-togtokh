@@ -1,6 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useQrScan = exports.selectDownloadImage = exports.selectWalk = exports.openLink = exports.closeWebView = exports.setScreenProtection = exports.setColor = exports.checkNotification = exports.selectContact = exports.buy = void 0;
+exports.buy = buy;
+exports.selectContact = selectContact;
+exports.checkNotification = checkNotification;
+exports.setColor = setColor;
+exports.setScreenProtection = setScreenProtection;
+exports.closeWebView = closeWebView;
+exports.openLink = openLink;
+exports.selectWalk = selectWalk;
+exports.selectDownloadImage = selectDownloadImage;
+exports.useQrScan = useQrScan;
 const mobile_device_detect_1 = require("mobile-device-detect");
 const react_1 = require("react");
 function buy(merchantId, amount, orderId, description, callback, callbackUrl) {
@@ -20,7 +29,6 @@ function buy(merchantId, amount, orderId, description, callback, callbackUrl) {
     }
     window.afterPurchase = (transactionID, orderID, status, statusCode, transRequestId) => callback(transactionID, orderID, status, statusCode, transRequestId);
 }
-exports.buy = buy;
 function selectContact(type, callback) {
     var _a, _b, _c, _d, _e;
     if (window === null || window === void 0 ? void 0 : window.JSReceiver) {
@@ -32,7 +40,6 @@ function selectContact(type, callback) {
     }
     window.contactSelected = (contact) => callback(contact);
 }
-exports.selectContact = selectContact;
 function checkNotification(callback) {
     var _a, _b, _c;
     if (window === null || window === void 0 ? void 0 : window.JSReceiver) {
@@ -44,7 +51,6 @@ function checkNotification(callback) {
     }
     window.isEnabledNotification = (isEnabled) => callback(isEnabled);
 }
-exports.checkNotification = checkNotification;
 function setColor(color, isStatusDark) {
     var _a, _b, _c, _d, _e;
     if (window === null || window === void 0 ? void 0 : window.JSReceiver) {
@@ -55,7 +61,6 @@ function setColor(color, isStatusDark) {
         (_e = (_d = (_c = window === null || window === void 0 ? void 0 : window.webkit) === null || _c === void 0 ? void 0 : _c.messageHandlers) === null || _d === void 0 ? void 0 : _d.setColor) === null || _e === void 0 ? void 0 : _e.postMessage(message);
     }
 }
-exports.setColor = setColor;
 function setScreenProtection(status) {
     var _a, _b, _c, _d;
     if (window === null || window === void 0 ? void 0 : window.JSReceiver) {
@@ -66,7 +71,6 @@ function setScreenProtection(status) {
         (_d = (_c = (_b = window === null || window === void 0 ? void 0 : window.webkit) === null || _b === void 0 ? void 0 : _b.messageHandlers) === null || _c === void 0 ? void 0 : _c.setScreenProtection) === null || _d === void 0 ? void 0 : _d.postMessage(status);
     }
 }
-exports.setScreenProtection = setScreenProtection;
 function closeWebView() {
     var _a, _b, _c, _d;
     if (window === null || window === void 0 ? void 0 : window.JSReceiver)
@@ -74,7 +78,6 @@ function closeWebView() {
     if ((window === null || window === void 0 ? void 0 : window.webkit) && ((_b = window === null || window === void 0 ? void 0 : window.webkit) === null || _b === void 0 ? void 0 : _b.messageHandlers))
         (_d = (_c = window === null || window === void 0 ? void 0 : window.webkit) === null || _c === void 0 ? void 0 : _c.messageHandlers) === null || _d === void 0 ? void 0 : _d.closeWebView.postMessage("close");
 }
-exports.closeWebView = closeWebView;
 function openLink(url) {
     var _a, _b, _c, _d, _e;
     console.log("opening browser with this url", url);
@@ -86,7 +89,6 @@ function openLink(url) {
         (_e = (_d = (_c = window === null || window === void 0 ? void 0 : window.webkit) === null || _c === void 0 ? void 0 : _c.messageHandlers) === null || _d === void 0 ? void 0 : _d.openLink) === null || _e === void 0 ? void 0 : _e.postMessage(message);
     }
 }
-exports.openLink = openLink;
 function selectWalk(willOpen, callback) {
     var _a, _b, _c, _d, _e;
     console.log("selectWalk called");
@@ -100,7 +102,6 @@ function selectWalk(willOpen, callback) {
     }
     window.refreshWalkCountUi = () => callback();
 }
-exports.selectWalk = selectWalk;
 function selectDownloadImage(type, callback) {
     var _a, _b, _c, _d, _e;
     console.log("selectDownloadImage called", type);
@@ -117,7 +118,6 @@ function selectDownloadImage(type, callback) {
     callback();
     // window.downloadImageSelected = (data) => callback(data)
 }
-exports.selectDownloadImage = selectDownloadImage;
 function useQrScan({ value, setValue, Scan, }) {
     const [URL, setURL] = (0, react_1.useState)(value);
     (0, react_1.useEffect)(() => {
@@ -145,7 +145,6 @@ function useQrScan({ value, setValue, Scan, }) {
         return (window.afterScan = (url) => setURL(url));
     };
 }
-exports.useQrScan = useQrScan;
 exports.default = {
     buy,
     selectContact,

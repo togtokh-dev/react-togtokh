@@ -34,7 +34,7 @@ input[type="number"] {
   background: transparent;
 }
 
-.dev-input-box .dev-input-lable {
+.dev-input-box .dev-input-label {
   position: absolute;
   top: 0;
   left: 0;
@@ -44,7 +44,7 @@ input[type="number"] {
   transition: all 0.3s ease;
 }
 
-.dev-input-box .dev-input-lable-children-icon {
+.dev-input-box .dev-input-label-children-icon {
   position: absolute;
   top: 0;
   left: 40px;
@@ -54,11 +54,11 @@ input[type="number"] {
   transition: all 0.3s ease;
 }
 
-.dev-input-box .dev-input-lable-deactivate {
+.dev-input-box .dev-input-label-deactivate {
   padding: 8px 16px 32px 16px;
 }
 
-.dev-input-box .dev-input-lable-active {
+.dev-input-box .dev-input-label-active {
   padding: 16px;
 }
 
@@ -123,7 +123,7 @@ input[type="number"] {
   background: transparent;
 }
 
-.dev-input-box-web .dev-input-lable {
+.dev-input-box-web .dev-input-label {
   position: absolute;
   top: 0;
   left: 0;
@@ -131,7 +131,7 @@ input[type="number"] {
   pointer-events: none;
 }
 
-.dev-input-box-web .dev-input-lable-children-icon {
+.dev-input-box-web .dev-input-label-children-icon {
   position: absolute;
   top: 0;
   left: 32px;
@@ -139,11 +139,11 @@ input[type="number"] {
   pointer-events: none;
 }
 
-.dev-input-box-web .dev-input-lable-deactivate {
+.dev-input-box-web .dev-input-label-deactivate {
   visibility: hidden;
 }
 
-.dev-input-box-web .dev-input-lable-active {
+.dev-input-box-web .dev-input-label-active {
   padding: 14px 16px 12px 16px;
 }
 

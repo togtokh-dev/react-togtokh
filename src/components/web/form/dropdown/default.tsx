@@ -7,7 +7,7 @@ interface options {
 interface Props {
   value: any;
   setValue: (value: any) => void;
-  lable?: string;
+  label?: string;
   options: options[];
   className?: string;
   backgroundColor: string;
@@ -23,7 +23,7 @@ function Select(props: Props) {
     backgroundColor,
     listClass,
     itemColor,
-    lable,
+    label,
   } = props;
 
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
@@ -80,7 +80,7 @@ function Select(props: Props) {
           <div className="dev-select">
             <span>
               {options.filter((data) => data?.id == selected)[0]?.period ||
-                lable}
+                label}
             </span>
             {!dropdownOpen ? (
               <>

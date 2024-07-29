@@ -30,7 +30,7 @@ const react_1 = __importStar(require("react"));
 const index_1 = __importDefault(require("../../../../index"));
 function Select(props) {
     var _a;
-    const { options, value, setValue, className, backgroundColor, listClass, itemColor, lable, } = props;
+    const { options, value, setValue, className, backgroundColor, listClass, itemColor, label, } = props;
     const [dropdownOpen, setDropdownOpen] = (0, react_1.useState)(false);
     const [loading, setloading] = (0, react_1.useState)(true);
     const [selected, setSelected] = (0, react_1.useState)(null);
@@ -73,7 +73,7 @@ function Select(props) {
         loading ? (react_1.default.createElement(react_1.default.Fragment, null)) : (react_1.default.createElement("button", { className: `react-toki-app dev-dropdown-button text-500-14 dev-border-8  ${className}`, onMouseEnter: () => setFocus(true), onMouseLeave: () => setFocus(false), style: style, type: "button", onClick: () => setDropdownOpen(!dropdownOpen) },
             react_1.default.createElement("div", { className: "dev-select" },
                 react_1.default.createElement("span", null, ((_a = options.filter((data) => (data === null || data === void 0 ? void 0 : data.id) == selected)[0]) === null || _a === void 0 ? void 0 : _a.period) ||
-                    lable),
+                    label),
                 !dropdownOpen ? (react_1.default.createElement(react_1.default.Fragment, null,
                     react_1.default.createElement("svg", { className: "  dev-select-svg", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
                         react_1.default.createElement("path", { d: "M6 9L12 15L18 9", stroke: "#101318", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" })))) : (react_1.default.createElement(react_1.default.Fragment, null,

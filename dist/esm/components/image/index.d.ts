@@ -1,4 +1,3 @@
-/// <reference types="react" />
 declare const _default: {
     NcImage: {
         FTSImage: import("react").FC<import("./NcImage/NcImage").NcImageProps>;

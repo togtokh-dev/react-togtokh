@@ -6,7 +6,7 @@ interface options {
 interface Props {
     value: any;
     setValue: (value: any) => void;
-    lable?: string;
+    label?: string;
     options: options[];
     className?: string;
     backgroundColor: string;

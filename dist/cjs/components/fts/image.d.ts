@@ -2,7 +2,7 @@ import React from "react";
 interface Props {
     value: any;
     setValue: (value: any) => void;
-    lable: string;
+    label: string;
     className?: string;
     host: string;
     public_host: string;

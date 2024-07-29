@@ -23,6 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = default_1;
 const react_1 = __importStar(require("react"));
 function default_1({ isOn, handleToggle, activeColor, className, inactiveColor, }) {
     const [name] = (0, react_1.useState)(`${Math.floor(Math.random() * 600) + 1}`);
@@ -31,5 +32,4 @@ function default_1({ isOn, handleToggle, activeColor, className, inactiveColor, 
         react_1.default.createElement("label", { style: isOn ? { background: activeColor } : { background: inactiveColor }, className: " dev-switch-label-xl " + className, htmlFor: `switch+${name}` },
             react_1.default.createElement("span", { className: ` dev-switch-button-xl ` }))));
 }
-exports.default = default_1;
 //# sourceMappingURL=xl.js.map

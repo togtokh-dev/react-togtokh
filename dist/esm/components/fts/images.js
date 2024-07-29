@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import Library from "../../";
 export default function (props) {
-    const { value, setValue, className, lable, host, public_host, username, password, backgroundColor, restype = "id", } = props;
+    const { value, setValue, className, label, host, public_host, username, password, backgroundColor, restype = "id", } = props;
     const [name] = useState(`${Math.floor(Math.random() * 600) + 1}`);
     const [loading, setLoading] = useState(false);
     const onFileChange = (event) => {
@@ -79,7 +79,7 @@ export default function (props) {
                 React.createElement("div", { className: "dev-btn dev-btn-48 text-500-16 dev-border-8   w-full text-center flex justify-center", style: style }, loading ? (React.createElement(React.Fragment, null,
                     " ",
                     React.createElement("div", { style: { width: "24px", height: "24px" } },
-                        React.createElement(NcAnimations.LoadingRiv, null)))) : (React.createElement(React.Fragment, null, lable))),
+                        React.createElement(NcAnimations.LoadingRiv, null)))) : (React.createElement(React.Fragment, null, label))),
                 React.createElement("input", { type: "file", className: "hidden", id: `upload-${name}`, onChange: onFileChange, multiple: true })),
             React.createElement("div", { className: "dev-gallery h-full w-full" }, value.map((el, index) => (React.createElement("div", { className: "relative dev-border-8", key: `bfkdsfm-${index}` },
                 React.createElement(Library.Image.NcImage.PathImage, { src: `${public_host}/file/image/${el}`, className: "h-full w-full dev-border-8 ", imageClass: "", containerClassName: "", placeholderClass: "h-full w-auto flex items-center justify-center bg-neutral-200 dark:bg-neutral-6000 text-neutral-100 dark:text-neutral-500" }),

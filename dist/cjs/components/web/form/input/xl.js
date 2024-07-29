@@ -26,6 +26,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = default_1;
 const react_1 = __importStar(require("react"));
 const NcAnimations_1 = __importDefault(require("../../../NcAnimations"));
 const framer_motion_1 = require("framer-motion");
@@ -51,7 +52,7 @@ const loadingSvg = ({ handleClick, styleConfig }) => {
         react_1.default.createElement(NcAnimations_1.default.LoadingRiv, null)));
 };
 function default_1(props) {
-    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, lable, children, loading = false, statusList, status, addSvg = null, clearButton = true, inputClassName, lableClassName, svgClassName, onBlur = (event) => { }, onChange = (event) => { }, onFocus = (event) => { }, onClick = (event) => { }, onKeyDown = (event) => { }, } = props;
+    const { value, setValue, placeholder, type, disabled, className, maxLength, inputMode, pattern, label, children, loading = false, statusList, status, addSvg = null, clearButton = true, inputClassName, labelClassName, svgClassName, onBlur = (event) => { }, onChange = (event) => { }, onFocus = (event) => { }, onClick = (event) => { }, onKeyDown = (event) => { }, } = props;
     const [name] = (0, react_1.useState)(`${Math.floor(Math.random() * 600) + 1}`);
     const textInput = (0, react_1.useRef)(null);
     const [focusType, setfocusType] = (0, react_1.useState)(false);
@@ -100,13 +101,13 @@ function default_1(props) {
         react_1.default.createElement("div", { className: "dev-input-children" }, children),
         react_1.default.createElement("div", { className: " w-full h-full " },
             " ",
-            lable && (react_1.default.createElement("label", { htmlFor: name, className: `dev-input-lable-children-icon ${value
-                    ? "text-400-14 dev-input-lable-deactivate"
+            label && (react_1.default.createElement("label", { htmlFor: name, className: `dev-input-label-children-icon ${value
+                    ? "text-400-14 dev-input-label-deactivate"
                     : `${focusType
-                        ? "text-400-14 dev-input-lable-deactivate"
-                        : "text-400-14 dev-input-lable-active"} ${lableClassName}`}`, style: {
+                        ? "text-400-14 dev-input-label-deactivate"
+                        : "text-400-14 dev-input-label-active"} ${labelClassName}`}`, style: {
                     color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
-                } }, lable)),
+                } }, label)),
             react_1.default.createElement("div", { className: "dev-svg-box " + svgClassName, style: {
                     width: svgWidth,
                 } },
@@ -180,13 +181,13 @@ function default_1(props) {
             backgroundColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.bgColor,
             color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.textColor,
         } },
-        lable && (react_1.default.createElement("label", { htmlFor: name, className: `dev-input-lable ${value
-                ? "text-400-14 dev-input-lable-deactivate"
+        label && (react_1.default.createElement("label", { htmlFor: name, className: `dev-input-label ${value
+                ? "text-400-14 dev-input-label-deactivate"
                 : `${focusType
-                    ? "text-400-14 dev-input-lable-deactivate"
-                    : "text-400-14 dev-input-lable-active"} ${lableClassName}`}`, style: {
+                    ? "text-400-14 dev-input-label-deactivate"
+                    : "text-400-14 dev-input-label-active"} ${labelClassName}`}`, style: {
                 color: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.placeholderColor,
-            } }, lable)),
+            } }, label)),
         react_1.default.createElement("div", { className: "dev-svg-box " + svgClassName, style: {
                 width: svgWidth,
             } },
@@ -258,5 +259,4 @@ function default_1(props) {
                 borderColor: styleConfig === null || styleConfig === void 0 ? void 0 : styleConfig.borderColor,
             } })))));
 }
-exports.default = default_1;
 //# sourceMappingURL=xl.js.map

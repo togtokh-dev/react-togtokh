@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import ReactTokiApp from "../../../../index";
 function Select(props) {
     var _a;
-    const { options, value, setValue, className, backgroundColor, listClass, itemColor, lable, } = props;
+    const { options, value, setValue, className, backgroundColor, listClass, itemColor, label, } = props;
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [loading, setloading] = useState(true);
     const [selected, setSelected] = useState(null);
@@ -45,7 +45,7 @@ function Select(props) {
         loading ? (React.createElement(React.Fragment, null)) : (React.createElement("button", { className: `react-toki-app dev-dropdown-button text-500-14 dev-border-8  ${className}`, onMouseEnter: () => setFocus(true), onMouseLeave: () => setFocus(false), style: style, type: "button", onClick: () => setDropdownOpen(!dropdownOpen) },
             React.createElement("div", { className: "dev-select" },
                 React.createElement("span", null, ((_a = options.filter((data) => (data === null || data === void 0 ? void 0 : data.id) == selected)[0]) === null || _a === void 0 ? void 0 : _a.period) ||
-                    lable),
+                    label),
                 !dropdownOpen ? (React.createElement(React.Fragment, null,
                     React.createElement("svg", { className: "  dev-select-svg", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
                         React.createElement("path", { d: "M6 9L12 15L18 9", stroke: "#101318", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" })))) : (React.createElement(React.Fragment, null,

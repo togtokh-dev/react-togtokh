@@ -5,7 +5,7 @@ import FlatpickrMain from "flatpickr";
 interface Props {
   setEndDate: (value: any) => void;
   setStartDate: (value: any) => void;
-  lable?: string;
+  label?: string;
   defaultDate?: string;
   className?: string;
   align?: string;
@@ -16,9 +16,9 @@ function Datepicker({
   setEndDate,
   defaultDate,
   className,
-  lable = "Өдөр сонгох",
+  label = "Өдөр сонгох",
 }: Props) {
-  const [value, setValue] = useState(lable);
+  const [value, setValue] = useState(label);
   const options: FlatpickrMain.Options.Options = {
     mode: "range",
     static: true,
@@ -55,13 +55,13 @@ function Datepicker({
           <Flatpickr
             className={`bg-transparent w-full text-500-14`}
             options={options}
-            defaultValue={lable}
+            defaultValue={label}
             style={{
               fontSize: "14px",
             }}
             value={value}
           />
-          {value != lable ? (
+          {value != label ? (
             <>
               <svg
                 className="  dev-select-svg"
@@ -71,7 +71,7 @@ function Datepicker({
                 fill={"#000"}
                 xmlns="http://www.w3.org/2000/svg"
                 onClick={() => {
-                  setValue(lable || "");
+                  setValue(label || "");
                   setStartDate(null);
                   setEndDate(null);
                 }}

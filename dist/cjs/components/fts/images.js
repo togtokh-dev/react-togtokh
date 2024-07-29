@@ -35,13 +35,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = default_1;
 const react_1 = __importStar(require("react"));
 const NcAnimations_1 = __importDefault(require("../NcAnimations"));
 const framer_motion_1 = require("framer-motion");
 const axios_1 = __importDefault(require("axios"));
 const __1 = __importDefault(require("../../"));
 function default_1(props) {
-    const { value, setValue, className, lable, host, public_host, username, password, backgroundColor, restype = "id", } = props;
+    const { value, setValue, className, label, host, public_host, username, password, backgroundColor, restype = "id", } = props;
     const [name] = (0, react_1.useState)(`${Math.floor(Math.random() * 600) + 1}`);
     const [loading, setLoading] = (0, react_1.useState)(false);
     const onFileChange = (event) => {
@@ -107,7 +108,7 @@ function default_1(props) {
                 react_1.default.createElement("div", { className: "dev-btn dev-btn-48 text-500-16 dev-border-8   w-full text-center flex justify-center", style: style }, loading ? (react_1.default.createElement(react_1.default.Fragment, null,
                     " ",
                     react_1.default.createElement("div", { style: { width: "24px", height: "24px" } },
-                        react_1.default.createElement(NcAnimations_1.default.LoadingRiv, null)))) : (react_1.default.createElement(react_1.default.Fragment, null, lable))),
+                        react_1.default.createElement(NcAnimations_1.default.LoadingRiv, null)))) : (react_1.default.createElement(react_1.default.Fragment, null, label))),
                 react_1.default.createElement("input", { type: "file", className: "hidden", id: `upload-${name}`, onChange: onFileChange, multiple: true })),
             react_1.default.createElement("div", { className: "dev-gallery h-full w-full" }, value.map((el, index) => (react_1.default.createElement("div", { className: "relative dev-border-8", key: `bfkdsfm-${index}` },
                 react_1.default.createElement(__1.default.Image.NcImage.PathImage, { src: `${public_host}/file/image/${el}`, className: "h-full w-full dev-border-8 ", imageClass: "", containerClassName: "", placeholderClass: "h-full w-auto flex items-center justify-center bg-neutral-200 dark:bg-neutral-6000 text-neutral-100 dark:text-neutral-500" }),
@@ -121,5 +122,4 @@ function default_1(props) {
                             react_1.default.createElement("path", { d: "M15 9L9 15", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }),
                             react_1.default.createElement("path", { d: "M15 15L9 9", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })))))))))));
 }
-exports.default = default_1;
 //# sourceMappingURL=images.js.map

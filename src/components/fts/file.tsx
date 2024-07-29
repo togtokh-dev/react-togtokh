@@ -11,7 +11,7 @@ export interface svgProps {
 interface Props {
   value: any;
   setValue: (value: any) => void;
-  lable: string;
+  label: string;
   className?: string;
   host: string;
   username: string;
@@ -56,7 +56,7 @@ export default function (props: Props) {
     value,
     setValue,
     className,
-    lable,
+    label,
     host,
     username,
     password,
@@ -148,15 +148,15 @@ export default function (props: Props) {
         <div className="dev-input-children-icon dev-border-12 text-400-16">
           {value}
         </div>
-        {lable && (
+        {label && (
           <label
-            className={`dev-input-lable-children-icon ${
+            className={`dev-input-label-children-icon ${
               value
-                ? "text-400-12 dev-input-lable-deactivate"
-                : `text-400-16 dev-input-lable-active `
+                ? "text-400-12 dev-input-label-deactivate"
+                : `text-400-16 dev-input-label-active `
             }`}
           >
-            {lable}
+            {label}
           </label>
         )}
       </div>

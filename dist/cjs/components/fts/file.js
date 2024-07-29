@@ -35,6 +35,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = default_1;
 const react_1 = __importStar(require("react"));
 const NcAnimations_1 = __importDefault(require("../NcAnimations"));
 const framer_motion_1 = require("framer-motion");
@@ -47,7 +48,7 @@ const removeSvg = ({ handleClick, svgColor }) => {
         react_1.default.createElement("path", { d: "M15 15L9 9", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })));
 };
 function default_1(props) {
-    const { value, setValue, className, lable, host, username, password, backgroundColor, svgColor, restype = "id", icon = "", } = props;
+    const { value, setValue, className, label, host, username, password, backgroundColor, svgColor, restype = "id", icon = "", } = props;
     const [name] = (0, react_1.useState)(`${Math.floor(Math.random() * 600) + 1}`);
     const [loading, setLoading] = (0, react_1.useState)(false);
     const style = {
@@ -106,9 +107,8 @@ function default_1(props) {
                     }),
                 loading && react_1.default.createElement(NcAnimations_1.default.LoadingRiv, null)),
             react_1.default.createElement("div", { className: "dev-input-children-icon dev-border-12 text-400-16" }, value),
-            lable && (react_1.default.createElement("label", { className: `dev-input-lable-children-icon ${value
-                    ? "text-400-12 dev-input-lable-deactivate"
-                    : `text-400-16 dev-input-lable-active `}` }, lable)))));
+            label && (react_1.default.createElement("label", { className: `dev-input-label-children-icon ${value
+                    ? "text-400-12 dev-input-label-deactivate"
+                    : `text-400-16 dev-input-label-active `}` }, label)))));
 }
-exports.default = default_1;
 //# sourceMappingURL=file.js.map

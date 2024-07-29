@@ -15,7 +15,7 @@ export interface svgProps {
 interface Props {
     value: any;
     setValue: (value: any) => void;
-    lable?: string;
+    label?: string;
     placeholder?: string;
     type: string;
     pattern?: string;
@@ -28,7 +28,7 @@ interface Props {
     loading?: Boolean;
     className?: string;
     inputClassName?: string;
-    lableClassName?: string;
+    labelClassName?: string;
     svgClassName?: string;
     maxLength?: number;
     inputMode?: "none" | "text" | "tel" | "url" | "email" | "numeric" | "decimal" | "search" | undefined;
